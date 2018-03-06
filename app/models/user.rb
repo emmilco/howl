@@ -33,6 +33,10 @@ class User < ApplicationRecord
     nil
   end
 
+  def generate_session_token
+    SecureRandom.urlsafe_base64(16)
+  end
+
   def reset_session_token
     self.session_token = generate_session_token
     self.save
@@ -49,10 +53,6 @@ class User < ApplicationRecord
   end
 
   private
-
-  def generate_session_token
-    SecureRandom.urlsafe_base64(16)
-  end
 
   def ensure_session_token
     self.session_token ||= generate_session_token
