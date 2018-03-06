@@ -10,9 +10,8 @@
   z-index: 2; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100vh; /* Full width */
+  width: 100vw; /* Full width */
   height: 100vh; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(255,255,255,0.8); /* Black w/ opacity */
 }
@@ -22,13 +21,13 @@
   left: calc((100vw - 480px) / 2);
   top: calc((100vh - 430px) / 2);
   width: 400px;
-  height: 350px;
+  height: auto;
   z-index: 10;
   background-color: white;
   padding: 40px;
   display: flex;
   flex-direction: column;
-  box-shadow: 2px 2px 10px lightgray;
+  box-shadow: 1px 1px 10px lightgray;
 }
 
 .modal_form h2 {
@@ -46,17 +45,34 @@
   font-weight: lighter;
   text-align: center;
   margin: 0 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .modal_form form {
   display: flex;
   flex-direction: column;
+
 }
 
 .modal_form form label {
-  padding: 10px 50px;
+  padding: 8px 50px;
+  padding-right: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  font-family: "Futura PT", Arial, sans-serif;
+}
+
+.modal_form button {
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 0px;
+  width: 300px;
+  border: 1px solid #9cc174;
+  color: #9cc174
+
+}
+
+.modal_form form div {
+  padding-right: 10px;
 }

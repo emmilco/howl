@@ -34,6 +34,7 @@
  	font-size: 100%;
  	font: inherit;
  	vertical-align: baseline;
+  outline: none;
  }
  /* HTML5 display-role reset for older browsers */
  article, aside, details, figcaption, figure,
@@ -63,10 +64,23 @@
    display: inline-block;
    font-family: sans-serif;
    color: silver;
-   padding: 10px 15px;
+   padding: 8px 15px;
    border: 1px solid lightgray;
-   border-radius: 7px;
+   border-radius: 5px;
    margin: 5px;
+   box-shadow: none;
+   outline: none;
+   max-width: 150px;
+
+ }
+
+ input {
+   padding: 7px 15px;
+   border-radius: 7px;
+   border: 1px solid lightgray;
+   font-size: 14px;
+   font-family: "Futura PT", Arial;
+   outline: none;
  }
 
  button:hover, input[type=submit]:hover {
