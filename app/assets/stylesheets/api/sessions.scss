@@ -19,8 +19,8 @@
 
 .modal_form {
   position: fixed;
-  left: 25%;
-  top: 25%;
+  left: calc((100vw - 480px) / 2);
+  top: calc((100vh - 430px) / 2);
   width: 400px;
   height: 350px;
   z-index: 10;
@@ -28,6 +28,7 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 2px 10px lightgray;
 }
 
 .modal_form h2 {
@@ -48,4 +49,11 @@
 .modal_form form {
   display: flex;
   flex-direction: column;
+}
+
+.modal_form form label {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
