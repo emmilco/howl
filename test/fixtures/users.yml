@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  full_name       :string           not null
+#  session_token   :string           not null
+#  password_digest :string           not null
+#  bio             :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  email           :string           not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  session_token: MyString
+  password_digest: MyString
+  bio: MyString
+
+two:
+  full_name: MyString
+  session_token: MyString
+  password_digest: MyString
+  bio: MyString
