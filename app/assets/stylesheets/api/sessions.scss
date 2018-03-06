@@ -2,18 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#modal_overlay.visible {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+#modal_container {
 }
 
-#modal_overlay.hidden {
-  display: none;
+#modal_overlay {
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vh; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(255,255,255,0.8); /* Black w/ opacity */
+}
+
+.modal_form {
+  position: fixed;
+  left: 25%;
+  top: 25%;
+  width: 400px;
+  height: 350px;
+  z-index: 10;
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal_form h2 {
+  font-family: "Courier New", monospace;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+.modal_form p {
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  text-align: center;
+}
+
+.modal_form form {
+  display: flex;
+  flex-direction: column;
 }

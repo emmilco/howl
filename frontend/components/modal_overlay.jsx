@@ -2,24 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { removeForm } from '../actions/ui_actions';
-import SignupForm from './signup_form';
-import LoginForm from './login_form';
+import SignupFormContainer from './signup_form_container';
+import LoginFormContainer from './login_form_container';
 
 
 const ModalOverlay = (props) => {
   return (
-    <div>
+    <div id="modal_container">
+      { (props.form === "signup") && <SignupFormContainer />}
+      { (props.form === "login") && <LoginFormContainer />}
       { props.form &&
-        <div onClick={props.removeForm} id="modal_overlay"></div> }
-      { (props.form === "signup") && <SignupForm />}
-      { (props.form === "login") && <LoginForm />}
+        <div id="modal_overlay" onClick={props.removeForm}></div> }
     </div>
   );
 };
 
 const msp = (state) => {
   return {
-    form: state.ui.form
+    form: state.ui.form,
+    sessionErrors: state.errors.session
   };
 };
 

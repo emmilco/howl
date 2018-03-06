@@ -13,8 +13,8 @@ const Header = (props) => {
         { props.currentUser || <button id="signup_button"
           onClick={() => props.displayForm("signup")}>Get started</button> }
 
-        { props.currentUser &&
-          <img id="user_menu_button" src="/assets/howl_default_avatar.svg" /> }
+        { props.currentUser && <img id="user_menu_button"
+          src="/assets/howl_default_avatar.svg" /> }
       </ul>
     </header>
   );
