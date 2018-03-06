@@ -35,15 +35,18 @@
   font-family: "Courier New", monospace;
   font-size: 24px;
   text-align: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-top: 30px;
   font-weight: bold;
 }
 
 .modal_form p {
-  font-family: "Courier New", monospace;
-  font-size: 18px;
+  font-family: "Futura PT", monospace;
+  font-size: 16px;
+  font-weight: lighter;
   text-align: center;
+  margin: 0 50px;
+  margin-bottom: 50px;
 }
 
 .modal_form form {
@@ -52,7 +55,7 @@
 }
 
 .modal_form form label {
-  padding: 10px 30px;
+  padding: 10px 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
