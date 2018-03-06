@@ -1,12 +1,13 @@
 import React from 'react';
 
 import ModalOverlay from './modal_overlay';
+import Header from './header';
 
 const App = () => {
   return (
     <main>
-      <h1>WELCOME TO HOWL!</h1>
       <ModalOverlay />
+      <Header />
     </main>
   );
 };
