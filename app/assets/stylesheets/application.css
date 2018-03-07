@@ -63,7 +63,7 @@
  button, input[type=submit] {
    display: inline-block;
    font-family: sans-serif;
-   color: silver;
+   color: darkgray;
    padding: 8px 15px;
    border: 1px solid lightgray;
    border-radius: 5px;
@@ -71,7 +71,7 @@
    box-shadow: none;
    outline: none;
    max-width: 150px;
-
+   cursor: pointer;
  }
 
  input {

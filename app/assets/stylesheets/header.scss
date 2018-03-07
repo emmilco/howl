@@ -26,8 +26,14 @@
 }
 
 #guest_login_button {
-  color: #c17482;
-  border: 1px solid #c17482;
+  color: #ff4442;
+  border: 1px solid #e194a2;
+}
+
+#guest_login_button:hover {
+  color: #ff4442;
+  border: 1px solid #ef5462;
+
 }
 
 #user_menu_button {
@@ -43,7 +49,7 @@
 
 #user_menu {
   position: absolute;
-  top: 75px;
+  top: 73px;
   right: 20px;
   width: 150px;
   border: 1px solid #ddd;
@@ -57,24 +63,42 @@
   display: block;
   z-index: 5;
   cursor: pointer;
+  font-size: 14px;
 }
 
 #user_menu a:hover {
   background-color: #f9f9f9;
 }
 
-#user_menu:before {
+#popover-arrow {
   content: "";
   position: absolute;
-  bottom: 40px;
-  right: 9px;
+  bottom: 38px;
+  right: 10px;
   margin-left: -10px;
+
 
   width: 0;
   height: 0;
   border-top: 0px solid #ddd;
-  border-bottom: 10px solid #ddd;
-  border-right: 10px solid transparent;
-  border-left: 10px solid transparent;
+  border-bottom: 8px solid #ddd;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
   background: transparent;
+}
+
+#popover-arrow:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  margin-left: -10px;
+  width: 0;
+  height: 0;
+  border-top: 0px solid #fff;
+  border-bottom: 6px solid #fff;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  background: transparent;
+  z-index: 6
 }

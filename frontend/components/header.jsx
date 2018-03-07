@@ -30,6 +30,7 @@ const Header = (props) => {
 
         { Boolean(props.currentUser) &&
           <div
+            onBlur={() => props.toggleMenu("userMenu")}
             onClick={() => props.toggleMenu("userMenu")}>
             <img id="user_menu_button" src={window.default_avatar_path} />
             <UserMenu logout={props.logout} openState={props.userMenuState}/>

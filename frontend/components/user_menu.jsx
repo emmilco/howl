@@ -5,6 +5,7 @@ const UserMenu = (props) => {
   if (props.openState) {
     return (
       <div id="user_menu">
+        <div id="popover-arrow"></div>
         <a onClick={() => props.logout()}>Sign out</a>
       </div>
     );
