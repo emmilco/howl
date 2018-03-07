@@ -1,10 +1,10 @@
-export const RECEIVE_CHUNKS = "RECEIVE_CHUNKS";
+export const RECEIVE_CHUNK = "RECEIVE_CHUNK";
 export const REMOVE_CHUNK = "REMOVE_CHUNK";
 
-export const receiveChunks = (chunks) => {
+export const receiveChunk = (chunk) => {
   return {
-    type: RECEIVE_CHUNKS,
-    chunks
+    type: RECEIVE_CHUNK,
+    chunk
   };
 };
 

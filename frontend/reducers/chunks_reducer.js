@@ -6,7 +6,7 @@ import {
 } from '../actions/article_actions';
 
 import {
-  RECEIVE_CHUNKS,
+  RECEIVE_CHUNK,
   REMOVE_CHUNK
 } from '../actions/chunk_actions';
 
