@@ -87,3 +87,7 @@
    border: 1px solid gray;
    color: gray;
  }
+
+ body {
+   font-family: "Futura PT", Helvetica, Arial, sans-serif;
+ }

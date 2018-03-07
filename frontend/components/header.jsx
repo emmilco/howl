@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { displayForm, toggleMenu } from '../actions/ui_actions';
-import { login } from '../actions/session_actions';
+import { login, logout } from '../actions/session_actions';
 import UserMenu from './user_menu';
 
 const Header = (props) => {
@@ -17,11 +17,14 @@ const Header = (props) => {
         { Boolean(props.currentUser) ||
           <div>
             <button id="login_button"
-              onClick={() => props.displayForm("login")}>Sign in</button>
+              onClick={() => props.displayForm("login")}>Sign in
+            </button>
             <button id="signup_button"
-              onClick={() => props.displayForm("signup")}>Get started</button>
+              onClick={() => props.displayForm("signup")}>Get started
+            </button>
             <button id="guest_login_button"
-              onClick={() => props.login({email: "demo@us.er", password: "password"})}>Guest</button>
+              onClick={() => props.login({email: "demo@us.er", password: "password"})}>Guest
+            </button>
           </div>
         }
 
@@ -29,7 +32,7 @@ const Header = (props) => {
           <div
             onClick={() => props.toggleMenu("userMenu")}>
             <img id="user_menu_button" src={window.default_avatar_path} />
-            <UserMenu openState={props.userMenuState}/>
+            <UserMenu logout={props.logout} openState={props.userMenuState}/>
           </div>
         }
 
@@ -52,6 +55,7 @@ const mdp = (dispatch) => {
   return {
     displayForm: (form) => dispatch(displayForm(form)),
     login: (user) => dispatch(login(user)),
+    logout: () => dispatch(logout()),
     toggleMenu: (menu) => dispatch(toggleMenu(menu))
   };
 };

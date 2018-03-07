@@ -1,12 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UserMenu = (props) => {
   if (props.openState) {
     return (
       <div id="user_menu">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a onClick={() => props.logout()}>Sign out</a>
       </div>
     );
   }
