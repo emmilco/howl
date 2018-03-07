@@ -42,6 +42,7 @@
 .modal_form p {
   font-family: "europa", monospace;
   font-size: 16px;
+  line-height: 20px;
   font-weight: lighter;
   text-align: center;
   margin: 0 50px;
@@ -56,11 +57,12 @@
 
 .modal_form form label {
   padding: 8px 50px;
-  padding-right: 80px;
+  padding-right: 60px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   font-family: "europa", Arial, sans-serif;
+  font-size: 14px;
 }
 
 .modal_form button {

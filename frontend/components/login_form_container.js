@@ -8,7 +8,7 @@ const msp = (state) => {
   return {
     header: "Welcome back.",
     blurb: "Sign in to access your personalized homepage,\
-      read your favorite articles, and join the conversation.",
+      write a new article, or catch up on some reading.",
     buttonText: "Sign in."
   };
 };
