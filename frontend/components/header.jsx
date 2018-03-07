@@ -10,7 +10,7 @@ const Header = (props) => {
   return (
     <header id="main_header">
       <Link to="/" id="header_logo" >
-        <img src="/assets/howl_logo.svg" />
+        <img src={window.howl_logo_path} />
       </Link>
       <ul id="header_control_panel">
 
@@ -28,7 +28,7 @@ const Header = (props) => {
         { Boolean(props.currentUser) &&
           <div
             onClick={() => props.toggleMenu("userMenu")}>
-            <img id="user_menu_button" src="/assets/howl_default_avatar.svg" />
+            <img id="user_menu_button" src={window.default_avatar_path} />
             <UserMenu openState={props.userMenuState}/>
           </div>
         }
