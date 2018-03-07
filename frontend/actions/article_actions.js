@@ -5,10 +5,12 @@ export const REMOVE_ARTICLE = "REMOVE_ARTICLE";
 export const RECEIVE_HOMEPAGE_ARTICLES = "RECEIVE_HOMEPAGE_ARTICLES";
 export const RECEIVE_ARTICLE_ERRORS = "RECEIVE_ARTICLE_ERRORS";
 
-export const receiveArticle = (article) => {
+export const receiveArticle = ({ article, chunks, user }) => {
   return {
     type: RECEIVE_ARTICLE,
-    article
+    article,
+    chunks,
+    user
   };
 };
 

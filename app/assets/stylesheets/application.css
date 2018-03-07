@@ -62,7 +62,6 @@ table {
 
 button, input[type=submit] {
   display: inline-block;
-  font-family: sans-serif;
   color: darkgray;
   padding: 8px 15px;
   border: 1px solid lightgray;
@@ -89,5 +88,12 @@ button:hover, input[type=submit]:hover {
 }
 
 body {
-  font-family: "Europa", "europa", Helvetica, Arial, sans-serif;
+  font-family: "Futura PT", "europa", sans-serif;
+}
+
+.error {
+  font-size: 13px;
+  color: red;
+  text-align: center;
+  margin: 0 50px;
 }

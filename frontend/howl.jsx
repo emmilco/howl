@@ -6,6 +6,7 @@ import Root from './components/root';
 // IMPORTS FOR TESTING
 
 import * as SessionAPIUtil from './util/session_api_util';
+import * as ArticlesAPIUtil from './util/articles_api_util';
 
 // END TESTING
 
@@ -22,9 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TESTING
 
-  window.signup = SessionAPIUtil.signup;
-  window.login = SessionAPIUtil.login;
-  window.logout = SessionAPIUtil.logout;
+  window.fetchArticle = ArticlesAPIUtil.fetchArticle;
 
   // END TESTING
 

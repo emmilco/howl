@@ -14,7 +14,7 @@
 class Chunk < ApplicationRecord
   validates :article, :ord, :content_type, presence: true
   validates :content_type, inclusion:
-  %W(p h1 h2 h3 pull_quote block_quote divider image)
+    %W(p h1 h2 h3 pull_quote block_quote divider image)
 
   belongs_to :article,
   foreign_key: :chunkable_id,
