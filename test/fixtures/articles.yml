@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id           :integer          not null, primary key
+#  title        :string           default("untitled")
+#  author_id    :integer          not null
+#  publish_date :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author_id: 1
+  publish_date: 2018-03-07 00:18:08
+
+two:
+  title: MyString
+  author_id: 1
+  publish_date: 2018-03-07 00:18:08

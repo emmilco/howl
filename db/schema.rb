@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306020725) do
+ActiveRecord::Schema.define(version: 20180307054408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title", default: "untitled"
+    t.integer "author_id", null: false
+    t.datetime "publish_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["publish_date"], name: "index_articles_on_publish_date"
+  end
+
+  create_table "chunks", force: :cascade do |t|
+    t.integer "chunkable_id", null: false
+    t.text "content"
+    t.integer "ord", null: false
+    t.string "content_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chunkable_id"], name: "index_chunks_on_chunkable_id"
+    t.index ["ord"], name: "index_chunks_on_ord"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "full_name", null: false

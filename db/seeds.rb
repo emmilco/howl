@@ -22,3 +22,6 @@ User.destroy_all
     password: "password"
   )
 end
+
+
+User.create({full_name: "Demo User", email: "demo@us.er", password: "password"})

@@ -17,7 +17,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  # has_many :articles
+  has_many :articles,
+  dependent: :destroy,
+  foreign_key: :author_id,
+  class_name: :Article
+  
   # has_many :comments
   # has_many :followers
   # has_many :followees

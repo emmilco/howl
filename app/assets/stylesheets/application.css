@@ -79,7 +79,7 @@
    border-radius: 7px;
    border: 1px solid lightgray;
    font-size: 14px;
-   font-family: "Futura PT", Arial;
+   font-family: "europa", Arial;
    outline: none;
  }
 
@@ -89,5 +89,5 @@
  }
 
  body {
-   font-family: "Futura PT", Helvetica, Arial, sans-serif;
+   font-family: "europa", Helvetica, Arial, sans-serif;
  }
