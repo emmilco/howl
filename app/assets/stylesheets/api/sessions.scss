@@ -39,7 +39,7 @@
   font-weight: bold;
 }
 
-.modal_form p {
+.modal_form #blurb {
   font-family: "europa", monospace;
   font-size: 16px;
   line-height: 20px;
@@ -77,4 +77,11 @@
 
 .modal_form form div {
   padding-right: 10px;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+  text-align: center;
+  margin: 0 50px;
 }

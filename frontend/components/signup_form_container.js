@@ -6,6 +6,7 @@ import { signup } from '../actions/session_actions';
 
 const msp = (state) => {
   return {
+    errors: state.errors.session,
     header: "Join Howl.",
     blurb: "Create an account to publish articles,\
       follow your favorite writers, and join the conversation.",

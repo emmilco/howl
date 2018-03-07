@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
     return (
       <div className="modal_form">
         <h2>{this.props.header}</h2>
-        <p>{this.props.blurb}</p>
+        <p id="blurb">{this.props.blurb}</p>
 
         <form onSubmit={this.handleSubmit}>
 
@@ -48,6 +48,11 @@ class SessionForm extends React.Component {
               value={this.state.password}>
             </input>
           </label>
+
+          {this.props.errors && this.props.errors.map((error) => {
+            return <p className="error">{error}</p>;
+            })
+          }
 
           <button>{this.props.buttonText}</button>
         </form>

@@ -6,6 +6,7 @@ import { login } from '../actions/session_actions';
 
 const msp = (state) => {
   return {
+    errors: state.errors.session,
     header: "Welcome back.",
     blurb: "Sign in to access your personalized homepage,\
       write a new article, or catch up on some reading.",

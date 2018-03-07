@@ -3,12 +3,15 @@ import {
   RECEIVE_CURRENT_USER
 } from '../actions/session_actions';
 
+import { REMOVE_FORM } from '../actions/ui_actions';
+
 const sessionErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
     case RECEIVE_CURRENT_USER:
+    case REMOVE_FORM:
       return [];
     default:
       return oldState;
