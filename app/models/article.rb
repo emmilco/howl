@@ -18,9 +18,11 @@ class Article < ApplicationRecord
   class_name: :User
 
   has_many :chunks,
-  dependent: :destroy
+  dependent: :destroy,
+  foreign_key: :chunkable_id
+
 
   accepts_nested_attributes_for :chunks,
   allow_destroy: true
-  
+
 end
