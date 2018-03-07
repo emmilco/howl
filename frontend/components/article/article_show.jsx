@@ -14,14 +14,10 @@ class ArticleShow extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchArticle(this.props.match.params.articleId);
+    this.props.fetchArticle(this.props.articleId);
   }
 
   render(){
-    // if (!this.props.article) {
-    //   return <div></div>;
-    // }
-
     return(
       <div>
         <p>Articleshow!</p>
@@ -35,7 +31,7 @@ class ArticleShow extends React.Component {
 
 const msp = (state, ownProps) => {
   const articleId = ownProps.match.params.articleId;
-  const article = state.ents.articles[articleId] || {chunks: []};
+  const article = state.ents.articles[articleId];
   return {
     articleId: articleId,
     article: article,
