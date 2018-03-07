@@ -12,7 +12,7 @@
 #
 
 class Chunk < ApplicationRecord
-  validates :article, :ord, :content_type
+  validates :article, :ord, :content_type, presence: true
   validates :content_type, inclusion:
   %W(p h1 h2 h3 pull_quote block_quote divider image)
 
@@ -20,5 +20,5 @@ class Chunk < ApplicationRecord
   foreign_key: :chunkable_id,
   class_name: :Article
 
-  
+
 end

@@ -21,7 +21,7 @@ class User < ApplicationRecord
   dependent: :destroy,
   foreign_key: :author_id,
   class_name: :Article
-  
+
   # has_many :comments
   # has_many :followers
   # has_many :followees
