@@ -2,8 +2,7 @@ import React from 'react';
 
 const displayDate = (dateString) => {
   const dateObject = new Date(dateString);
-  const isOld = (dateObject.getFullYear() - (new Date()).getFullYear()) > 1;
-
+  const isOld = ((new Date()).getFullYear()) - dateObject.getFullYear() > 1;
   let date = dateObject.toDateString();
   if (isOld) {
     date = date.slice(4);
