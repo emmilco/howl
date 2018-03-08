@@ -17,9 +17,19 @@ class ArticleShow extends React.Component {
     this.props.fetchArticle(this.props.articleId);
   }
 
+  componentWillReceiveProps(nextProps){
+    if (this.props.articleId !== nextProps.articleId){
+      this.props.fetchArticle(nextProps.articleId);
+    }
+  }
+
   render(){
+    if (!this.props.article) {
+      return <div></div>;
+    }
+
     return(
-      <div>
+      <div className="article_show">
         <p>Articleshow!</p>
         <ArticleHeader article={this.props.article} author={this.props.author}/>
         <ArticleBody chunks={this.props.chunks}/>
@@ -31,11 +41,14 @@ class ArticleShow extends React.Component {
 
 const msp = (state, ownProps) => {
   const articleId = ownProps.match.params.articleId;
-  const article = state.ents.articles[articleId];
+  const article = state.ents.articles[articleId] || {chunks: []};
+  const author = state.ents.users[article.author_id] || {};
+
   return {
     articleId: articleId,
     article: article,
     chunks: selectArticleChunks(state, article),
+    author: author
   };
 };
 

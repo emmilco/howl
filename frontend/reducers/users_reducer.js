@@ -7,7 +7,7 @@ import {
 const usersReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_ARTICLE:
-      return merge({}, oldState, action.user);
+      return merge({}, oldState, {[action.user.id]: action.user});
     default:
       return oldState;
   }

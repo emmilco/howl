@@ -97,3 +97,12 @@ body {
   text-align: center;
   margin: 0 50px;
 }
+
+.avatar {
+  border-radius: 50%;
+}
+
+.article_author_avatar {
+  width: 75px;
+  display: inline-block;
+}

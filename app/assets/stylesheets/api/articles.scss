@@ -1,3 +1,14 @@
 // Place all the styles related to the Api/Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article_show {
+  max-width: 700px;
+  padding: 20px;
+}
+
+p.chunk {
+  font-size: 18px;
+  font-family: "Freight Text Pro";
+  line-height: 1.25
+}
