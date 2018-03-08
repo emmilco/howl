@@ -8,7 +8,7 @@ const ArticleBody = (props) => {
   return (
     <div className="article_body">
       {props.chunks.map((chunk) => {
-        return <Chunk edit={props.edit} key={chunk.ord} chunk={chunk} />;
+        return <Chunk key={chunk.ord} chunk={chunk} />;
       })}
     </div>
   );

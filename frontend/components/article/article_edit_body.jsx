@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import Chunk from '../chunk';
 import ContentTypeSelector from './content_type_selector';
@@ -10,23 +11,17 @@ class ArticleEditBody extends React.Component {
     super(props);
   }
 
-  handleChange(chunkId){
+  handleReturn(chunk){
     return (e) => {
-      if (e.nativeEvent.inputType === "insertText"){
-        this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
-      }
-    };
-  }
-
-  handleDelete(chunk){
-    return (e) => {
-      if (e.key !== "Backspace"){
+      if (e.key !== "Enter"){
         return;
-      }
-      if (e.target.innerText !== ""){
-        this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
       } else {
-        this.props.removeChunk(chunk);
+        this.props.createChunk({
+          chunkable_id: chunk.chunkable_id,
+          ord: chunk.ord + 1,
+          content_type: 'p',
+          content: ''
+        });
       }
     };
   }
@@ -34,19 +29,19 @@ class ArticleEditBody extends React.Component {
   render(){
     return (
       <div className="article_body">
-
         {this.props.article.chunks.map((chunkId) => {
           const chunk = this.props.chunks[chunkId];
           const content = chunk.content;
           const type = chunk.content_type;
           return (
-            <div key={chunk.id} className={`chunk_${chunk.content_type}`}>
-              <p contentEditable="true"
-                onInput={this.handleChange(chunk.id).bind(this)}
-                onKeyDown={this.handleDelete(chunk).bind(this)}
-                className='chunk'>{chunk.content}
-              </p>
-            </div>
+            <div onKeyDown={this.handleReturn(chunk).bind(this)}>
+              <Chunk key={chunk.id}
+                edit={true}
+                chunk={chunk}
+                receiveChunk={this.props.receiveChunk}
+                removeChunk={this.props.removeChunk}
+                />
+          </div>
           );
         }, this)}
       </div>

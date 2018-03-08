@@ -6,7 +6,11 @@ import {
   selectArticleChunksforEdit
 } from '../../reducers/selectors.js';
 import { fetchArticle } from '../../actions/article_actions';
-import { receiveChunk, removeChunk } from '../../actions/chunk_actions';
+import {
+  receiveChunk,
+  removeChunk,
+  createChunk
+} from '../../actions/chunk_actions';
 
 import UserHeader from '../user_header';
 import ArticleTitleEditor from './article_title_editor';
@@ -41,6 +45,7 @@ class ArticleEdit extends React.Component {
           author={this.props.author}
           receiveChunk={this.props.receiveChunk}
           removeChunk={this.props.removeChunk}
+          createChunk={this.props.createChunk}
           />
       </div>
     );
@@ -64,7 +69,8 @@ const mdp = (dispatch) => {
   return {
     fetchArticle: (id) => dispatch(fetchArticle(id)),
     receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
-    removeChunk: (chunk) => dispatch(removeChunk(chunk))
+    removeChunk: (chunk) => dispatch(removeChunk(chunk)),
+    createChunk: (chunk) => dispatch(createChunk(chunk)),
   };
 };
 

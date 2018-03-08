@@ -1,18 +1,53 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-const Chunk = (props) => {
-  const content = props.chunk.content;
-  const type = props.chunk.content_type;
-  return (
-    <div className={`chunk_${props.chunk.content_type}`}>
-      {Boolean(type === 'p') && <p className='chunk'>{content}</p>}
-      {Boolean(type === 'h1') && <h1 className='chunk'>{content}</h1>}
-      {Boolean(type === 'h2') && <h2 className='chunk'>{content}</h2>}
-      {Boolean(type === 'h3') && <h3 className='chunk'>{content}</h3>}
-      {Boolean(type === 'img') && <img className='chunk' src={content}/>}
-      {Boolean(type === 'divider') && <p className='chunk'>...</p>}
-    </div>
-  );
-};
+
+class Chunk extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = this.props.chunk;
+  }
+
+  handleChange(chunkId){
+    return (e) => {
+      if (e.nativeEvent.inputType === "insertText"){
+        this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
+      }
+    };
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    return nextProps.chunk.content !== this.state.content;
+  }
+
+  handleDelete(chunk){
+    return (e) => {
+      if (e.key !== "Backspace"){
+        return;
+      }
+      if (e.target.innerText !== ""){
+        this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
+      } else {
+        this.props.removeChunk(chunk);
+      }
+    };
+  }
+
+
+  render(){
+    const content = this.state.content;
+    const type = this.state.content_type;
+    return (
+      <div className={`chunk_${type}`}>
+        <p contentEditable={this.props.edit}
+          onInput={this.handleChange(this.state.id).bind(this)}
+          onKeyUp={this.handleDelete(this.state).bind(this)}
+          className='chunk'>{this.state.content}
+        </p>
+      </div>
+    );
+  }
+
+}
 
 export default Chunk;
