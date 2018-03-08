@@ -18,7 +18,7 @@ class ArticleEditBody extends React.Component {
       } else {
         this.props.createChunk({
           chunkable_id: chunk.chunkable_id,
-          ord: chunk.ord + 1,
+          ord: chunk.ord,
           content_type: 'p',
           content: ''
         });
@@ -30,6 +30,7 @@ class ArticleEditBody extends React.Component {
     return (
       <div className="article_body">
         {this.props.article.chunks.map((chunkId) => {
+          console.log(chunk);
           const chunk = this.props.chunks[chunkId];
           const content = chunk.content;
           const type = chunk.content_type;

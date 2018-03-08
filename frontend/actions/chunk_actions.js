@@ -19,8 +19,8 @@ export const removeChunk = (chunk) => {
 
 export const createChunk = (chunk) => {
   return (dispatch) => {
-    return ChunksAPIUtil.createChunk(chunk).then((payload) => {
-      return dispatch(receiveChunk(payload));
+    return ChunksAPIUtil.createChunk(chunk)
+      .then((payload) => { return dispatch(receiveChunk(payload));
     });
   };
 };

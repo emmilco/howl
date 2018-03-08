@@ -34,16 +34,16 @@ Article.destroy_all
 end
 
 
-Chunk.destroy_all
-800.times do
-  article = Article.all.sample
-  Chunk.create(
-    chunkable_id: article.id,
-    content: BetterLorem.p(1, true),
-    ord: rand(1000000),
-    content_type: 'p'
-  )
-end
+# Chunk.destroy_all
+# 800.times do
+#   article = Article.all.sample
+#   Chunk.create(
+#     chunkable_id: article.id,
+#     content: BetterLorem.p(1, true),
+#     ord: rand(1000000),
+#     content_type: 'p'
+#   )
+# end
 
 loomings = Article.create(
   title: "Loomings",
