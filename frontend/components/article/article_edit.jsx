@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { selectArticleChunks } from '../../reducers/selectors.js';
+import {
+  selectArticleChunks,
+  selectArticleChunksforEdit
+} from '../../reducers/selectors.js';
 import { fetchArticle } from '../../actions/article_actions';
+import { receiveChunk } from '../../actions/chunk_actions';
 
 import UserHeader from '../user_header';
 import ArticleTitleEditor from './article_title_editor';
@@ -31,7 +35,12 @@ class ArticleEdit extends React.Component {
       <div className="article_show">
         I'm here!
         <div className="article_title"></div>
-        <ArticleEditBody  chunks={this.props.chunks} />
+        <ArticleEditBody
+          chunks={this.props.chunks}
+          article={this.props.article}
+          author={this.props.author}
+          receiveChunk={this.props.receiveChunk}
+          />
       </div>
     );
   }
@@ -45,7 +54,7 @@ const msp = (state, ownProps) => {
   return {
     articleId: articleId,
     article: article,
-    chunks: selectArticleChunks(state, article),
+    chunks: selectArticleChunksforEdit(state, article),
     author: author,
   };
 };
@@ -53,6 +62,7 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchArticle: (id) => dispatch(fetchArticle(id)),
+    receiveChunk: (chunk) => dispatch(receiveChunk(chunk))
   };
 };
 

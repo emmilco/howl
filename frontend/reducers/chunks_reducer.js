@@ -14,6 +14,8 @@ const chunksReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_ARTICLE:
       return merge({}, oldState, action.chunks);
+    case RECEIVE_CHUNK:
+      return merge({}, oldState, action.chunk);
     default:
       return oldState;
 
