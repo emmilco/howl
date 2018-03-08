@@ -2,7 +2,8 @@ import React from 'react';
 
 import UserHeader from '../user_header';
 import ArticleTitleEditor from './article_title_editor';
-import ContentTypeSelector from './content_type_selector';
+
+import ArticleShow from './article_show';
 
 
 class ArticleEdit extends React.Component {
@@ -12,10 +13,10 @@ class ArticleEdit extends React.Component {
 
   render(){
     return (
-      <div>
-        
-      </div>
+      <ArticleShow edit={true}/>
     );
   }
 
 }
+
+export default ArticleEdit;
