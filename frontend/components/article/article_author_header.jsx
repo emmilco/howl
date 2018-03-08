@@ -16,14 +16,16 @@ const displayDate = (dateString) => {
 
 const ArticleAuthorHeader = (props) => {
     return (
-    <div>
+    <div className="article_author_header">
       <img className="avatar article_author_avatar"
         src={window.default_avatar_path}/>
-      <p className="article_author_name">{props.author.full_name}</p>
-      <p className="article_author_bio">{props.author.bio}</p>
-      <p className="article_publish_date">
-        {displayDate(props.date)}
-      </p>
+      <div className="article_author_header_info">
+        <p className="article_author_name">{props.author.full_name}</p>
+        <p className="article_author_bio">{props.author.bio}</p>
+        <p className="article_publish_date">
+          {displayDate(props.date)}
+        </p>
+      </div>
     </div>
   );
 };

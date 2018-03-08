@@ -15,3 +15,41 @@ p.chunk {
   margin-bottom: 30px;
   color: #383838;
 }
+
+.article_author_header_info p {
+  line-height: 20px;
+  letter-spacing: .02em;
+  color: rgba(0,0,0,.54);
+}
+
+p.article_author_name {
+  color: rgba(0,0,0,.84);
+}
+
+p.article_author_bio {
+  font-weight: 300;
+}
+
+p.article_publish_date {
+
+}
+
+.article_author_header_info {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.article_author_header {
+  display: flex;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+#article_title {
+  color: rgba(0,0,0,.84);
+  font-size: 42px;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  font-weight: 700;
+}
