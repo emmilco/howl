@@ -5,10 +5,13 @@
 .article_show {
   max-width: 700px;
   padding: 20px;
+  margin: 0 auto;
 }
 
 p.chunk {
-  font-size: 18px;
-  font-family: "Freight Text Pro";
-  line-height: 1.25
+  font-size: 22px;
+  font-family: "freight-text-pro";
+  line-height: 1.58;
+  margin-bottom: 30px;
+  color: #383838;
 }

@@ -24,13 +24,12 @@ class ArticleShow extends React.Component {
   }
 
   render(){
-    if (!this.props.article) {
+    if (this.props.article.chunks.length === 0 || !this.props.author.length === 0) {
       return <div></div>;
     }
 
     return(
       <div className="article_show">
-        <p>Articleshow!</p>
         <ArticleHeader article={this.props.article} author={this.props.author}/>
         <ArticleBody chunks={this.props.chunks}/>
         <ArticleFooter article={this.props.article} author={this.props.author}/>
