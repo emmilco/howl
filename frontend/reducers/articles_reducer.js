@@ -24,10 +24,6 @@ const articlesReducer = (oldState = {}, action) => {
       article.chunks.splice(article.chunks.indexOf(action.chunk.id), 1);
       return newState;
 
-    case RECEIVE_CHUNK:
-      article = newState[action.chunk.chunkable_id];
-      article.chunks.splice(action.chunk.ord, 0, action.chunk.id);
-      return newState;
     case REMOVE_ARTICLE:
       delete newState[action.id];
       return newState;

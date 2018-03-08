@@ -38,7 +38,7 @@ class ArticleEdit extends React.Component {
     return (
       <div className="article_show">
         I'm here!
-        <div className="article_title"></div>
+        <div id="article_title">{this.props.article.title}</div>
         <ArticleEditBody
           chunks={this.props.chunks}
           article={this.props.article}

@@ -1,4 +1,5 @@
 import * as ChunksAPIUtil from '../util/chunks_api_util';
+import { receiveArticle } from './article_actions';
 
 export const RECEIVE_CHUNK = "RECEIVE_CHUNK";
 export const REMOVE_CHUNK = "REMOVE_CHUNK";
@@ -20,7 +21,7 @@ export const removeChunk = (chunk) => {
 export const createChunk = (chunk) => {
   return (dispatch) => {
     return ChunksAPIUtil.createChunk(chunk)
-      .then((payload) => { return dispatch(receiveChunk(payload));
+      .then((article) => { return dispatch(receiveArticle(article));
     });
   };
 };

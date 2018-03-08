@@ -1,4 +1,6 @@
 class Api::ChunksController < ApplicationController
+  before_action :ensure_logged_in
+  
   def create
     @chunk = Chunk.new(chunk_params)
     if Article.find(@chunk.chunkable_id).author_id = current_user.id

@@ -37,9 +37,6 @@ const Header = (props) => {
           </div>
         }
 
-        { Boolean()}
-
-
       </ul>
     </header>
   );
