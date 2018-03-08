@@ -12,8 +12,8 @@ const App = () => {
       <ModalOverlay />
       <Header />
       <Switch>
+        <Route path="/articles/:articleId/:edit" component={ArticleEdit} />
         <Route path="/articles/:articleId" component={ArticleShow} />
-        <Route path="/articles/:articleId/:edit" component={ArticleShow} />
       </Switch>
     </main>
   );
