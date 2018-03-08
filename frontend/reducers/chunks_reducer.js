@@ -16,6 +16,10 @@ const chunksReducer = (oldState = {}, action) => {
       return merge({}, oldState, action.chunks);
     case RECEIVE_CHUNK:
       return merge({}, oldState, action.chunk);
+    case REMOVE_CHUNK:
+      const newState = merge({}, oldState);
+      delete newState[action.chunk.id];
+      return newState;
     default:
       return oldState;
 

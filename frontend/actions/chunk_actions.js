@@ -8,9 +8,9 @@ export const receiveChunk = (chunk) => {
   };
 };
 
-export const removeChunk = (id) => {
+export const removeChunk = (chunk) => {
   return {
     type: REMOVE_CHUNK,
-    id
+    chunk
   };
 };

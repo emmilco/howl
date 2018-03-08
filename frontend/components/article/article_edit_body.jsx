@@ -12,12 +12,23 @@ class ArticleEditBody extends React.Component {
 
   handleChange(chunkId){
     return (e) => {
-      this.props.receiveChunk({ [chunkId]: {content: e.target.innerHTML}});
+      if (e.nativeEvent.inputType === "insertText"){
+        this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
+      }
     };
   }
 
-  mapOverChunks(){
-
+  handleDelete(chunk){
+    return (e) => {
+      if (e.key !== "Backspace"){
+        return;
+      }
+      if (e.target.innerText !== ""){
+        this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
+      } else {
+        this.props.removeChunk(chunk);
+      }
+    };
   }
 
   render(){
@@ -32,6 +43,7 @@ class ArticleEditBody extends React.Component {
             <div key={chunk.id} className={`chunk_${chunk.content_type}`}>
               <p contentEditable="true"
                 onInput={this.handleChange(chunk.id).bind(this)}
+                onKeyDown={this.handleDelete(chunk).bind(this)}
                 className='chunk'>{chunk.content}
               </p>
             </div>
