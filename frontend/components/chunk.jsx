@@ -28,10 +28,8 @@ class Chunk extends React.Component {
       if (e.key !== "Backspace"){
         return;
       }
-      if (e.target.innerText !== ""){
+      if (e.target.innerText !== "" || this.props.chunkCount === 1){
         this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
-      } else if (this.props.chunkCount === 1) {
-        return;
       } else if (this.state.ord > 0) {
         this.props.deleteChunk(chunk).then(
           () => document.getElementById(this.state.ord - 1).focus()
