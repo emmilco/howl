@@ -1,7 +1,7 @@
-export const createChunk = (chunk) => {
+export const createChunk = (article, ord) => {
   return $.ajax({
     url: "/api/chunks/",
     method: "POST",
-    data: { chunk }
+    data: { article, ord }
   });
 };

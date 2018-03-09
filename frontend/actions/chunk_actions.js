@@ -18,10 +18,10 @@ export const removeChunk = (chunk) => {
   };
 };
 
-export const createChunk = (chunk) => {
+export const createChunk = (article, ord) => {
   return (dispatch) => {
-    return ChunksAPIUtil.createChunk(chunk)
-      .then((article) => { return dispatch(receiveArticle(article));
+    return ChunksAPIUtil.createChunk(article, ord)
+      .then((payload) => { return dispatch(receiveArticle(payload));
     });
   };
 };

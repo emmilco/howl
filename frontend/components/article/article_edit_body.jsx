@@ -16,12 +16,14 @@ class ArticleEditBody extends React.Component {
       if (e.key !== "Enter"){
         return;
       } else {
-        this.props.createChunk({
-          chunkable_id: chunk.chunkable_id,
-          ord: chunk.ord,
-          content_type: 'p',
-          content: ''
+        const packagedArticle = merge({}, this.props.article);
+        packagedArticle.chunks_attributes = [];
+        this.props.article.chunks.forEach((chunkId) => {
+          packagedArticle.chunks_attributes.push(this.props.chunks[chunkId]);
         });
+        delete packagedArticle.chunks;
+        const ord = {insertAt: chunk.ord + 1};
+        this.props.createChunk(packagedArticle, ord);
       }
     };
   }

@@ -70,7 +70,7 @@ const mdp = (dispatch) => {
     fetchArticle: (id) => dispatch(fetchArticle(id)),
     receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
     removeChunk: (chunk) => dispatch(removeChunk(chunk)),
-    createChunk: (chunk) => dispatch(createChunk(chunk)),
+    createChunk: (chunk, ord) => dispatch(createChunk(chunk, ord)),
   };
 };
 
@@ -78,5 +78,6 @@ export default connect(msp, mdp)(ArticleEdit);
 
 
 // NOTE: Hidding RETURN should generate a new empty chunk below current
-// chunk (not splitting content).  Pressing BACKSPACE in an empty chunk should delete the chunk
-// and return the cursor to the end of the previous chunk.
+// chunk (not splitting content).  Pressing BACKSPACE in an empty chunk
+// should delete the chunk
+// NOTE: and return the cursor to the end of the previous chunk.
