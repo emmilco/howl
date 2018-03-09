@@ -106,3 +106,11 @@ body {
   width: 60px;
   display: inline-block;
 }
+
+i {
+  font-style: italic;
+}
+
+b {
+  font-weight: bold;
+}

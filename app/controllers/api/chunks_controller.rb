@@ -2,12 +2,12 @@ class Api::ChunksController < ApplicationController
   before_action :ensure_logged_in
 
   def create
-    @article = Article.find(article_params[:id])
-    if @article.author_id = current_user.id
+    @article = Article.includes(:chunks).find(article_params[:id])
+    if @article.author == current_user
       @article.update(article_params)
       ord = ord_params[:insertAt].to_i
       @article.chunks.order(:ord).each do |chunk|
-        chunk.ord += 1 if chunk.ord > ord
+        chunk.ord += 1 if chunk.ord >= ord
         chunk.save
       end
       Chunk.create(
@@ -23,10 +23,25 @@ class Api::ChunksController < ApplicationController
     end
   end
 
+  def destroy
+    chunk = Chunk.includes(:siblings).find(chunk_params[:id])
+    @article = chunk.article
+    if chunk && chunk.article.author == current_user
+      chunk.destroy
+      @article.chunks.order(:ord).each do |chunk|
+        chunk.ord -= 1 if chunk.ord >= chunk_params[:ord].to_i
+        chunk.save
+      end
+      render '/api/articles/show'
+    else
+      render json: ["Content does not belong to current user."], status: 403
+    end
+  end
+
   private
 
   def chunk_params
-    params.require(:chunk).permit(:chunkable_id, :ord, :content_type, :content)
+    params.require(:chunk).permit(:id, :chunkable_id, :ord, :content_type, :content)
   end
 
   def ord_params

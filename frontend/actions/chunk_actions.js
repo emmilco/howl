@@ -25,3 +25,11 @@ export const createChunk = (article, ord) => {
     });
   };
 };
+
+export const deleteChunk = (chunk) => {
+  return (dispatch) => {
+    return ChunksAPIUtil.deleteChunk(chunk).then((payload) => {
+      dispatch(receiveArticle(payload));
+    });
+  };
+};

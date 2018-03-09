@@ -23,15 +23,15 @@ User.destroy_all
 end
 User.create({full_name: "Demo User", email: "demo@us.er", password: "password"})
 
-Article.destroy_all
-100.times do
-  user = User.all.sample
-  Article.create(
-    title: "#{Faker::Pokemon.name} in #{Faker::Pokemon.location}",
-    author_id: user.id,
-    publish_date: Faker::Date.between(2.years.ago, Date.today)
-  )
-end
+# Article.destroy_all
+# 100.times do
+#   user = User.all.sample
+#   Article.create(
+#     title: "#{Faker::Pokemon.name} in #{Faker::Pokemon.location}",
+#     author_id: user.id,
+#     publish_date: Faker::Date.between(2.years.ago, Date.today)
+#   )
+# end
 
 
 # Chunk.destroy_all
@@ -47,7 +47,7 @@ end
 
 loomings = Article.create(
   title: "Loomings",
-  author_id: User.first.id,
+  author_id: User.last.id,
   publish_date: Faker::Date.between(2.years.ago, Date.today)
 )
 

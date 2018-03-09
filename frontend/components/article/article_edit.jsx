@@ -8,7 +8,7 @@ import {
 import { fetchArticle } from '../../actions/article_actions';
 import {
   receiveChunk,
-  removeChunk,
+  deleteChunk,
   createChunk
 } from '../../actions/chunk_actions';
 
@@ -44,7 +44,7 @@ class ArticleEdit extends React.Component {
           article={this.props.article}
           author={this.props.author}
           receiveChunk={this.props.receiveChunk}
-          removeChunk={this.props.removeChunk}
+          deleteChunk={this.props.deleteChunk}
           createChunk={this.props.createChunk}
           />
       </div>
@@ -69,7 +69,7 @@ const mdp = (dispatch) => {
   return {
     fetchArticle: (id) => dispatch(fetchArticle(id)),
     receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
-    removeChunk: (chunk) => dispatch(removeChunk(chunk)),
+    deleteChunk: (chunk) => dispatch(deleteChunk(chunk)),
     createChunk: (chunk, ord) => dispatch(createChunk(chunk, ord)),
   };
 };

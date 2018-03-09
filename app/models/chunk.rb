@@ -20,5 +20,9 @@ class Chunk < ApplicationRecord
   foreign_key: :chunkable_id,
   class_name: :Article
 
+  has_many :siblings,
+  through: :article,
+  source: :chunks
+
 
 end

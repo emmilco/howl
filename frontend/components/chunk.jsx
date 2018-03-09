@@ -20,6 +20,18 @@ class Chunk extends React.Component {
     return nextProps.chunk.content !== this.state.content;
   }
 
+
+  handleReturn(){
+    return (e) => {
+      if (e.key === "Enter"){
+        document.getElementById(this.state.ord + 1).focus();
+      }
+    };
+  }
+  // componentDidMount(){
+  //   document.getElementById(this.state.ord).focus();
+  // }
+
   handleDelete(chunk){
     return (e) => {
       if (e.key !== "Backspace"){
@@ -28,11 +40,12 @@ class Chunk extends React.Component {
       if (e.target.innerText !== ""){
         this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
       } else {
-        this.props.removeChunk(chunk);
+        document.getElementById(this.state.ord - 1).focus();
+        this.props.deleteChunk(chunk);
+
       }
     };
   }
-
 
   render(){
     const content = this.state.content;
@@ -42,6 +55,8 @@ class Chunk extends React.Component {
         <p contentEditable={this.props.edit}
           onInput={this.handleChange(this.state.id).bind(this)}
           onKeyUp={this.handleDelete(this.state).bind(this)}
+          onKeyDown={this.handleReturn().bind(this)}
+          id={`${this.state.ord}`}
           className='chunk'>{this.state.content}
         </p>
       </div>

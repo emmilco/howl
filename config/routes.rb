@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :update, :destroy, :follow, :unfollow]
     resource :session, only: [:create, :destroy]
     resources :articles, only: [:show, :create, :update, :index, :destroy, :howl, :unhowl]
-    resources :chunks, only: [:create, :show]
+    resources :chunks, only: [:create, :show, :destroy]
   end
 end

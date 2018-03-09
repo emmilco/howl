@@ -9,13 +9,16 @@ import { merge } from 'lodash';
 class ArticleEditBody extends React.Component {
   constructor(props){
     super(props);
+    this.state = {selected: 0};
   }
+
 
   handleReturn(chunk){
     return (e) => {
       if (e.key !== "Enter"){
         return;
       } else {
+        e.preventDefault();
         const packagedArticle = merge({}, this.props.article);
         packagedArticle.chunks_attributes = [];
         this.props.article.chunks.forEach((chunkId) => {
@@ -32,8 +35,8 @@ class ArticleEditBody extends React.Component {
     return (
       <div className="article_body">
         {this.props.article.chunks.map((chunkId) => {
-          console.log(chunk);
           const chunk = this.props.chunks[chunkId];
+          if (!chunk) { return <div></div>; }
           const content = chunk.content;
           const type = chunk.content_type;
           return (
@@ -42,7 +45,8 @@ class ArticleEditBody extends React.Component {
                 edit={true}
                 chunk={chunk}
                 receiveChunk={this.props.receiveChunk}
-                removeChunk={this.props.removeChunk}
+                deleteChunk={this.props.deleteChunk}
+                setFocus={(ord) => this.setState({focus: ord})}
                 />
           </div>
           );

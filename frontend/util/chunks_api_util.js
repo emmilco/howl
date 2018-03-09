@@ -5,3 +5,11 @@ export const createChunk = (article, ord) => {
     data: { article, ord }
   });
 };
+
+export const deleteChunk = (chunk) => {
+  return $.ajax({
+    url: `/api/chunks/${chunk.id}`,
+    method: "DELETE",
+    data: { chunk }
+  });
+};
