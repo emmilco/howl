@@ -67,11 +67,31 @@ p.article_publish_date {
   font-family: 'europa';
   position: absolute;
   float: left;
-  left: 30px;
+  left: 15px;
   color: rgba(0,0,0,.10);
   font-size: 18px;
 }
 
 .article_edit p.chunk:focus:before {
   color: rgba(0,0,0,.40);
+}
+
+#article_title.article_title_editor {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+#article_title.article_title_editor:focus:before {
+  position: absolute;
+  content: "Title";
+  font-family: 'europa';
+  position: absolute;
+  float: left;
+  left: -80px;
+  bottom: -5px;
+  font-weight: lighter;
+  color: rgba(0,0,0,.30);
+  font-size: 16px;
+  border-right: 1px solid rgba(0,0,0,.30);
+  padding: 15px;
 }

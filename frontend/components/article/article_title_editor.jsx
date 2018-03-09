@@ -6,6 +6,12 @@ class ArticleTitleEditor extends React.Component {
     this.state = {title: this.props.title};
   }
 
+  handleReturn(e){
+    if (e.key === "Enter"){
+      e.preventDefault();
+    }
+  }
+
   shouldComponentUpdate(nextProps, nextState){
     return nextProps.title !== this.state.title;
   }
@@ -21,6 +27,7 @@ class ArticleTitleEditor extends React.Component {
       <div className="article_title_editor"
         contentEditable="true"
         onInput={this.titleHandler.bind(this)}
+        onKeyDown={this.handleReturn}
         id="article_title">{this.state.title}
       </div>
     );

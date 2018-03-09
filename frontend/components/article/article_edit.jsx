@@ -59,12 +59,15 @@ class ArticleEdit extends React.Component {
 
   render(){
     return (
-      <div className="article_show article_edit" onInput={this.saveHandler.bind(this)}>
+      <div className="article_show article_edit" 
+        onInput={this.saveHandler.bind(this)}>
+
         {Boolean(this.props.article.title === undefined) || <ArticleTitleEditor
           receiveTitle={this.props.receiveTitle}
           title={this.props.article.title}
           id={this.props.article.id}
           />}
+
         {Boolean(this.props.chunks.length === 0) || <ArticleEditBody
           chunks={this.props.chunks}
           article={this.props.article}
