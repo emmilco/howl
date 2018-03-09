@@ -62,7 +62,7 @@ p.article_publish_date {
   position: relative;
 }
 
-.article_edit p.chunk:before {
+.article_edit p.chunk:focus:before {
   content: "¶";
   font-family: 'europa';
   position: absolute;
@@ -72,9 +72,7 @@ p.article_publish_date {
   font-size: 18px;
 }
 
-.article_edit p.chunk:focus:before {
-  color: rgba(0,0,0,.40);
-}
+
 
 #article_title.article_title_editor {
   margin-bottom: 25px;
