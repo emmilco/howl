@@ -53,3 +53,25 @@ p.article_publish_date {
   margin-bottom: 45px;
   font-weight: 700;
 }
+
+.article_title_editor {
+  padding-top: 50px;
+}
+
+.article_edit {
+  position: relative;
+}
+
+.article_edit p.chunk:before {
+  content: "¶";
+  font-family: 'europa';
+  position: absolute;
+  float: left;
+  left: -30px;
+  color: rgba(0,0,0,.10);
+  font-size: 18px;
+}
+
+.article_edit p.chunk:focus:before {
+  color: rgba(0,0,0,.40);
+}

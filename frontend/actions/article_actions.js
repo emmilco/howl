@@ -4,6 +4,7 @@ export const RECEIVE_ARTICLE = "RECEIVE_ARTICLE";
 export const REMOVE_ARTICLE = "REMOVE_ARTICLE";
 export const RECEIVE_HOMEPAGE_ARTICLES = "RECEIVE_HOMEPAGE_ARTICLES";
 export const RECEIVE_ARTICLE_ERRORS = "RECEIVE_ARTICLE_ERRORS";
+export const RECEIVE_TITLE = "RECEIVE_TITLE";
 
 export const receiveArticle = ({ article, chunks, user }) => {
   return {
@@ -25,6 +26,13 @@ export const removeArticle = (id) => {
   return {
     type: REMOVE_ARTICLE,
     id
+  };
+};
+
+export const receiveTitle = (title) => {
+  return {
+    type: RECEIVE_TITLE,
+    title
   };
 };
 
@@ -55,23 +63,25 @@ export const updateArticle = (article) => {
 export const createArticle = () => {
   return (dispatch) => {
     return ArticlesAPIUtil.createArticle().then(
-      (payload) => { dispatch(receiveArticle(payload)); }
+      (payload) => {
+        return dispatch(receiveArticle(payload));
+      }
     );
   };
 };
 
 export const deleteArticle = (id) => {
   return (dispatch) => {
-    return ArticlesAPIUtil.deleteArticle(id).then(
-      (payload) => { dispatch(removeArticle(id)); }
-    );
+    return ArticlesAPIUtil.deleteArticle(id).then((payload) => {
+      return dispatch(removeArticle(id));
+    });
   };
 };
 
 export const fetchHomepageArticles = () => {
   return (dispatch) => {
     return ArticlesAPIUtil.fetchHomepageArticles().then(
-      (payload) => { dispatch(receiveHomepageParticles(payload)); }
+      (payload) => dispatch(receiveHomepageParticles(payload))
     );
   };
 };

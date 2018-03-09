@@ -1,7 +1,8 @@
 import {
   REMOVE_FORM,
   DISPLAY_FORM,
-  TOGGLE_MENU
+  TOGGLE_MENU,
+  CLEAR_NEW_ARTICLE
 } from '../actions/ui_actions';
 
 import {
@@ -19,6 +20,8 @@ const uiReducer = (oldState = {form: null, menu: null}, action) => {
       return { [action.menu]: !oldState[action.menu] };
     case RECEIVE_CURRENT_USER:
       return {form: null};
+    case CLEAR_NEW_ARTICLE:
+      return { newArticle: null };
     default:
       return oldState;
   }

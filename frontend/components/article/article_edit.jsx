@@ -8,7 +8,8 @@ import {
 } from '../../reducers/selectors.js';
 import {
   fetchArticle,
-  updateArticle
+  updateArticle,
+  receiveTitle
 } from '../../actions/article_actions';
 import {
   receiveChunk,
@@ -57,20 +58,21 @@ class ArticleEdit extends React.Component {
   }
 
   render(){
-    if (this.props.article.chunks.length === 0 || !this.props.author.length === 0) {
-      return <div></div>;
-    }
     return (
-      <div className="article_show" onInput={this.saveHandler.bind(this)}>
-        <div id="article_title">{this.props.article.title}</div>
-        <ArticleEditBody
+      <div className="article_show article_edit" onInput={this.saveHandler.bind(this)}>
+        {Boolean(this.props.article.title === undefined) || <ArticleTitleEditor
+          receiveTitle={this.props.receiveTitle}
+          title={this.props.article.title}
+          id={this.props.article.id}
+          />}
+        {Boolean(this.props.chunks.length === 0) || <ArticleEditBody
           chunks={this.props.chunks}
           article={this.props.article}
           author={this.props.author}
           receiveChunk={this.props.receiveChunk}
           deleteChunk={this.props.deleteChunk}
           createChunk={this.props.createChunk}
-          />
+          />}
       </div>
     );
   }
@@ -95,14 +97,9 @@ const mdp = (dispatch) => {
     receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
     deleteChunk: (chunk) => dispatch(deleteChunk(chunk)),
     createChunk: (chunk, ord) => dispatch(createChunk(chunk, ord)),
-    updateArticle: (packagedArticle) => dispatch(updateArticle(packagedArticle))
+    updateArticle: (packagedArticle) => dispatch(updateArticle(packagedArticle)),
+    receiveTitle: (title) => dispatch(receiveTitle(title))
   };
 };
 
 export default connect(msp, mdp)(ArticleEdit);
-
-
-// NOTE: Hidding RETURN should generate a new empty chunk below current
-// chunk (not splitting content).  Pressing BACKSPACE in an empty chunk
-// should delete the chunk
-// NOTE: and return the cursor to the end of the previous chunk.

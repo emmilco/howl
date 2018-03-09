@@ -12,7 +12,6 @@ class ArticleEditBody extends React.Component {
     this.state = {selected: 0};
   }
 
-
   handleReturn(chunk){
     return (e) => {
       if (e.key !== "Enter"){

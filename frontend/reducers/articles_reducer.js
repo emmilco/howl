@@ -4,6 +4,7 @@ import {
   RECEIVE_ARTICLE,
   REMOVE_ARTICLE,
   RECEIVE_HOMEPAGE_ARTICLES,
+  RECEIVE_TITLE
 } from '../actions/article_actions';
 
 import {
@@ -17,7 +18,8 @@ const articlesReducer = (oldState = {}, action) => {
   switch (action.type) {
 
     case RECEIVE_ARTICLE:
-      return merge({}, oldState, {[action.article.id]: action.article});
+      newState[action.article.id] = action.article;
+      return newState;
 
     case REMOVE_CHUNK:
       article = newState[action.chunk.chunkable_id];
@@ -27,6 +29,9 @@ const articlesReducer = (oldState = {}, action) => {
     case REMOVE_ARTICLE:
       delete newState[action.id];
       return newState;
+
+    case RECEIVE_TITLE:
+      return merge({}, oldState, action.title);
 
     case RECEIVE_HOMEPAGE_ARTICLES:
       return merge({}, oldState, action.articles);

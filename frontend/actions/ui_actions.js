@@ -1,6 +1,7 @@
 export const REMOVE_FORM = "REMOVE_FORM";
 export const DISPLAY_FORM = "DISPLAY_FORM";
 export const TOGGLE_MENU = "TOGGLE_MENU";
+export const CLEAR_NEW_ARTICLE = "CLEAR_NEW_ARTICLE";
 
 export const removeForm = () => {
   return {
@@ -19,5 +20,11 @@ export const toggleMenu = (menu) => {
   return {
     type: TOGGLE_MENU,
     menu
+  };
+};
+
+export const clearNewArticle = () => {
+  return {
+    type: CLEAR_NEW_ARTICLE
   };
 };
