@@ -13,7 +13,7 @@ class Api::ArticlesController < ApplicationController
 
   def update
     @article = current_user.articles.find(params[:id])
-    if @article && @article.save
+    if @article && @article.update(article_params)
       render :show
     else
       render @article.errors.full_messages
@@ -42,9 +42,11 @@ class Api::ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(
+      :id,
       :title,
       :publish_date,
-      chunks: [:content, :ord, :content_type]
+      :author_id,
+      chunks_attributes: [:content, :ord, :content_type, :id, :chunkable_id]
     )
   end
 end

@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { merge } from 'lodash';
 
 import {
   selectArticleChunks,
   selectArticleChunksforEdit
 } from '../../reducers/selectors.js';
-import { fetchArticle } from '../../actions/article_actions';
+import {
+  fetchArticle,
+  updateArticle
+} from '../../actions/article_actions';
 import {
   receiveChunk,
   deleteChunk,
@@ -19,6 +23,7 @@ import ArticleEditBody from './article_edit_body';
 class ArticleEdit extends React.Component {
   constructor(props){
     super(props);
+    this.state = {saveTimer: null};
   }
 
   componentDidMount(){
@@ -31,13 +36,32 @@ class ArticleEdit extends React.Component {
     }
   }
 
+  saveHandler(){
+    clearTimeout(this.state.saveTimer);
+    this.setState({
+      saveTimer: window.setTimeout(() => {
+        this.props.updateArticle(this.packagedArticle());
+        console.log("articlesaved");
+      }, 5000)
+    });
+  }
+
+  packagedArticle() {
+    const packagedArticle = merge({}, this.props.article);
+    packagedArticle.chunks_attributes = [];
+    this.props.article.chunks.forEach((chunkId) => {
+      packagedArticle.chunks_attributes.push(this.props.chunks[chunkId]);
+    });
+    delete packagedArticle.chunks;
+    return packagedArticle;
+  }
+
   render(){
     if (this.props.article.chunks.length === 0 || !this.props.author.length === 0) {
       return <div></div>;
     }
     return (
-      <div className="article_show">
-        I'm here!
+      <div className="article_show" onInput={this.saveHandler.bind(this)}>
         <div id="article_title">{this.props.article.title}</div>
         <ArticleEditBody
           chunks={this.props.chunks}
@@ -71,6 +95,7 @@ const mdp = (dispatch) => {
     receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
     deleteChunk: (chunk) => dispatch(deleteChunk(chunk)),
     createChunk: (chunk, ord) => dispatch(createChunk(chunk, ord)),
+    updateArticle: (packagedArticle) => dispatch(updateArticle(packagedArticle))
   };
 };
 
