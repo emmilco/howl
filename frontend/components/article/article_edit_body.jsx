@@ -25,8 +25,9 @@ class ArticleEditBody extends React.Component {
         });
         delete packagedArticle.chunks;
         const ord = {insertAt: chunk.ord + 1};
-        this.props.createChunk(packagedArticle, ord).then(() => document.getElementById(chunk.ord + 1).focus()
-      );
+        this.props.createChunk(packagedArticle, ord)
+          .then(() => document.getElementById(chunk.ord + 1).focus()
+        );
       }
     };
   }
@@ -46,6 +47,7 @@ class ArticleEditBody extends React.Component {
                 chunk={chunk}
                 receiveChunk={this.props.receiveChunk}
                 deleteChunk={this.props.deleteChunk}
+                chunkCount={this.props.article.chunks.length}
                 />
           </div>
           );
