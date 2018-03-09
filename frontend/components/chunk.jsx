@@ -36,7 +36,7 @@ class Chunk extends React.Component {
         );
       } else {
         this.props.deleteChunk(chunk).then(
-          () => document.getElementById(this.state.ord + 1).focus()
+          () => document.getElementById(this.state.ord).focus()
         );
       }
     };
