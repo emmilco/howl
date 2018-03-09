@@ -21,13 +21,7 @@ class Chunk extends React.Component {
   }
 
 
-  handleReturn(){
-    // return (e) => {
-    //   if (e.key === "Enter"){
-    //     document.getElementById(this.state.ord + 1).focus();
-    //   }
-    // };
-  }
+
 
   handleDelete(chunk){
     return (e) => {
