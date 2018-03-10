@@ -71,6 +71,8 @@ button, input[type=submit] {
   outline: none;
   max-width: 150px;
   cursor: pointer;
+  letter-spacing: .02em;
+  font-size: 14px;
 }
 
 input {

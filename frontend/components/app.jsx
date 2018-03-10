@@ -7,7 +7,7 @@ import ArticleShow from './article/article_show';
 import ArticleEdit from './article/article_edit';
 import ArticleNew from './article/article_new';
 
-const App = () => {
+const App = (props) => {
   return (
     <main>
       <ModalOverlay />

@@ -47,6 +47,7 @@ class Api::ArticlesController < ApplicationController
       :title,
       :publish_date,
       :author_id,
+      :published,
       chunks_attributes: [:content, :ord, :content_type, :id, :chunkable_id]
     )
   end

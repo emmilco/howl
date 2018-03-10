@@ -52,6 +52,7 @@ class ArticleEdit extends React.Component {
   }
 
   render(){
+    const status = (this.props.article.published ? "Published" : "Draft");
     return (
       <div className="article_show article_edit"
         onInput={this.saveHandler.bind(this)}>
@@ -59,6 +60,7 @@ class ArticleEdit extends React.Component {
         {Boolean(this.props.author === undefined) ||
           <UserHeader
             user={this.props.author}
+            status={status}
           />}
 
         {Boolean(this.props.article.title === undefined) ||

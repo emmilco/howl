@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 import { displayForm, toggleMenu } from '../actions/ui_actions';
 import { login, logout } from '../actions/session_actions';
 import UserMenu from './user_menu';
+import PublishButton from './article/publish_button';
 
 const Header = (props) => {
   return (
@@ -29,11 +30,14 @@ const Header = (props) => {
         }
 
         { Boolean(props.currentUser) &&
-          <div
-            onBlur={() => props.toggleMenu("userMenu")}
-            onClick={() => props.toggleMenu("userMenu")}>
-            <img id="user_menu_button" src={window.default_avatar_path} />
-            <UserMenu logout={props.logout} openState={props.userMenuState}/>
+          <div className="user_menus">
+            <Route path='/articles/:id/edit' component={PublishButton} />
+            <div
+              onBlur={() => props.toggleMenu("userMenu")}
+              onClick={() => props.toggleMenu("userMenu")}>
+              <img id="user_menu_button" src={window.default_avatar_path} />
+              <UserMenu logout={props.logout} openState={props.userMenuState}/>
+            </div>
           </div>
         }
 

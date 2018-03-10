@@ -18,6 +18,16 @@
 
 #header_control_panel {
   position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.user_menus {
+  display: flex;
+}
+
+.publish_menu_container {
+  margin-right: 20px;
 }
 
 #login_button {
@@ -105,4 +115,13 @@
   border-left: 6px solid transparent;
   background: transparent;
   z-index: 6
+}
+
+.publish_menu_container {
+  display: inline-block;
+}
+
+.publish_menu_container button {
+  border: 1px solid transparent;
+  font-weight: lighter;
 }
