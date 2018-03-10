@@ -29,10 +29,12 @@ class ArticleShow extends React.Component {
       return <div></div>;
     }
     return(
-      <div className="article_show">
-        <ArticleHeader article={this.props.article} author={this.props.author}/>
-        <ArticleBody chunks={this.props.chunks}/>
-        <ArticleFooter article={this.props.article} author={this.props.author}/>
+      <div>
+        <div className="article_show">
+          <ArticleHeader article={this.props.article} author={this.props.author}/>
+          <ArticleBody chunks={this.props.chunks}/>
+          <ArticleFooter article={this.props.article} author={this.props.author}/>
+        </div>
         <CommentsSection articleId={this.props.articleId}/>
       </div>
     );
