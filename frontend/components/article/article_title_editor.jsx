@@ -9,6 +9,7 @@ class ArticleTitleEditor extends React.Component {
   handleReturn(e){
     if (e.key === "Enter"){
       e.preventDefault();
+      document.getElementById(0).focus();
     }
   }
 
