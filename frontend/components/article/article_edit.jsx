@@ -69,6 +69,9 @@ class ArticleEdit extends React.Component {
         <div className="saved_status">
           {this.state.saved}
         </div>
+        <div className="article_errors">
+          {this.props.errors}
+        </div>
         {Boolean(this.props.author === undefined) ||
           <UserHeader
             user={this.props.author}
@@ -102,7 +105,8 @@ const msp = (state, ownProps) => {
     articleId: articleId,
     article: article,
     chunks: selectArticleChunksforEdit(state, article),
-    author: author
+    author: author,
+    errors: state.errors.article
   };
 };
 

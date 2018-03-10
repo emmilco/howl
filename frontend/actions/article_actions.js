@@ -63,7 +63,7 @@ export const updateArticle = (article) => {
   return (dispatch) => {
     return ArticlesAPIUtil.updateArticle(article).then(
       (payload) => { return dispatch(receiveArticle(payload)); },
-      (errors) => { return dispatch(receiveErrors(errors.responseJSON)); }
+      (errors) => {return dispatch(receiveErrors(errors.responseJSON)); }
     );
   };
 };

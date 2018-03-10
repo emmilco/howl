@@ -111,4 +111,13 @@ p.article_publish_date {
   color: rgba(0,0,0,.20);
   margin-bottom: 20px;
   letter-spacing: .05em;
+  display: inline-block;
+}
+
+.article_errors {
+  color: rgba(255,0,0,.80);
+  margin-bottom: 20px;
+  margin-left: 40px;
+  letter-spacing: .05em;
+  display: inline-block;
 }
