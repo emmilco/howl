@@ -7,6 +7,7 @@ import { fetchArticle } from '../../actions/article_actions';
 import ArticleHeader from './article_header';
 import ArticleBody  from './article_body';
 import ArticleFooter from './article_footer';
+import CommentsSection from '../comment/comments_section';
 
 class ArticleShow extends React.Component {
   constructor(props){
@@ -32,6 +33,7 @@ class ArticleShow extends React.Component {
         <ArticleHeader article={this.props.article} author={this.props.author}/>
         <ArticleBody chunks={this.props.chunks}/>
         <ArticleFooter article={this.props.article} author={this.props.author}/>
+        <CommentsSection articleId={this.props.articleId}/>
       </div>
     );
   }
