@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { merge } from 'lodash';
 
 import {
-  selectArticleChunks,
   selectArticleChunksforEdit
 } from '../../reducers/selectors.js';
 import {
@@ -11,11 +10,6 @@ import {
   updateArticle,
   receiveTitle
 } from '../../actions/article_actions';
-import {
-  receiveChunk,
-  deleteChunk,
-  createChunk
-} from '../../actions/chunk_actions';
 
 import UserHeader from '../user_header';
 import ArticleTitleEditor from './article_title_editor';
@@ -59,23 +53,27 @@ class ArticleEdit extends React.Component {
 
   render(){
     return (
-      <div className="article_show article_edit" 
+      <div className="article_show article_edit"
         onInput={this.saveHandler.bind(this)}>
 
-        {Boolean(this.props.article.title === undefined) || <ArticleTitleEditor
-          receiveTitle={this.props.receiveTitle}
-          title={this.props.article.title}
-          id={this.props.article.id}
+        {Boolean(this.props.author === undefined) ||
+          <UserHeader
+            user={this.props.author}
           />}
 
-        {Boolean(this.props.chunks.length === 0) || <ArticleEditBody
-          chunks={this.props.chunks}
-          article={this.props.article}
-          author={this.props.author}
-          receiveChunk={this.props.receiveChunk}
-          deleteChunk={this.props.deleteChunk}
-          createChunk={this.props.createChunk}
-          />}
+        {Boolean(this.props.article.title === undefined) ||
+          <ArticleTitleEditor
+            receiveTitle={this.props.receiveTitle}
+            title={this.props.article.title}
+            id={this.props.article.id}
+            />}
+
+        {Boolean(this.props.chunks.length === 0) ||
+          <ArticleEditBody
+            chunks={this.props.chunks}
+            article={this.props.article}
+            author={this.props.author}
+            />}
       </div>
     );
   }
@@ -97,9 +95,6 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchArticle: (id) => dispatch(fetchArticle(id)),
-    receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
-    deleteChunk: (chunk) => dispatch(deleteChunk(chunk)),
-    createChunk: (chunk, ord) => dispatch(createChunk(chunk, ord)),
     updateArticle: (packagedArticle) => dispatch(updateArticle(packagedArticle)),
     receiveTitle: (title) => dispatch(receiveTitle(title))
   };

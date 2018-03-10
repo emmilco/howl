@@ -1,3 +1,39 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.user_header_info p {
+  line-height: 20px;
+  letter-spacing: .02em;
+  color: rgba(0,0,0,.54);
+}
+
+p.user_name {
+  color: rgba(0,0,0,.84);
+}
+
+p.user_bio {
+  font-weight: 300;
+}
+
+p.article_publish_date {
+
+}
+
+.user_header_info {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.user_header {
+  display: flex;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.user_header .avatar {
+  width: 40px;
+}

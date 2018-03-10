@@ -1,22 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 import Chunk from '../chunk';
 import ContentTypeSelector from './content_type_selector';
 import { merge } from 'lodash';
 
+import {
+  receiveChunk,
+  deleteChunk,
+  createChunk
+} from '../../actions/chunk_actions';
 
 class ArticleEditBody extends React.Component {
   constructor(props){
     super(props);
-    this.state = {selected: 0};
   }
 
   handleReturn(chunk){
     return (e) => {
-      if (e.key !== "Enter"){
-        return;
-      } else {
+      if (e.key === "Enter"){
         e.preventDefault();
         const packagedArticle = merge({}, this.props.article);
         packagedArticle.chunks_attributes = [];
@@ -55,7 +58,15 @@ class ArticleEditBody extends React.Component {
       </div>
     );
   }
-
 }
 
-export default ArticleEditBody;
+const mdp = (dispatch) => {
+  return {
+    receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
+    deleteChunk: (chunk) => dispatch(deleteChunk(chunk)),
+    createChunk: (chunk, ord) => dispatch(createChunk(chunk, ord))
+  };
+};
+
+
+export default connect(null, mdp)(ArticleEditBody);

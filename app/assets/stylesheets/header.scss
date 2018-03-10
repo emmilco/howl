@@ -1,11 +1,13 @@
 #main_header {
-  margin-top: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
   padding: 0 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   overflow: visible;
+  max-width: 1040px;
 }
 
 #header_logo {
@@ -15,6 +17,7 @@
 }
 
 #header_control_panel {
+  position: relative;
 }
 
 #login_button {
@@ -39,7 +42,6 @@
 #user_menu_button {
   border-radius: 50%;
   width: 40px;
-  position: relative;
   z-index: 6;
   cursor: pointer;
 }
@@ -49,8 +51,8 @@
 
 #user_menu {
   position: absolute;
-  top: 63px;
-  right: 20px;
+  top: 50px;
+  right: 1px;
   width: 150px;
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -75,7 +77,7 @@
 #popover-arrow {
   content: "";
   position: absolute;
-  bottom: 38px;
+  top: -8px;
   right: 10px;
   margin-left: -10px;
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
+import { toggleMenu } from '../actions/ui_actions';
 
 import App from './app.jsx';
 

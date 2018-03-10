@@ -16,6 +16,12 @@ p.chunk {
   color: #383838;
 }
 
+.article_author_header .avatar {
+  width: 60px;
+  display: inline-block;
+}
+
+
 .article_author_header_info p {
   line-height: 20px;
   letter-spacing: .02em;
@@ -55,7 +61,7 @@ p.article_publish_date {
 }
 
 .article_title_editor {
-  padding-top: 50px;
+  padding-top: 0;
 }
 
 .article_edit {
@@ -72,6 +78,12 @@ p.article_publish_date {
   font-size: 18px;
 }
 
+.article_edit .user_header {
+  padding-top: 35px;
+  margin-top: 0;
+  border-top: 1px solid rgba(0,0,0,.15);
+}
+
 
 
 #article_title.article_title_editor {
@@ -86,7 +98,7 @@ p.article_publish_date {
   position: absolute;
   float: left;
   left: -80px;
-  bottom: -5px;
+  bottom: -3px;
   font-weight: lighter;
   color: rgba(0,0,0,.30);
   font-size: 16px;
