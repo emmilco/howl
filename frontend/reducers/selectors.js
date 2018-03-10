@@ -15,7 +15,6 @@ export const selectArticleChunksforEdit = (state, article) => {
 };
 
 export const selectArticleComments = (state, articleId) => {
-  debugger
   const article = state.ents.articles[articleId];
   if (!article.comments) { return []; }
   const comments = [];

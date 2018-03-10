@@ -4,10 +4,11 @@ export const RECEIVE_ARTICLE_COMMENTS = "RECEIVE_ARTICLE_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 
-export const receiveArticleComments = (comments) => {
+export const receiveArticleComments = ({ comments, users }) => {
   return {
     type: RECEIVE_ARTICLE_COMMENTS,
-    comments
+    comments,
+    users
   };
 };
 

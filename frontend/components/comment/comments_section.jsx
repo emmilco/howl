@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Comment from './comment';
+
 import {
   fetchArticleComments,
   createComment,
@@ -23,7 +25,20 @@ class CommentsSection extends React.Component {
   render(){
     return (
       <div className="comments_section">
-        Hello from the comments section!
+        <div>Comments Form Goes Here!</div>
+        <div className="comments_feed">
+          {this.props.comments.map((comment) => {
+            if (!comment) { return; }
+            return (
+              <Comment
+                comment={comment}
+                author={this.props.commentAuthors[comment.author_id]}
+                updateComment={this.props.updateComment}
+                deleteComment={this.props.deleteComment}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
