@@ -90,7 +90,7 @@ const msp = (state, ownProps) => {
     articleId: articleId,
     article: article,
     chunks: selectArticleChunksforEdit(state, article),
-    author: author,
+    author: author
   };
 };
 

@@ -8,4 +8,16 @@ const PublishButton = (props) => {
   );
 };
 
+const msp = (state, ownProps) => {
+  return {
+    
+  };
+};
+
+const mdp = (dispatch) => {
+  return {
+
+  };
+};
+
 export default PublishButton;

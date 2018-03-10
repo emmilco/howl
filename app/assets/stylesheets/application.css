@@ -73,6 +73,7 @@ button, input[type=submit] {
   cursor: pointer;
   letter-spacing: .02em;
   font-size: 14px;
+  font-weight: lighter;
 }
 
 input {

@@ -122,6 +122,12 @@
 }
 
 .publish_menu_container button {
+  border: 1px solid #edf1f7;
+  color: #5a92ed;
+}
+
+.publish_menu_container button:hover {
+  color: #0daa69;
+  background-color: #edf1f7;
   border: 1px solid transparent;
-  font-weight: lighter;
 }
