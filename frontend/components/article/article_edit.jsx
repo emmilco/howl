@@ -18,7 +18,7 @@ import ArticleEditBody from './article_edit_body';
 class ArticleEdit extends React.Component {
   constructor(props){
     super(props);
-    this.state = {saveTimer: null};
+    this.state = {saveTimer: null, saved: "Saved"};
   }
 
   componentDidMount(){
@@ -33,11 +33,13 @@ class ArticleEdit extends React.Component {
 
   saveHandler(){
     clearTimeout(this.state.saveTimer);
+    this.setState({saved: "Saving..."});
     this.setState({
       saveTimer: window.setTimeout(() => {
         this.props.updateArticle(this.packagedArticle());
         console.log("articlesaved");
-      }, 5000)
+        this.setState({saved: "Saved"});
+      }, 2000)
     });
   }
 
@@ -56,7 +58,9 @@ class ArticleEdit extends React.Component {
     return (
       <div className="article_show article_edit"
         onInput={this.saveHandler.bind(this)}>
-
+        <div className="saved_status">
+          {this.state.saved}
+        </div>
         {Boolean(this.props.author === undefined) ||
           <UserHeader
             user={this.props.author}
