@@ -39,7 +39,7 @@ class ArticleEdit extends React.Component {
         this.props.updateArticle(this.packagedArticle());
         console.log("articlesaved");
         this.setState({saved: "Saved"});
-      }, 2000)
+      }, 3000)
     });
   }
 

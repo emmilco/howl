@@ -16,7 +16,7 @@ p.chunk {
   color: #383838;
 }
 
-.article_author_header .avatar {
+#article_author_header .avatar {
   width: 60px;
   display: inline-block;
 }
@@ -108,7 +108,7 @@ p.article_publish_date {
 
 .saved_status {
   font-weight: lighter;
-  color: rgba(0,0,0,.30);
+  color: rgba(0,0,0,.20);
   margin-bottom: 20px;
   letter-spacing: .05em;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, withRouter } from 'react-router-dom';
 
 import { displayForm, toggleMenu } from '../actions/ui_actions';
 import { login, logout } from '../actions/session_actions';
@@ -64,4 +64,4 @@ const mdp = (dispatch) => {
 
 
 
-export default connect(msp, mdp)(Header);
+export default withRouter(connect(msp, mdp)(Header));

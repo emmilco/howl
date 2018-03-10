@@ -1,12 +1,13 @@
 import React from 'react';
 
-import ArticleAuthorHeader from './article_author_header';
+import UserHeader from '../user_header';
 
 const ArticleFooter = (props) => {
   return (
     <div>
-      <ArticleAuthorHeader
-        author={props.author}
+      <UserHeader
+        user={props.author}
+        bio={props.author.bio}
         date={props.article.publish_date}/>
     </div>
   );

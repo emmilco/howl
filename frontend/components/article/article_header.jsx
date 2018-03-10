@@ -5,7 +5,7 @@ import UserHeader from '../user_header';
 const ArticleHeader = (props) => {
   return (
     <div>
-      <div className="article_author_header">
+      <div id="article_author_header">
         <UserHeader
           user={props.author}
           bio={props.author.bio}
