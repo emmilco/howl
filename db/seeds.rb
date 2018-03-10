@@ -231,3 +231,11 @@ paras.map.with_index do |para, idx|
     content_type: 'p'
   )
 end
+
+paras.map.with_index do |para, idx|
+  Comment.create(
+    article_id: loomings.id,
+    content: para,
+    author: User.all.sample
+  )
+end

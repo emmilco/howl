@@ -22,6 +22,8 @@ class Article < ApplicationRecord
   dependent: :destroy,
   foreign_key: :chunkable_id
 
+  has_many :comments,
+  dependent: :destroy
 
   accepts_nested_attributes_for :chunks,
   allow_destroy: true
