@@ -11,6 +11,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end
     resources :chunks, only: [:create, :show, :destroy]
-    resources :comments, only: [:create, :destroy, :update, :howl, :unhowl]
+    resources :comments, only: [:show, :create, :destroy, :update, :howl, :unhowl]
   end
 end
