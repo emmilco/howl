@@ -1,5 +1,5 @@
 json.article do
-  json.extract! @article, :id, :title, :author_id, :publish_date
+  json.extract! @article, :id, :title, :author_id, :publish_date, :published
   json.chunks @article.chunks.order(:ord).pluck(:id)
 end
 

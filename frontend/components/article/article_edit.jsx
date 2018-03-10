@@ -31,15 +31,23 @@ class ArticleEdit extends React.Component {
     }
   }
 
+  componentDidUpdate(nextProps){
+    if (this.props.article.published !== nextProps.article.published){
+      this.promptSave();
+    }
+  }
+
+  promptSave(){
+    this.props.updateArticle(this.packagedArticle()).then(
+      () => this.setState({saved: "Saved"})
+    );
+  }
+
   saveHandler(){
     clearTimeout(this.state.saveTimer);
     this.setState({saved: "Saving..."});
     this.setState({
-      saveTimer: window.setTimeout(() => {
-        this.props.updateArticle(this.packagedArticle()).then(
-          () => this.setState({saved: "Saved"})
-        );
-      }, 3000)
+      saveTimer: window.setTimeout(() => this.promptSave(), 3000)
     });
   }
 

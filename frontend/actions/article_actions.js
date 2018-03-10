@@ -5,6 +5,7 @@ export const REMOVE_ARTICLE = "REMOVE_ARTICLE";
 export const RECEIVE_HOMEPAGE_ARTICLES = "RECEIVE_HOMEPAGE_ARTICLES";
 export const RECEIVE_ARTICLE_ERRORS = "RECEIVE_ARTICLE_ERRORS";
 export const RECEIVE_TITLE = "RECEIVE_TITLE";
+export const TOGGLE_ARTICLE_PUBLISHED = "TOGGLE_ARTICLE_PUBLISHED";
 
 export const receiveArticle = ({ article, chunks, user }) => {
   return {
@@ -40,6 +41,13 @@ export const receiveHomepageParticles = (articles) => {
   return {
     type: RECEIVE_HOMEPAGE_ARTICLES,
     articles
+  };
+};
+
+export const toggleArticlePublished = (id) => {
+  return {
+    type: TOGGLE_ARTICLE_PUBLISHED,
+    id
   };
 };
 

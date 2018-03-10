@@ -4,7 +4,8 @@ import {
   RECEIVE_ARTICLE,
   REMOVE_ARTICLE,
   RECEIVE_HOMEPAGE_ARTICLES,
-  RECEIVE_TITLE
+  RECEIVE_TITLE,
+  TOGGLE_ARTICLE_PUBLISHED
 } from '../actions/article_actions';
 
 import {
@@ -32,6 +33,14 @@ const articlesReducer = (oldState = {}, action) => {
 
     case RECEIVE_TITLE:
       return merge({}, oldState, action.title);
+
+    case TOGGLE_ARTICLE_PUBLISHED:
+      if (oldState[action.id].published) {
+        newState[action.id].published = false;
+      } else {
+        newState[action.id].published = true;
+      }
+      return newState;
 
     case RECEIVE_HOMEPAGE_ARTICLES:
       return merge({}, oldState, action.articles);
