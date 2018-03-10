@@ -36,9 +36,9 @@ class ArticleEdit extends React.Component {
     this.setState({saved: "Saving..."});
     this.setState({
       saveTimer: window.setTimeout(() => {
-        this.props.updateArticle(this.packagedArticle());
-        console.log("articlesaved");
-        this.setState({saved: "Saved"});
+        this.props.updateArticle(this.packagedArticle()).then(
+          () => this.setState({saved: "Saved"})
+        );
       }, 3000)
     });
   }
