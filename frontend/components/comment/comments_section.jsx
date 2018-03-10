@@ -24,7 +24,7 @@ class CommentsSection extends React.Component {
 
   render(){
     return (
-      <div className="comments_section">
+      <div id="comments_section">
         <div>Comments Form Goes Here!</div>
         <div className="comments_feed">
           {this.props.comments.map((comment) => {
