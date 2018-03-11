@@ -121,3 +121,15 @@ p.article_publish_date {
   letter-spacing: .05em;
   display: inline-block;
 }
+
+.chunk_container:last-child p.chunk[id="0"]:empty:after {
+  color: rgba(0,0,0,.40);
+  content: "Start your story...";
+  display: block; /* For Firefox */
+}
+
+.article_title_editor:empty:after {
+  color: rgba(0,0,0,.40);
+  content: "Title";
+  display: block; /* For Firefox */
+}

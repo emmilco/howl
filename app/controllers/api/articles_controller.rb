@@ -8,7 +8,7 @@ class Api::ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(author_id: current_user.id, title: "Untitled")
+    @article = Article.new(author_id: current_user.id, title: "")
     Chunk.create(ord: 0, content_type: 'p', article: @article, content: '')
     @article.save
     render :show

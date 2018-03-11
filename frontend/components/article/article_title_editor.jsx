@@ -26,6 +26,7 @@ class ArticleTitleEditor extends React.Component {
   render(){
     return (
       <div className="article_title_editor"
+        placeholder="New article"
         contentEditable="true"
         onInput={this.titleHandler.bind(this)}
         onKeyDown={this.handleReturn}
