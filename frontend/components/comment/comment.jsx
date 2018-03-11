@@ -1,6 +1,5 @@
 import React from 'react';
 
-import CommentBody from './comment_body';
 import UserHeader from '../user_header';
 
 class Comment extends React.Component {

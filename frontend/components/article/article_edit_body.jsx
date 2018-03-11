@@ -17,7 +17,7 @@ class ArticleEditBody extends React.Component {
     super(props);
   }
 
-  handleReturn(chunk){
+  handleCarriageReturn(chunk){
     return (e) => {
       if (e.key === "Enter"){
         e.preventDefault();
@@ -44,7 +44,7 @@ class ArticleEditBody extends React.Component {
           const content = chunk.content;
           const type = chunk.content_type;
           return (
-            <div onKeyDown={this.handleReturn(chunk).bind(this)}>
+            <div onKeyDown={this.handleCarriageReturn(chunk).bind(this)}>
               <Chunk key={chunk.id}
                 edit={true}
                 chunk={chunk}

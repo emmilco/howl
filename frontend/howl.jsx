@@ -11,7 +11,7 @@ import * as ArticlesAPIUtil from './util/articles_api_util';
 // END TESTING
 
 document.addEventListener('DOMContentLoaded', () => {
-
+  
   let store;
   if (window.currentUser) {
     const preloadedState = { session: { currentUser: window.currentUser}};

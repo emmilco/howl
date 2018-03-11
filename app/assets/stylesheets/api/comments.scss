@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#comments_section_header {
+  font-weight: bold;
+  color: rgba(0,0,0,.68);
+}
+
 #comments_section {
   background-color: rgb(250,250,250);
 }
@@ -11,6 +16,7 @@
   margin: 0 auto;
   padding-bottom: 60px;
   padding-right: 60px;
+  padding-top: 100px;
 }
 
 .comment {
@@ -45,4 +51,11 @@
 
 #comments_section .avatar {
   width: 36px;
+}
+
+#comments_section .comment_footer {
+  margin-top: 15px;
+}
+
+#comments_section .comment_form_input {
 }

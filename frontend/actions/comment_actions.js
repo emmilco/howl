@@ -19,10 +19,10 @@ export const receiveComment = (comment) => {
   };
 };
 
-export const removeComment = (id) => {
+export const removeComment = (comment) => {
   return {
     type: REMOVE_COMMENT,
-    id
+    comment
   };
 };
 
@@ -50,10 +50,10 @@ export const updateComment = (comment) => {
   };
 };
 
-export const deleteComment = (id) => {
+export const deleteComment = (comment) => {
   return (dispatch) => {
-    return CommentsAPIUtil.deleteComment(id).then((payload) => {
-      return dispatch(removeComment(id));
+    return CommentsAPIUtil.deleteComment(comment).then((payload) => {
+      return dispatch(removeComment(comment));
     });
   };
 };

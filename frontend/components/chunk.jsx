@@ -20,8 +20,11 @@ class Chunk extends React.Component {
     return nextProps.chunk.content !== this.state.content;
   }
 
-
-
+  handlePaste(e){
+    e.preventDefault();
+    const text = e.clipboardData.getData("text/plain");
+    document.execCommand("insertHTML", false, text);
+  }
 
   handleDelete(chunk){
     return (e) => {
@@ -50,6 +53,7 @@ class Chunk extends React.Component {
         <p contentEditable={this.props.edit}
           onInput={this.handleChange(this.state.id).bind(this)}
           onKeyUp={this.handleDelete(this.state).bind(this)}
+          onPaste={this.handlePaste}
           id={`${this.props.chunk.ord}`}
           className='chunk'>{this.state.content}
         </p>

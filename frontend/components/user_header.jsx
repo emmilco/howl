@@ -14,6 +14,7 @@ const displayDate = (dateString) => {
 };
 
 const UserHeader = (props) => {
+  debugger
   return (
     <div className="user_header">
       <img className="avatar"

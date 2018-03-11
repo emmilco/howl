@@ -13,6 +13,11 @@ import {
   RECEIVE_CHUNK
 } from '../actions/chunk_actions';
 
+import {
+  REMOVE_COMMENT,
+  RECEIVE_COMMENT
+} from '../actions/comment_actions';
+
 const articlesReducer = (oldState = {}, action) => {
   const newState =  merge({}, oldState);
   let article;
@@ -33,6 +38,16 @@ const articlesReducer = (oldState = {}, action) => {
 
     case RECEIVE_TITLE:
       return merge({}, oldState, action.title);
+
+    case REMOVE_COMMENT:
+      article = newState[action.comment.article_id];
+      article.comments.splice(article.comments.indexOf(action.comment.id), 1);
+      return newState;
+
+    case RECEIVE_COMMENT:
+      article = newState[action.comment.article_id];
+      article.comments.push(action.comment.id);
+      return newState;
 
     case TOGGLE_ARTICLE_PUBLISHED:
       if (oldState[action.id].published) {
