@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import ChunkMenu from './chunk_menu';
 import { displayForm, toggleMenu } from '../actions/ui_actions';
+import { receiveChunk, deleteChunk } from '../actions/chunk_actions';
 
 class Chunk extends React.Component {
   constructor(props){
@@ -77,8 +78,11 @@ class Chunk extends React.Component {
 }
 
 
+
 const mdp = (dispatch) => {
   return {
+    receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
+    deleteChunk: (chunk) => dispatch(deleteChunk(chunk)),
     displayForm: (form) => dispatch(displayForm(form)),
     toggleMenu: (menu, e) => {
       e.stopPropagation();

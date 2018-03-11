@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { merge } from 'lodash';
 
 import Chunk from '../chunk';
 import ContentTypeSelector from './content_type_selector';
-import { merge } from 'lodash';
 
-import {
-  receiveChunk,
-  deleteChunk,
-  createChunk
-} from '../../actions/chunk_actions';
+import { createChunk } from '../../actions/chunk_actions';
 
 class ArticleEditBody extends React.Component {
   constructor(props){
@@ -49,8 +45,6 @@ class ArticleEditBody extends React.Component {
               <Chunk key={chunk.id}
                 edit={true}
                 chunk={chunk}
-                receiveChunk={this.props.receiveChunk}
-                deleteChunk={this.props.deleteChunk}
                 chunkCount={this.props.article.chunks.length}
                 />
           </div>
@@ -63,8 +57,6 @@ class ArticleEditBody extends React.Component {
 
 const mdp = (dispatch) => {
   return {
-    receiveChunk: (chunk) => dispatch(receiveChunk(chunk)),
-    deleteChunk: (chunk) => dispatch(deleteChunk(chunk)),
     createChunk: (chunk, ord) => dispatch(createChunk(chunk, ord))
   };
 };
