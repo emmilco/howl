@@ -28,8 +28,8 @@ class ChunkMenu extends React.Component {
           <button onClick={this.buttonHandler}>h1</button>
           <button onClick={this.buttonHandler}>h2</button>
           <button onClick={this.buttonHandler}>img</button>
-          <button onClick={this.buttonHandler}>—</button>
-          <button onClick={this.buttonHandler}>“ ”</button>
+          <button onClick={this.buttonHandler}>divider</button>
+          <button onClick={this.buttonHandler}>quote</button>
 
         </div>
       );

@@ -12,7 +12,7 @@ p.chunk {
   font-size: 22px;
   font-family: "freight-text-pro";
   line-height: 1.58;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
   color: #383838;
 }
 
@@ -86,7 +86,7 @@ p.article_publish_date {
 .chunk_container:focus-within .chunk_menu_container:before {
   content: "+";
   font-family: 'europa';
-  position: relative;
+  position: absolute;
   float: left;
   left: -45px;
   top: 2px;
@@ -96,6 +96,7 @@ p.article_publish_date {
   color: rgba(0,0,0,.10);
   font-size: 24px;
   font-weight: bold;
+  background-color: white;
   cursor: pointer;
 }
 
@@ -159,8 +160,10 @@ p.article_publish_date {
 
 // CHUNK MENU
 
-.chunk_menu_conainer {
+.chunk_menu_container {
   position: relative;
+  background-color: white;
+  z-index: 2;
 }
 
 .chunk_menu {
@@ -227,6 +230,12 @@ p.chunk.h2 {
   font-weight: bold;
 }
 
-p.chunk.— {
-  font-size: 72px;
+
+p.chunk.quote {
+  font-style: italic;
+  border-left: 3px solid black;
+  padding-left: 20px;
+  margin: 40px 0px;
+  position: relative;
+  left: -23px;
 }

@@ -20,7 +20,8 @@ class Chunk extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    return nextProps.chunk.content !== this.state.content;
+    return (nextProps.chunk.content !== this.state.content ||
+    nextProps.chunk.content_type !== this.props.chunk.content_type);
   }
 
   handlePaste(e){
@@ -53,7 +54,7 @@ class Chunk extends React.Component {
     const type = this.props.chunk.content_type;
     return (
       <div className={`chunk_${type}`}>
-        {this.props.chunk.content === "" &&
+        {(this.props.chunk.content === "" && type === "p") &&
           <div
             tabIndex="-1"
             className="chunk_menu_container"
