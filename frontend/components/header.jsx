@@ -48,7 +48,7 @@ const Header = (props) => {
 const msp = (state) => {
   return {
     currentUser: state.session.currentUser,
-    userMenuState: state.ui.userMenu
+    userMenuState: state.ui.menu === "userMenu"
   };
 };
 

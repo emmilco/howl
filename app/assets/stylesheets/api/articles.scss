@@ -68,14 +68,35 @@ p.article_publish_date {
   position: relative;
 }
 
-.article_edit p.chunk:focus:before {
+.article_edit .chunk {
+  position: relative;
+}
+
+.article_edit p.chunk:focus:not(:empty):before {
   content: "¶";
   font-family: 'europa';
   position: absolute;
   float: left;
-  left: 40px;
+  left: -30px;
+  top: 3px;
   color: rgba(0,0,0,.10);
   font-size: 18px;
+}
+
+.chunk_container:focus-within .chunk_menu_container:before {
+  content: "+";
+  font-family: 'europa';
+  position: relative;
+  float: left;
+  left: -45px;
+  top: 2px;
+  border: 1px lightgray solid;
+  border-radius: 50%;
+  padding: 0px 9px 6px 9px;
+  color: rgba(0,0,0,.10);
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .article_edit .user_header {
@@ -125,6 +146,7 @@ p.article_publish_date {
 .chunk_container:last-child p.chunk[id="0"]:empty:after {
   color: rgba(0,0,0,.40);
   content: "Start your story...";
+  position: absolute;
   display: block; /* For Firefox */
 }
 
@@ -132,4 +154,52 @@ p.article_publish_date {
   color: rgba(0,0,0,.40);
   content: "Title";
   display: block; /* For Firefox */
+}
+
+
+// CHUNK MENU
+
+.chunk_menu_conainer {
+  position: relative;
+}
+
+.chunk_menu {
+  display: flex;
+  position: absolute;
+  padding: 10px;
+  background-color: white;
+  z-index: 5;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px #ddd;
+
+}
+
+#popover-arrow-left {
+  content: "";
+  position: absolute;
+  left: -8px;
+
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #ddd;
+  border-left: 0px solid #ddd;
+  background: transparent;
+}
+
+#popover-arrow-left:before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: -6px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #fff;
+  border-left: 0px solid #fff;
+  background: transparent;
+  z-index: 6
 }

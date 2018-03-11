@@ -118,3 +118,13 @@ i {
 b {
   font-weight: bold;
 }
+
+#menu_overlay {
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  background-color: rgb(0,0,0,0); /* Fallback color */
+}

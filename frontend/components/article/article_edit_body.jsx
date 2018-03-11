@@ -44,7 +44,7 @@ class ArticleEditBody extends React.Component {
           const content = chunk.content;
           const type = chunk.content_type;
           return (
-            <div class="chunk_container"
+            <div className="chunk_container"
               onKeyDown={this.handleCarriageReturn(chunk).bind(this)}>
               <Chunk key={chunk.id}
                 edit={true}

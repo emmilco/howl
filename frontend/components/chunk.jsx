@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
+import ChunkMenu from './chunk_menu';
+import { displayForm, toggleMenu } from '../actions/ui_actions';
 
 class Chunk extends React.Component {
   constructor(props){
@@ -50,6 +53,15 @@ class Chunk extends React.Component {
     const type = this.state.content_type;
     return (
       <div className={`chunk_${type}`}>
+        {this.props.chunk.content === "" &&
+          <div
+            tabIndex="-1"
+            className="chunk_menu_container"
+            onClick={(e) => this.props.toggleMenu(`chunk_${this.props.chunk.id}`, e)}
+            >
+            <ChunkMenu chunk={this.props.chunk}/>
+          </div>
+        }
         <p contentEditable={this.props.edit}
           onInput={this.handleChange(this.state.id).bind(this)}
           onKeyUp={this.handleDelete(this.state).bind(this)}
@@ -63,4 +75,15 @@ class Chunk extends React.Component {
 
 }
 
-export default Chunk;
+
+const mdp = (dispatch) => {
+  return {
+    displayForm: (form) => dispatch(displayForm(form)),
+    toggleMenu: (menu, e) => {
+      e.stopPropagation();
+      dispatch(toggleMenu(menu));
+    }
+  };
+};
+
+export default connect(null, mdp)(Chunk);
