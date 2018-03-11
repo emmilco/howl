@@ -47,6 +47,7 @@ const articlesReducer = (oldState = {}, action) => {
     case RECEIVE_COMMENT:
       article = newState[action.comment.article_id];
       article.comments.push(action.comment.id);
+      article.comment_authors.push(action.comment.author_id);
       return newState;
 
     case TOGGLE_ARTICLE_PUBLISHED:

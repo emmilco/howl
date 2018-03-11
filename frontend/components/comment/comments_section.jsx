@@ -39,9 +39,9 @@ class CommentsSection extends React.Component {
             if (!comment) { return; }
             return (
               <Comment
+                currentUser={this.props.currentUser}
                 comment={comment}
-                author={this.props.commentAuthors[comment.author_id]
-                  || this.props.currentUser}
+                author={this.props.commentAuthors[comment.author_id]}
                 updateComment={this.props.updateComment}
                 deleteComment={this.props.deleteComment}
               />

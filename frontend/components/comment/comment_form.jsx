@@ -17,7 +17,8 @@ class CommentForm extends React.Component {
   handleSubmit(e){
     const comment = {
       content: this.commentText,
-      article_id: this.props.articleId
+      article_id: this.props.articleId,
+      author_id: this.props.currentUser.id
     };
     this.props.createComment(comment);
     document.getElementById("comment_form_input").innerText = "";

@@ -77,8 +77,36 @@
 
 #comment_form_input {
   min-height: 38px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-#comments_section button {
-  margin: 0
+.comment_footer button {
+  margin: 0;
+  color: rgba(0,160,100,.9);
+
+}
+
+#comments_section .comment_footer {
+  display:flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+#comments_section .comment_header {
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.comment_header button {
+  color: rgba(255,50,50,.9);
+  border: none;
+  align-self: flex-start;
+}
+
+.comment_header button:hover {
+  color: white;
+  border: none;
+  background-color: rgba(255,50,50,.3);
 }

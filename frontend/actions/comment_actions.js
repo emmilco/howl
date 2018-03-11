@@ -52,7 +52,7 @@ export const updateComment = (comment) => {
 
 export const deleteComment = (comment) => {
   return (dispatch) => {
-    return CommentsAPIUtil.deleteComment(comment).then((payload) => {
+    return CommentsAPIUtil.deleteComment(comment.id).then((payload) => {
       return dispatch(removeComment(comment));
     });
   };
