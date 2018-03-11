@@ -92,16 +92,17 @@
   margin-left: 200px;
 }
 
-#comment_form_input:focus {
+.comment_form_container:focus-within #comment_form_input {
   animation-name: growVertical;
   animation-duration: .3s;
   animation-fill-mode: forwards;
 }
 
-#comment_form_input:not(:focus) {
+.comment_form_container:not(:focus-within) #comment_form_input {
   animation-name: growVertical;
   animation-duration: .3s;
   animation-fill-mode: reverse;
+  color: white;
 }
 
 
@@ -133,6 +134,8 @@
   color: white;
   border: none;
   background-color: rgba(255,50,50,.3);
+  transition-property: all;
+  transition-duration: .3s;
 }
 
 .comment_form_container p.user_name {

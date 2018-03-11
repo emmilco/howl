@@ -3,6 +3,10 @@ import React from 'react';
 import UserHeader from '../user_header';
 
 class CommentForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.commentText = "";
+  }
 
   handleInput(e){
     this.commentText = e.currentTarget.innerText;
@@ -15,6 +19,7 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(e){
+    if (this.commentText === "") { return; }
     const comment = {
       content: this.commentText,
       article_id: this.props.articleId,
@@ -22,6 +27,7 @@ class CommentForm extends React.Component {
     };
     this.props.createComment(comment);
     document.getElementById("comment_form_input").innerText = "";
+    this.commentText = "";
     this.displayForm = false;
   }
 
