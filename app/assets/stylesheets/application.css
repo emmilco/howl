@@ -79,6 +79,7 @@ button, input[type=submit] {
   letter-spacing: .02em;
   font-size: 14px;
   font-weight: lighter;
+  background-color: white;
 }
 
 input {
