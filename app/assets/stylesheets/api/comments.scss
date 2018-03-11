@@ -17,6 +17,7 @@
   padding-bottom: 60px;
   padding-right: 60px;
   padding-top: 100px;
+  padding-left: 20px;
 }
 
 .comment {
@@ -58,4 +59,12 @@
 }
 
 #comments_section .comment_form_input {
+}
+
+
+#no_comments {
+  font-size: 32px;
+  color: rgba(0,0,0,.18);
+  padding-top: 20px;
+  padding-bottom: 60px;
 }

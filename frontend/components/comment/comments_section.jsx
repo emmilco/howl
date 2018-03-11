@@ -31,7 +31,10 @@ class CommentsSection extends React.Component {
           <CommentForm
             articleId={this.props.articleId}
             createComment={this.props.createComment}
-            currentUser={this.props.currentUser}/>
+            currentUser={this.props.currentUser}
+            />
+          {this.props.comments.length === 0 &&
+            <div id="no_comments">No comments yet!</div>}
           {this.props.comments.map((comment) => {
             if (!comment) { return; }
             return (

@@ -25,6 +25,8 @@ class CommentForm extends React.Component {
   }
 
   render(){
+    if (!this.props.currentUser) {
+      return <div></div>; }
     return (
       <div className="comment">
         <UserHeader
