@@ -22,7 +22,7 @@ class Chunk extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState){
     return (nextProps.chunk.content !== this.state.content ||
-    nextProps.chunk.content_type !== this.props.chunk.content_type);
+    nextProps.chunk.content_type !== this.state.content_type);
   }
 
   handlePaste(e){
