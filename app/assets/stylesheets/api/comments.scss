@@ -61,10 +61,24 @@
 #comments_section .comment_form_input {
 }
 
-
 #no_comments {
   font-size: 32px;
   color: rgba(0,0,0,.18);
-  padding-top: 20px;
+  padding-top: 60px;
   padding-bottom: 60px;
+}
+
+#comment_form_input:empty:not(:focus):after {
+  color: rgba(0,0,0,.40);
+  content: "Write a response...";
+  font-size: 24px;
+  display: block; /* For Firefox */
+}
+
+#comment_form_input {
+  min-height: 38px;
+}
+
+#comments_section button {
+  margin: 0
 }
