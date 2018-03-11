@@ -77,7 +77,7 @@
   content: "Write a response...";
   font-size: 24px;
   display: block; /* For Firefox */
-  margin-left: 200px;
+  left: 0px;
   position:relative;
   top: 0px;
 }
@@ -89,7 +89,7 @@
   animation-duration: .3s;
   animation-name: fadeOutUp;
   animation-fill-mode: forwards;
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .comment_form_container:focus-within #comment_form_input {
@@ -122,6 +122,15 @@
   transition-duration: .3s;
 }
 
+.comment_form_container:focus-within button:active {
+  margin: 0;
+  border: 1px solid white;
+  background-color: rgba(0,155,100,.9);
+  color: white;
+  transition-property: all;
+  transition-duration: .3s;
+}
+
 #comments_section .comment_footer {
   display:flex;
   align-items: flex-start;
@@ -135,15 +144,24 @@
 }
 
 .comment_header button {
-  color: rgba(255,50,50,.9);
+  color: rgba(255,50,50,.7);
   border: none;
   align-self: flex-start;
+  margin: 0px;
+  font-size: 12px;
+  padding: 5px 8px;
 }
 
 .comment_header button:hover {
   color: white;
   border: none;
   background-color: rgba(255,50,50,.3);
+  transition-property: all;
+  transition-duration: .3s;
+}
+
+.comment_header button:active {
+  background-color: rgba(255,50,50,.9);
   transition-property: all;
   transition-duration: .3s;
 }

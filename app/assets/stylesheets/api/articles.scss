@@ -72,7 +72,7 @@ p.article_publish_date {
   position: relative;
 }
 
-.article_edit p.chunk:focus:not(:empty):before {
+.article_edit p.chunk.p:focus:not(:empty):before {
   content: "¶";
   font-family: 'europa';
   position: absolute;
@@ -166,7 +166,7 @@ p.article_publish_date {
 .chunk_menu {
   display: flex;
   position: absolute;
-  padding: 10px;
+  padding: 2px;
   background-color: white;
   z-index: 5;
   border: 1px solid #ddd;
@@ -202,4 +202,31 @@ p.article_publish_date {
   border-left: 0px solid #fff;
   background: transparent;
   z-index: 6
+}
+
+.chunk_menu button {
+  margin: 2px;
+}
+
+
+// CHUNK CONTENT TYPES
+
+p.chunk.h1 {
+  font-family: 'europa';
+  font-size: 36px;
+  padding-bottom: 10px;
+  padding-top: 30px;
+  font-weight: bold;
+}
+
+p.chunk.h2 {
+  font-family: 'europa';
+  font-size: 28px;
+  padding-bottom: 10px;
+  padding-top: 30px;
+  font-weight: bold;
+}
+
+p.chunk.— {
+  font-size: 72px;
 }

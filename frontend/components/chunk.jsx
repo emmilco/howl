@@ -50,7 +50,7 @@ class Chunk extends React.Component {
 
   render(){
     const content = this.state.content;
-    const type = this.state.content_type;
+    const type = this.props.chunk.content_type;
     return (
       <div className={`chunk_${type}`}>
         {this.props.chunk.content === "" &&
@@ -67,7 +67,7 @@ class Chunk extends React.Component {
           onKeyUp={this.handleDelete(this.state).bind(this)}
           onPaste={this.handlePaste}
           id={`${this.props.chunk.ord}`}
-          className='chunk'>{this.state.content}
+          className={`chunk ${type}`}>{this.state.content}
         </p>
       </div>
     );
