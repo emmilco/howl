@@ -29,7 +29,7 @@ class CommentForm extends React.Component {
     if (!this.props.currentUser) {
       return <div></div>; }
     return (
-      <div className="comment">
+      <div className="comment comment_form_container">
         <UserHeader
           user={this.props.currentUser}
           />

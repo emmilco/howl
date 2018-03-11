@@ -68,28 +68,52 @@
   padding-bottom: 60px;
 }
 
+#comment_form_input {
+  min-height: 38px;
+}
+
 #comment_form_input:empty:not(:focus):after {
   color: rgba(0,0,0,.40);
   content: "Write a response...";
   font-size: 24px;
   display: block; /* For Firefox */
+  margin-left: 200px;
+  position:relative;
+  top: 0px;
 }
 
-#comment_form_input {
-  min-height: 38px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+#comment_form_input:empty:focus:after {
+  content: "Write a response...";
+  font-size: 24px;
+  display: block; /* For Firefox */
+  animation-duration: .3s;
+  animation-name: fadeOutUp;
+  animation-fill-mode: forwards;
+  margin-left: 200px;
 }
+
+#comment_form_input:focus {
+  animation-name: growVertical;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+}
+
+#comment_form_input:not(:focus) {
+  animation-name: growVertical;
+  animation-duration: .3s;
+  animation-fill-mode: reverse;
+}
+
+
 
 .comment_footer button {
   margin: 0;
   color: rgba(0,160,100,.9);
-
 }
 
 #comments_section .comment_footer {
   display:flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
 }
 
@@ -109,4 +133,67 @@
   color: white;
   border: none;
   background-color: rgba(255,50,50,.3);
+}
+
+.comment_form_container p.user_name {
+  visibility: hidden;
+}
+
+.comment_form_container button {
+  visibility: hidden;
+}
+
+.comment_form_container:focus-within p.user_name {
+  visibility: visible;
+  color: rgba(0,0,0,.50);
+  animation-name: fadeInDown;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+}
+
+.comment_form_container:focus-within button {
+  visibility: visible;
+  color: rgba(0,0,0,.50);
+  animation-name: fadeInUp;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+}
+
+#comments_section .comment_form_container .comment_footer {
+  display: none;
+}
+
+#comments_section .comment_form_container:focus-within .comment_footer {
+  display: flex;
+}
+
+#comments_section .comment_form_container:not(:focus-within) .user_header {
+  float:left;
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: .3;
+    color: black;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -150px, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from { transform: translate3d(0, -200px, 0); opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translate3d(0, 200px, 0); opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes growVertical {
+  from { height: 38px;}
+  to { height: 120px; }
 }
