@@ -25,10 +25,14 @@ class Chunk extends React.Component {
     nextProps.chunk.content_type !== this.state.content_type);
   }
 
-  handlePaste(e){
-    e.preventDefault();
-    const text = e.clipboardData.getData("text/plain");
-    document.execCommand("insertHTML", false, text);
+  handlePaste(chunkId){
+    return (e) => {
+      e.preventDefault();
+      const text = e.clipboardData.getData("text/plain");
+      document.execCommand("insertHTML", false, text);
+      this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
+    };
+
   }
 
   handleDelete(chunk){
@@ -67,7 +71,7 @@ class Chunk extends React.Component {
         <p contentEditable={this.props.edit}
           onInput={this.handleChange(this.state.id).bind(this)}
           onKeyUp={this.handleDelete(this.state).bind(this)}
-          onPaste={this.handlePaste}
+          onPaste={this.handlePaste(this.state.id)}
           id={`${this.props.chunk.ord}`}
           className={`chunk ${type}`}>{this.state.content}
         </p>
