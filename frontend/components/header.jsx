@@ -33,8 +33,7 @@ const Header = (props) => {
           <div className="user_menus">
             <Route path='/articles/:id/edit' component={PublishButton} />
             <div
-              onBlur={() => props.toggleMenu("userMenu")}
-              onClick={() => props.toggleMenu("userMenu")}>
+              onClick={(e) => props.toggleMenu("userMenu", e)}>
               <img id="user_menu_button" src={window.default_avatar_path} />
               <UserMenu logout={props.logout} openState={props.userMenuState}/>
             </div>
@@ -58,7 +57,10 @@ const mdp = (dispatch) => {
     displayForm: (form) => dispatch(displayForm(form)),
     login: (user) => dispatch(login(user)),
     logout: () => dispatch(logout()),
-    toggleMenu: (menu) => dispatch(toggleMenu(menu))
+    toggleMenu: (menu, e) => {
+      e.stopPropagation();
+      dispatch(toggleMenu(menu));
+    }
   };
 };
 

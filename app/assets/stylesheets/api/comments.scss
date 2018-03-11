@@ -110,6 +110,16 @@
 .comment_footer button {
   margin: 0;
   color: rgba(0,160,100,.9);
+  border: 1px solid white;
+}
+
+.comment_form_container:focus-within button:hover {
+  margin: 0;
+  border: 1px solid white;
+  background-color: rgba(0,155,100,.3);
+  color: white;
+  transition-property: all;
+  transition-duration: .3s;
 }
 
 #comments_section .comment_footer {
