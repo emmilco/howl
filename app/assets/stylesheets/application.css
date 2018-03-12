@@ -119,6 +119,10 @@ b {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+}
+
 #menu_overlay {
   position: fixed; /* Stay in place */
   z-index: 2; /* Sit on top */

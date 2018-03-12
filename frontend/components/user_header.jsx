@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const displayDate = (dateString) => {
   const dateObject = new Date(dateString);
@@ -15,19 +16,21 @@ const displayDate = (dateString) => {
 
 const UserHeader = (props) => {
   return (
-    <div className="user_header">
-      <img className="avatar"
-        src={window.default_avatar_path}/>
-      <div className="user_header_info">
-        <p className="user_name">{props.user.full_name}</p>
-        {Boolean(props.bio) &&
-          <p className="user_bio">{props.bio}</p>}
-        {Boolean(props.status) &&
-          <p className="publication_status">{props.status}</p>}
-        {Boolean(props.date) &&
-          <p className="date">{displayDate(props.date)}</p>}
+    <Link to={`/users/${props.user.id}`}>
+      <div className="user_header">
+        <img className="avatar"
+          src={window.default_avatar_path}/>
+        <div className="user_header_info">
+          <p className="user_name">{props.user.full_name}</p>
+          {Boolean(props.bio) &&
+            <p className="user_bio">{props.bio}</p>}
+          {Boolean(props.status) &&
+            <p className="publication_status">{props.status}</p>}
+          {Boolean(props.date) &&
+            <p className="date">{displayDate(props.date)}</p>}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

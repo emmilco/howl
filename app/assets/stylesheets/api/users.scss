@@ -84,6 +84,7 @@ p.article_publish_date {
   margin-top: 10px;
   margin-bottom: 15px;
   position: relative;
+  z-index: 3;
 }
 
 .user_articles_feed .user_header_info {
@@ -96,7 +97,7 @@ p.article_publish_date {
 
 .user_articles_feed .avatar {
   width: 36px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .user_articles_feed .user_header:before {
@@ -106,7 +107,7 @@ p.article_publish_date {
   width: 50px;
   height: 20px;
   background-color: white;
-  z-index: 2;
+  z-index: 1;
 }
 
 .user_articles_feed .user_header:after {
