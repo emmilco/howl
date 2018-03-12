@@ -41,6 +41,7 @@ class Api::ChunksController < ApplicationController
   def update
     @chunk = Chunk.find(params[:id])
     if @chunk && @chunk.article.author == current_user && @chunk.update(chunk_params)
+      @chunk.update(content_type: "img")
       render :show
     else
       render @chunk.errors.full_messages

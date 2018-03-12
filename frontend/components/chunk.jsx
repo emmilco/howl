@@ -73,6 +73,7 @@ class Chunk extends React.Component {
             <ChunkMenu chunk={this.props.chunk}/>
           </div>
         }
+        {type === "img" && <img src={this.props.chunk.image_url} />}
         <p contentEditable={this.props.edit}
           onInput={this.handleChange(this.state.id).bind(this)}
           onKeyUp={this.handleDelete(this.state).bind(this)}

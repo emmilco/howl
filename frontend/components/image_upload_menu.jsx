@@ -20,6 +20,7 @@ class ImageUploadMenu extends React.Component {
       formData.append("chunk[image]", file);
     }
     this.props.updateChunk(formData, this.props.chunk.id);
+    this.props.clearMenu();
   }
 
   updateFile(e){

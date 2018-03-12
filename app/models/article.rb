@@ -22,6 +22,10 @@ class Article < ApplicationRecord
   dependent: :destroy,
   foreign_key: :chunkable_id
 
+  has_many :images,
+  through: :chunks,
+  source: :image
+
   has_many :comments,
   dependent: :destroy
 

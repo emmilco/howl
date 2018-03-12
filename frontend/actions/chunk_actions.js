@@ -37,7 +37,7 @@ export const deleteChunk = (chunk) => {
 export const updateChunk = (formData, chunkId) => {
   return (dispatch) => {
     return ChunksAPIUtil.updateChunk(formData, chunkId).then((payload) => {
-      return dispatch(receiveChunk(payload));
+      return dispatch(receiveChunk({[chunkId]: payload}));
     });
   };
 };
