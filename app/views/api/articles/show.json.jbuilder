@@ -9,6 +9,7 @@ json.chunks do
   @article.chunks.map do |chunk|
     json.set! chunk.id do
       json.extract! chunk, :id, :chunkable_id, :content, :ord, :content_type
+      json.image_url asset_path(chunk.image.url)
     end
   end
 end

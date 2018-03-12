@@ -13,3 +13,14 @@ export const deleteChunk = (chunk) => {
     data: { chunk }
   });
 };
+
+export const updateChunk = (formData, chunkId) => {
+  return $.ajax({
+    url: `/api/chunks/${chunkId}`,
+    method: "PATCH",
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
+  });
+};

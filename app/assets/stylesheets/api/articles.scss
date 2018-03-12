@@ -90,13 +90,14 @@ p.article_publish_date {
   float: left;
   left: -45px;
   top: 2px;
-  border: 1px lightgray solid;
+  border: 1px black solid;
+  box-shadow: -2px 2px 4px lightgray;
   border-radius: 50%;
   padding: 0px 9px 6px 9px;
-  color: rgba(0,0,0,.10);
+  color: white;
   font-size: 24px;
   font-weight: bold;
-  background-color: white;
+  background-color: black;
   cursor: pointer;
 }
 
@@ -129,8 +130,8 @@ p.article_publish_date {
 }
 
 .saved_status {
-  font-weight: lighter;
-  color: rgba(0,0,0,.20);
+  font-weight: normal;
+  color: rgba(0,0,0,.50);
   margin-bottom: 20px;
   letter-spacing: .05em;
   display: inline-block;
@@ -168,9 +169,11 @@ p.article_publish_date {
 
 .chunk_menu {
   display: flex;
+  align-items: center;
   position: absolute;
+  top: -4px;
   padding: 2px;
-  background-color: white;
+  background-color: #ddd;
   z-index: 5;
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -201,14 +204,29 @@ p.article_publish_date {
   height: 0;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-right: 6px solid #fff;
-  border-left: 0px solid #fff;
+  border-right: 6px solid #ddd;
+  border-left: 0px solid #ddd;
   background: transparent;
   z-index: 6
 }
 
 .chunk_menu button {
   margin: 2px;
+  color: gray;
+}
+
+#image_upload_button {
+  width: 35px;
+  height: 30px;
+  margin: 2px;
+  position: relative;
+  top: 1px;
+}
+
+#image_upload_button:hover {
+  background-color: white;
+  transition-property: all;
+  transition-duration: .3s;
 }
 
 

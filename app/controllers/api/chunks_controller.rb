@@ -38,6 +38,15 @@ class Api::ChunksController < ApplicationController
     end
   end
 
+  def update
+    @chunk = Chunk.find(params[:id])
+    if @chunk && @chunk.article.author == current_user && @chunk.update(chunk_params)
+      render :show
+    else
+      render @chunk.errors.full_messages
+    end
+  end
+
   private
 
   def correct_chunk_sequence(article)
@@ -48,7 +57,7 @@ class Api::ChunksController < ApplicationController
   end
 
   def chunk_params
-    params.require(:chunk).permit(:id, :chunkable_id, :ord, :content_type, :content)
+    params.require(:chunk).permit(:id, :chunkable_id, :ord, :content_type, :content, :image)
   end
 
   def ord_params
@@ -62,7 +71,7 @@ class Api::ChunksController < ApplicationController
       :publish_date,
       :author_id,
       :published,
-      chunks_attributes: [:content, :ord, :content_type, :id, :chunkable_id]
+      chunks_attributes: [:content, :ord, :content_type, :id, :chunkable_id, :image]
     )
   end
 end

@@ -29,7 +29,15 @@ export const createChunk = (article, ord) => {
 export const deleteChunk = (chunk) => {
   return (dispatch) => {
     return ChunksAPIUtil.deleteChunk(chunk).then((payload) => {
-      dispatch(receiveArticle(payload));
+      return dispatch(receiveArticle(payload));
+    });
+  };
+};
+
+export const updateChunk = (formData, chunkId) => {
+  return (dispatch) => {
+    return ChunksAPIUtil.updateChunk(formData, chunkId).then((payload) => {
+      return dispatch(receiveChunk(payload));
     });
   };
 };

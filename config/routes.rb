@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :articles, only: [:show, :create, :update, :index, :destroy, :howl, :unhowl] do
       resources :comments, only: [:index]
     end
-    resources :chunks, only: [:create, :show, :destroy]
+    resources :chunks, only: [:create, :show, :destroy, :update]
     resources :comments, only: [:show, :create, :destroy, :update, :howl, :unhowl]
   end
 end

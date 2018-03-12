@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { displayForm, toggleMenu, clearMenu } from '../actions/ui_actions';
 import { receiveChunk } from '../actions/chunk_actions';
+import ImageUploadMenu from './image_upload_menu';
 
 
 class ChunkMenu extends React.Component {
@@ -21,6 +22,7 @@ class ChunkMenu extends React.Component {
   }
 
   render(){
+    const chunkId = this.props.chunk.id;
     if (this.props.openState) {
       return (
         <div class="chunk_menu">
@@ -30,7 +32,10 @@ class ChunkMenu extends React.Component {
           <button onClick={this.buttonHandler}>img</button>
           <button onClick={this.buttonHandler}>divider</button>
           <button onClick={this.buttonHandler}>quote</button>
-
+          <div onClick={(e) => this.props.toggleMenu(`image_${chunkId}`, e)}>
+            <img id="image_upload_button" src={window.image_icon_path} />
+            <ImageUploadMenu chunk={this.props.chunk} />
+          </div>
         </div>
       );
     }
@@ -41,7 +46,7 @@ class ChunkMenu extends React.Component {
 const msp = (state, ownProps) => {
   const chunkId = ownProps.chunk.id;
   return {
-    openState: state.ui.menu === `chunk_${chunkId}`,
+    openState: [`chunk_${chunkId}`, `image_${chunkId}`].includes(state.ui.menu),
   };
 };
 

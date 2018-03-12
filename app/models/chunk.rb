@@ -20,6 +20,10 @@ class Chunk < ApplicationRecord
   validates :content_type, inclusion:
     %W(p h1 h2 quote divider image)
 
+  has_attached_file :image, styles: { medium: ["600x600"]}, default_url: "missing.png"
+  validates_attachment :image,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png", "image/svg"] }
+
   belongs_to :article,
   foreign_key: :chunkable_id,
   class_name: :Article
