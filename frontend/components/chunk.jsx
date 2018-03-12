@@ -34,7 +34,7 @@ class Chunk extends React.Component {
     };
   }
 
-  hanldeCut(chunkId){
+  handleCut(chunkId){
     return (e) => {
       this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
     };
