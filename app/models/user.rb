@@ -2,20 +2,29 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  full_name       :string           not null
-#  session_token   :string           not null
-#  password_digest :string           not null
-#  bio             :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  email           :string           not null
+#  id                  :integer          not null, primary key
+#  full_name           :string           not null
+#  session_token       :string           not null
+#  password_digest     :string           not null
+#  bio                 :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  email               :string           not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ApplicationRecord
   validates :full_name, :password_digest, :session_token, :email, presence: true
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
+
+  has_attached_file :avatar, styles: { medium: ["300x300"]}, default_url: "howl_default_avatar.svg"
+  validates_attachment :avatar,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png", "image/svg"] }
+
 
   has_many :articles,
   dependent: :destroy,

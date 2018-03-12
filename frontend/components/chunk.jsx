@@ -32,7 +32,12 @@ class Chunk extends React.Component {
       document.execCommand("insertHTML", false, text);
       this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
     };
+  }
 
+  hanldeCut(chunkId){
+    return (e) => {
+      this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
+    };
   }
 
   handleDelete(chunk){
@@ -72,6 +77,7 @@ class Chunk extends React.Component {
           onInput={this.handleChange(this.state.id).bind(this)}
           onKeyUp={this.handleDelete(this.state).bind(this)}
           onPaste={this.handlePaste(this.state.id)}
+          onCut={this.handleCut(this.state.id)}
           id={`${this.props.chunk.ord}`}
           className={`chunk ${type}`}>{this.state.content}
         </p>
