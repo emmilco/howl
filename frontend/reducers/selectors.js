@@ -1,5 +1,5 @@
 export const selectArticleChunks = (state, article) => {
-  if (!article) { return []; }
+  if (!article || !article.chunks) { return []; }
   return article.chunks.map((chunkId) => {
     return state.ents.chunks[chunkId];
   });
@@ -36,7 +36,7 @@ export const selectArticleCommentAuthors = (state, articleId) => {
 
 export const selectUserArticles = (state, userId) => {
   const user = state.ents.users[userId];
-  if (!user.articles) { return []; }
+  if (!user || !user.articles) { return []; }
   const articles = [];
   user.articles.forEach((articleId) => {
     articles.push(state.ents.articles[articleId]);

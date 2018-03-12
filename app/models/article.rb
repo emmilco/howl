@@ -29,17 +29,19 @@ class Article < ApplicationRecord
   allow_destroy: true
 
   def header_image_url
-    this.chunks
+    first_image = self.chunks
       .where.not(image_file_name: nil)
-      .order(:ord).first.image.url
+      .order(:ord).first
+    return first_image.image.url if first_image
+    nil
   end
 
   def comments_count
-    this.comments.count
+    self.comments.count
   end
 
   def lead_text
-    this.chunks.where(content_type: "p").order(:ord).first.content
+    self.chunks.where(content_type: "p").order(:ord).first.content
   end
 
 end

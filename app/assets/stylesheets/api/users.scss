@@ -37,3 +37,117 @@ p.article_publish_date {
 .user_header .avatar {
   width: 40px;
 }
+
+.user_articles_feed {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.user_articles_feed .article_feed_item {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0px 1px 2px #ddd;
+  margin-bottom: 20px;
+  padding: 10px 20px 15px 20px;
+}
+
+.article_feed_image {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.user_articles_feed a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user_articles_feed a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user_articles_feed .article_feed_title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.user_articles_feed .article_feed_lead_text {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-family: 'freight-text-pro';
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.user_articles_feed .user_header {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.user_articles_feed .user_header_info {
+  margin-left: 10px;
+}
+
+.user_articles_feed .user_name {
+  color: #6a9ae8;
+}
+
+.user_articles_feed .avatar {
+  width: 36px;
+  z-index: 2;
+}
+
+.user_articles_feed .user_header:before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  width: 50px;
+  height: 20px;
+  background-color: white;
+  z-index: 2;
+}
+
+.user_articles_feed .user_header:after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #6a9ae8;
+  border-radius: 50%;
+}
+
+.user_articles_feed .date {
+  font-size: 15px;
+}
+
+.user_articles_feed .read_more {
+  font-size: 15px;
+  color: rgba(0,0,0,.5);
+}
+
+.user_articles_feed .article_feed_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 10px;
+  height: 40px;
+  color: rgba(0,0,0,.5);
+  font-variant-numeric: oldstyle-nums;
+}
+
+.howl_button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.howl_button:active {
+  background-color: #f8e5a9;
+  box-shadow: 0px 0px 20px #cfcbbc;
+  transition-property: all;
+  transition-duration: 1s;
+}

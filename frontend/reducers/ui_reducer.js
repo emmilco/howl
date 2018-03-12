@@ -17,7 +17,7 @@ const uiReducer = (oldState = {form: null, menu: false}, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
     case REMOVE_FORM:
-      return merge({}, oldState, {form: false});
+      return merge({}, oldState, {form: false, menu: false});
     case DISPLAY_FORM:
       return merge({}, oldState, { form: action.form });
     case TOGGLE_MENU:

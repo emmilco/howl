@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
 
     if @user && @user.save
       login(@user)
-      render '/api/users/show'
+      render :show
     else
       render json: ["Your login information was incorrect."], status: 403
     end

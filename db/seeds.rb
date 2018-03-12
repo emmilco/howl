@@ -21,34 +21,40 @@ User.destroy_all
     password: "password"
   )
 end
-User.create({full_name: "Demo User", email: "demo@us.er", password: "password"})
+demo_user = User.create({
+  full_name: "Demo User",
+  email: "demo@us.er",
+  password: "password",
+  bio: "I'm here to explore..."
+  })
 
-# Article.destroy_all
-# 100.times do
-#   user = User.all.sample
-#   Article.create(
-#     title: "#{Faker::Pokemon.name} in #{Faker::Pokemon.location}",
-#     author_id: user.id,
-#     publish_date: Faker::Date.between(2.years.ago, Date.today)
-#   )
-# end
+Article.destroy_all
+20.times do
+  Article.create(
+    title: "#{Faker::Pokemon.name} in #{Faker::Pokemon.location}",
+    author: demo_user,
+    publish_date: Faker::Date.between(2.years.ago, Date.today),
+    published: true
+  )
+end
 
 
-# Chunk.destroy_all
-# 800.times do
-#   article = Article.all.sample
-#   Chunk.create(
-#     chunkable_id: article.id,
-#     content: BetterLorem.p(1, true),
-#     ord: rand(1000000),
-#     content_type: 'p'
-#   )
-# end
+Chunk.destroy_all
+800.times do
+  article = Article.all.sample
+  Chunk.create(
+    chunkable_id: article.id,
+    content: BetterLorem.p(1, true),
+    ord: rand(1000000),
+    content_type: 'p'
+  )
+end
 
 loomings = Article.create(
   title: "Loomings",
   author_id: User.last.id,
-  publish_date: Faker::Date.between(2.years.ago, Date.today)
+  publish_date: Faker::Date.between(2.years.ago, Date.today),
+  published: true
 )
 
 

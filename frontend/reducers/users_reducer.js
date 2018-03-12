@@ -1,15 +1,14 @@
 import { merge } from 'lodash';
 
-import {
-  RECEIVE_ARTICLE
-} from '../actions/article_actions';
+import { RECEIVE_USER } from '../actions/user_actions';
 
-import {
-  RECEIVE_ARTICLE_COMMENTS
-} from '../actions/comment_actions';
+import { RECEIVE_ARTICLE } from '../actions/article_actions';
+
+import { RECEIVE_ARTICLE_COMMENTS } from '../actions/comment_actions';
 
 const usersReducer = (oldState = {}, action) => {
   switch (action.type) {
+    case RECEIVE_USER:
     case RECEIVE_ARTICLE:
       return merge({}, oldState, {[action.user.id]: action.user});
     case RECEIVE_ARTICLE_COMMENTS:

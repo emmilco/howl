@@ -15,6 +15,7 @@ class ArticleShow extends React.Component {
   }
 
   componentDidMount(){
+    window.scrollTo(0,0);
     this.props.fetchArticle(this.props.articleId);
   }
 
@@ -25,6 +26,7 @@ class ArticleShow extends React.Component {
   }
 
   render(){
+    if (!this.props.article.chunks) {return <div></div>; }
     if (this.props.article.chunks.length === 0 || !this.props.author.length === 0) {
       return <div></div>;
     }

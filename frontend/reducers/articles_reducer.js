@@ -18,6 +18,10 @@ import {
   RECEIVE_COMMENT
 } from '../actions/comment_actions';
 
+import {
+  RECEIVE_USER
+} from '../actions/user_actions';
+
 const articlesReducer = (oldState = {}, action) => {
   const newState =  merge({}, oldState);
   let article;
@@ -58,6 +62,7 @@ const articlesReducer = (oldState = {}, action) => {
       }
       return newState;
 
+    case RECEIVE_USER:
     case RECEIVE_HOMEPAGE_ARTICLES:
       return merge({}, oldState, action.articles);
 

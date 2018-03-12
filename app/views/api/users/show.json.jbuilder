@@ -5,6 +5,7 @@ json.user do
   json.bio @user.bio
   json.avatar_url asset_path(@user.avatar.url)
   json.articles @articles.pluck(:id)
+  json.created_at @user.created_at
 end
 
 json.articles do
