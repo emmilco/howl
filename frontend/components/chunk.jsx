@@ -13,6 +13,7 @@ class Chunk extends React.Component {
     this.handlePaste = this.handlePaste.bind(this);
     this.handleCut = this.handleCut.bind(this);
     this.handleKeystroke = this.handleKeystroke.bind(this);
+    this.handleMenuClick = this.handleMenuClick.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState){
@@ -20,46 +21,43 @@ class Chunk extends React.Component {
     nextProps.chunk.content_type !== this.state.content_type);
   }
 
-  handlePaste(){
-    return (e) => {
-      e.preventDefault();
-      const text = e.clipboardData.getData("text/plain");
-      document.execCommand("insertHTML", false, text);
-      this.props.receiveChunk({ [this.state.id]: {content: e.target.innerText}});
-    };
+  handlePaste(e){
+    e.preventDefault();
+    const text = e.clipboardData.getData("text/plain");
+    document.execCommand("insertHTML", false, text);
+    this.props.receiveChunk({ [this.state.id]: {content: e.target.innerText}});
   }
 
-  handleCut(){
-    return (e) => {
-      this.props.receiveChunk({ [this.state.id]: {content: e.target.innerText}});
-    };
+  handleCut(e){
+    this.props.receiveChunk({ [this.state.id]: {content: e.target.innerText}});
   }
 
-  handleKeystroke(){
-    return (e) => {
-      if (e.nativeEvent.inputType === "insertText"){
-        this.props.receiveChunk({
-          [this.state.id]: {content: e.target.innerText}
-        });
-      }
-      if (e.key !== "Backspace"){
-        return;
-      }
-      const chunk = this.state;
-      if (this.props.chunkCount === 1 && e.target.innerText === "") {
-        this.props.receiveChunk({ [chunk.id]: {content_type: "p", content: ""}});
-      } else if (e.target.innerText !== ""){
-        this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
-      } else if (chunk.ord > 0) {
-        this.props.deleteChunk(chunk).then(
-          () => document.getElementById(chunk.ord - 1).focus()
-        );
-      } else {
-        this.props.deleteChunk(chunk).then(
-          () => document.getElementById(chunk.ord).focus()
-        );
-      }
-    };
+  handleKeystroke(e){
+    if (e.key !== "Backspace"){
+      this.props.receiveChunk({
+        [this.state.id]: {content: e.target.innerText}
+      });
+      return;
+    }
+
+    const chunk = this.state;
+    if (this.props.chunkCount === 1 && e.target.innerText === "") {
+      this.props.receiveChunk({ [chunk.id]: {content_type: "p", content: ""}});
+    } else if (e.target.innerText !== ""){
+      this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
+    } else if (chunk.ord > 0) {
+      this.props.deleteChunk(chunk).then(
+        () => document.getElementById(chunk.ord - 1).focus()
+      );
+    } else {
+      this.props.deleteChunk(chunk).then(
+        () => document.getElementById(chunk.ord).focus()
+      );
+    }
+  }
+
+  handleMenuClick(e){
+    this.props.toggleMenu(`chunk_${this.props.chunk.id}`, e);
   }
 
   render(){
@@ -68,19 +66,16 @@ class Chunk extends React.Component {
     return (
       <div className={`chunk_${type}`}>
         {(this.props.chunk.content === "" && type === "p") &&
-          <div
-            tabIndex="-1"
-            className="chunk_menu_container"
-            onClick={(e) => this.props.toggleMenu(`chunk_${this.props.chunk.id}`, e)}
-            >
+          <div tabIndex="-1" className="chunk_menu_container"
+            onClick={this.handleMenuClick}>
             <ChunkMenu chunk={this.props.chunk}/>
           </div>
         }
         {type === "img" && <img src={this.props.chunk.image_url} />}
         <p contentEditable={this.props.edit}
-          onKeyUp={this.handleKeystroke()}
-          onPaste={this.handlePaste()}
-          onCut={this.handleCut()}
+          onKeyUp={this.handleKeystroke}
+          onPaste={this.handlePaste}
+          onCut={this.handleCut}
           id={`${this.props.chunk.ord}`}
           className={`chunk ${type}`}>{this.state.content}
         </p>
