@@ -10,6 +10,7 @@ class ChunkMenu extends React.Component {
   constructor(props){
     super(props);
     this.buttonHandler = this.buttonHandler.bind(this);
+    this.dividerButtonHandler = this.dividerButtonHandler.bind(this);
   }
 
   buttonHandler(e){
@@ -21,6 +22,16 @@ class ChunkMenu extends React.Component {
     document.getElementById(this.props.chunk.ord).focus();
   }
 
+  dividerButtonHandler(e){
+    this.props.receiveChunk(
+      { [this.props.chunk.id]: {
+        content_type: "divider"
+      }}
+    );
+    this.props.clearMenu();
+    e.stopPropagation();
+  }
+
   render(){
     const chunkId = this.props.chunk.id;
     if (this.props.openState) {
@@ -29,10 +40,10 @@ class ChunkMenu extends React.Component {
           <div id="popover-arrow-left"></div>
           <button onClick={this.buttonHandler}>h1</button>
           <button onClick={this.buttonHandler}>h2</button>
-          <button onClick={this.buttonHandler}>img</button>
-          <button onClick={this.buttonHandler}>divider</button>
+          <button onClick={this.dividerButtonHandler}>—</button>
           <button onClick={this.buttonHandler}>quote</button>
-          <div onClick={(e) => this.props.toggleMenu(`image_${chunkId}`, e)}>
+          <div id="image_upload_container"
+            onClick={(e) => this.props.toggleMenu(`image_${chunkId}`, e)}>
             <img id="image_upload_button" src={window.image_icon_path} />
             <ImageUploadMenu chunk={this.props.chunk} />
           </div>

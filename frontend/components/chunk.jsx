@@ -10,14 +10,9 @@ class Chunk extends React.Component {
   constructor(props){
     super(props);
     this.state = this.props.chunk;
-  }
-
-  handleChange(chunkId){
-    return (e) => {
-      if (e.nativeEvent.inputType === "insertText"){
-        this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
-      }
-    };
+    this.handlePaste = this.handlePaste.bind(this);
+    this.handleCut = this.handleCut.bind(this);
+    this.handleKeystroke = this.handleKeystroke.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState){
@@ -25,35 +20,43 @@ class Chunk extends React.Component {
     nextProps.chunk.content_type !== this.state.content_type);
   }
 
-  handlePaste(chunkId){
+  handlePaste(){
     return (e) => {
       e.preventDefault();
       const text = e.clipboardData.getData("text/plain");
       document.execCommand("insertHTML", false, text);
-      this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
+      this.props.receiveChunk({ [this.state.id]: {content: e.target.innerText}});
     };
   }
 
-  handleCut(chunkId){
+  handleCut(){
     return (e) => {
-      this.props.receiveChunk({ [chunkId]: {content: e.target.innerText}});
+      this.props.receiveChunk({ [this.state.id]: {content: e.target.innerText}});
     };
   }
 
-  handleDelete(chunk){
+  handleKeystroke(){
     return (e) => {
+      if (e.nativeEvent.inputType === "insertText"){
+        this.props.receiveChunk({
+          [this.state.id]: {content: e.target.innerText}
+        });
+      }
       if (e.key !== "Backspace"){
         return;
       }
-      if (e.target.innerText !== "" || this.props.chunkCount === 1){
+      const chunk = this.state;
+      if (this.props.chunkCount === 1 && e.target.innerText === "") {
+        this.props.receiveChunk({ [chunk.id]: {content_type: "p", content: ""}});
+      } else if (e.target.innerText !== ""){
         this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
-      } else if (this.state.ord > 0) {
+      } else if (chunk.ord > 0) {
         this.props.deleteChunk(chunk).then(
-          () => document.getElementById(this.state.ord - 1).focus()
+          () => document.getElementById(chunk.ord - 1).focus()
         );
       } else {
         this.props.deleteChunk(chunk).then(
-          () => document.getElementById(this.state.ord).focus()
+          () => document.getElementById(chunk.ord).focus()
         );
       }
     };
@@ -75,10 +78,9 @@ class Chunk extends React.Component {
         }
         {type === "img" && <img src={this.props.chunk.image_url} />}
         <p contentEditable={this.props.edit}
-          onInput={this.handleChange(this.state.id).bind(this)}
-          onKeyUp={this.handleDelete(this.state).bind(this)}
-          onPaste={this.handlePaste(this.state.id)}
-          onCut={this.handleCut(this.state.id)}
+          onKeyUp={this.handleKeystroke()}
+          onPaste={this.handlePaste()}
+          onCut={this.handleCut()}
           id={`${this.props.chunk.ord}`}
           className={`chunk ${type}`}>{this.state.content}
         </p>
@@ -87,7 +89,6 @@ class Chunk extends React.Component {
   }
 
 }
-
 
 
 const mdp = (dispatch) => {

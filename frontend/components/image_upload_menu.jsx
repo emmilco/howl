@@ -42,11 +42,14 @@ class ImageUploadMenu extends React.Component {
       return (
         <div class="image_upload_menu">
           <form onSubmit={this.handleSubmit}>
-            <input
-              type="file"
-              onChange={this.updateFile}
-              accept="image/*">
-            </input>
+            <label className="file_container">
+              <button>Choose Image</button>
+              <input
+                type="file"
+                onChange={this.updateFile}
+                accept="image/*">
+              </input>
+            </label>
             <button>Upload</button>
           </form>
         </div>
