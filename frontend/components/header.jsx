@@ -35,7 +35,10 @@ const Header = (props) => {
             <div
               onClick={(e) => props.toggleMenu("userMenu", e)}>
               <img id="user_menu_button" src={window.default_avatar_path} />
-              <UserMenu logout={props.logout} openState={props.userMenuState}/>
+              <UserMenu
+                currentUser={props.currentUser}
+                logout={props.logout}
+                openState={props.userMenuState}/>
             </div>
           </div>
         }

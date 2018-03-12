@@ -140,10 +140,11 @@ p.article_publish_date {
 }
 
 .howl_button {
-  width: 40px;
-  height: 40px;
+  border: 3px solid #f8e5a9;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background-color: black;
+  background-color: white;
 }
 
 .howl_button:active {

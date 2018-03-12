@@ -7,6 +7,7 @@ const UserMenu = (props) => {
       <div id="user_menu">
         <div id="popover-arrow"></div>
         <Link to='/articles/new'>New Article</Link>
+        <Link to={`/users/${props.currentUser.id}`}>My Profile</Link>
         <a onClick={() => props.logout()}>Sign out</a>
       </div>
     );
