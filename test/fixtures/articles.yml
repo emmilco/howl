@@ -2,14 +2,13 @@
 #
 # Table name: articles
 #
-#  id              :integer          not null, primary key
-#  title           :string           default("untitled")
-#  author_id       :integer          not null
-#  publish_date    :datetime
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  published       :boolean
-#  header_image_id :integer
+#  id           :integer          not null, primary key
+#  title        :string           default("untitled")
+#  author_id    :integer          not null
+#  publish_date :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  published    :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

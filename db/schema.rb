@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312011227) do
+ActiveRecord::Schema.define(version: 20180312013707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "article_images", force: :cascade do |t|
-    t.integer "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["article_id"], name: "index_article_images_on_article_id"
-  end
 
   create_table "articles", force: :cascade do |t|
     t.string "title", default: "untitled"
@@ -33,7 +22,6 @@ ActiveRecord::Schema.define(version: 20180312011227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "published"
-    t.integer "header_image_id"
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["publish_date"], name: "index_articles_on_publish_date"
   end
@@ -45,6 +33,10 @@ ActiveRecord::Schema.define(version: 20180312011227) do
     t.string "content_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["chunkable_id"], name: "index_chunks_on_chunkable_id"
     t.index ["ord"], name: "index_chunks_on_ord"
   end
