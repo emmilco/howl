@@ -28,4 +28,18 @@ class Article < ApplicationRecord
   accepts_nested_attributes_for :chunks,
   allow_destroy: true
 
+  def header_image_url
+    this.chunks
+      .where.not(image_file_name: nil)
+      .order(:ord).first.image.url
+  end
+
+  def comments_count
+    this.comments.count
+  end
+
+  def lead_text
+    this.chunks.where(content_type: "p").order(:ord).first.content
+  end
+
 end

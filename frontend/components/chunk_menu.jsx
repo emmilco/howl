@@ -54,6 +54,7 @@ class ChunkMenu extends React.Component {
   }
 }
 
+
 const msp = (state, ownProps) => {
   const chunkId = ownProps.chunk.id;
   return {

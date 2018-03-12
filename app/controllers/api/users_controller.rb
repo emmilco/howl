@@ -14,7 +14,10 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by(params[:id])
-    render :show if @user
+    if @user
+      @articles = @user.articles.where(published: true).order(publish_date: :desc)
+      render :show
+    end
   end
 
   def update

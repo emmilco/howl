@@ -33,3 +33,13 @@ export const selectArticleCommentAuthors = (state, articleId) => {
   });
   return commentAuthors;
 };
+
+export const selectUserArticles = (state, userId) => {
+  const user = state.ents.users[userId];
+  if (!user.articles) { return []; }
+  const articles = [];
+  user.articles.forEach((articleId) => {
+    articles.push(state.ents.articles[articleId]);
+  });
+  return articles;
+};
