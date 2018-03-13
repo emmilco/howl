@@ -29,13 +29,16 @@ demo_user = User.create({
   bio: "I'm here to explore..."
   })
 
-User.all.each { |user| demo_user.subscriptions << user }
+
+200.times do
+  User.all.sample { |user| User.all.sample.subscriptions << user }
+end
 
 Article.destroy_all
-20.times do
+140.times do
   Article.create(
     title: "#{Faker::Pokemon.name} in #{Faker::Pokemon.location}",
-    author: demo_user,
+    author: User.all.sample,
     publish_date: Faker::Date.between(2.years.ago, Date.today),
     published: true
   )
@@ -43,51 +46,56 @@ end
 
 
 Chunk.destroy_all
-30.times do |n|
-  8.times do |m|
-    Chunk.create(
-      ord: rand(10000),
-      content: BetterLorem.p(1, true),
-      content_type: "p",
-      article: Article.all.sample
-    )
-  end
+1600.times do |m|
+  Chunk.create(
+    ord: rand(10000),
+    content: BetterLorem.p(1, true),
+    content_type: "p",
+    article: Article.all.sample
+  )
+end
 
+200.times do
   Chunk.create(
     ord: rand(10000),
     content_type: "quote",
-    content: Faker::Dune.quote,
+    content: BetterLorem.p(1, true),
     article: Article.all.sample
   )
+end
 
+100.times do
   Chunk.create(
     ord: rand(10000),
     content_type: "h1",
     content: Faker::Company.catch_phrase,
     article: Article.all.sample
   )
+end
 
+200.times do
   Chunk.create(
     ord: rand(10000),
     content_type: "h2",
     content: Faker::Company.catch_phrase,
     article: Article.all.sample
   )
-
-  3.times do |m|
-    Chunk.create(
-      ord: rand(10000),
-      content_type: "img",
-      image: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'seed_images', "#{rand(90)+91}.jpg")),
-      article: Article.all.sample
-    )
-  end
-
 end
 
-loomings = Article.create(
-  title: "Loomings",
-  author_id: User.last.id,
-  publish_date: Faker::Date.between(2.years.ago, Date.today),
-  published: true
-)
+280.times do |m|
+  Chunk.create(
+    ord: rand(10000),
+    content_type: "img",
+    image: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'seed_images', "#{rand(90)+91}.jpg")),
+    article: Article.all.sample
+  )
+end
+
+
+1500.times do
+  Comment.create(
+    article: Article.all.sample,
+    content: BetterLorem.p(1, true),
+    author: User.all.sample
+  )
+end

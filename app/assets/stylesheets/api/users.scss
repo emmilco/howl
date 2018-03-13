@@ -238,13 +238,13 @@ p.article_publish_date {
 .Following, .Follow:hover {
   background-color: #5a8ad8;
   color: white;
-  border: none;
+  border: 1px solid #5a8ad8;
 }
 
 .Following:hover, .Follow:active {
   background-color: #3a7ad8;
   color: white;
-  border: none;
+  border: 1px solid #3a7ad8;
   transition: all .4s;
 }
 
