@@ -43,3 +43,21 @@ export const selectUserArticles = (state, userId) => {
   });
   return articles;
 };
+
+export const selectHomepageArticles = (state) => {
+  if (!state.session.homepage_articles_index) { return []; }
+  const index = state.session.homepage_articles_index;
+  const articles = index.map((id) => {
+    return state.ents.articles[id];
+  });
+  return articles;
+};
+
+export const selectHomepageAuthors = (state) => {
+  if (!state.session.homepage_authors_index) { return {}; }
+  const homepageAuthors = {};
+  state.session.homepage_authors_index.forEach((userId) => {
+    homepageAuthors[userId] = state.ents.users[userId];
+  });
+  return homepageAuthors;
+};

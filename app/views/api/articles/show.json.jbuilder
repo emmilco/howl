@@ -16,5 +16,5 @@ end
 
 json.user do
   json.extract! @article.author, :id, :full_name, :bio, :created_at
-  json.following current_user.subscriptions.include?(@article.author)
+  json.following current_user.subscriptions.include?(@article.author) if logged_in?
 end

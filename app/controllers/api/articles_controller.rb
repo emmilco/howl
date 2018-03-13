@@ -4,7 +4,7 @@ class Api::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    if @article && (@article.author = current_user || @article.published)
+    if @article && (@article.published || @article.author = current_user)
       render :show
     end
   end
@@ -26,10 +26,13 @@ class Api::ArticlesController < ApplicationController
   end
 
   def index
-    @articles = current_user.followees.articles
-      .order(publish_date: :desc)
-      .limit(20)
-    render :index
+    if logged_in?
+      @articles = Article.logged_in_index_articles(current_user)
+      render :index
+    else
+      @articles = Article.logged_out_index_articles
+      render :index
+    end
   end
 
   def destroy

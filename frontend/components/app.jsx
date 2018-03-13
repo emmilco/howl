@@ -8,6 +8,7 @@ import ArticleShow from './article/article_show';
 import ArticleEdit from './article/article_edit';
 import ArticleNew from './article/article_new';
 import UserShow from './user/user_show';
+import Homepage from './homepage';
 
 const App = (props) => {
   return (
@@ -20,6 +21,7 @@ const App = (props) => {
         <Route path="/articles/:articleId/edit" component={ArticleEdit} />
         <Route path="/articles/:articleId" component={ArticleShow} />
         <Route path="/users/:userId" component={UserShow} />
+        <Route path="/" component={Homepage} />
       </Switch>
     </main>
   );

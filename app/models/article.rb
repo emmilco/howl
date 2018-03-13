@@ -28,6 +28,21 @@ class Article < ApplicationRecord
   accepts_nested_attributes_for :chunks,
   allow_destroy: true
 
+  def self.logged_in_index_articles(user)
+    Article.where(author_id: user.subscriptions.pluck(:id))
+      .includes(:author)
+      .where(published: true)
+      .order(publish_date: :desc)
+      .limit(30)
+  end
+
+  def self.logged_out_index_articles
+    Article.includes(:author)
+      .where(published: true)
+      .order(publish_date: :desc)
+      .limit(30)
+  end
+
   def header_image_url
     first_image = self.chunks
       .where.not(image_file_name: nil)
@@ -43,5 +58,6 @@ class Article < ApplicationRecord
   def lead_text
     self.chunks.where(content_type: "p").order(:ord).first.content
   end
+
 
 end

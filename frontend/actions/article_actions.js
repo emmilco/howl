@@ -37,10 +37,13 @@ export const receiveTitle = (title) => {
   };
 };
 
-export const receiveHomepageParticles = (articles) => {
+export const receiveHomepageParticles = (payload) => {
   return {
     type: RECEIVE_HOMEPAGE_ARTICLES,
-    articles
+    articles: payload.articles,
+    users: payload.users,
+    homepage_articles_index: payload.homepage_articles_index,
+    homepage_authors_index: payload.homepage_authors_index
   };
 };
 
