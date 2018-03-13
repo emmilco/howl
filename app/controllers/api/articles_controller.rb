@@ -40,12 +40,12 @@ class Api::ArticlesController < ApplicationController
     @article.destroy if @article
   end
 
-  def howl
+  def like
   end
 
-  def unhowl
+  def unlike
   end
-
+  
   private
 
   def article_params

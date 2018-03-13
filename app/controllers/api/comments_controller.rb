@@ -36,10 +36,10 @@ class Api::CommentsController < ApplicationController
     end
   end
 
-  def howl
+  def like
   end
 
-  def unhowl
+  def unlike
   end
 
   private

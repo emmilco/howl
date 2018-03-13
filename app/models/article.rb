@@ -25,6 +25,9 @@ class Article < ApplicationRecord
   has_many :comments,
   dependent: :destroy
 
+  has_many :likes,
+  as: :likeable
+
   accepts_nested_attributes_for :chunks,
   allow_destroy: true
 
