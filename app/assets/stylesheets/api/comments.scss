@@ -147,15 +147,18 @@
 }
 
 .comment_header button {
-  color: rgba(255,50,50,.7);
-  border: none;
   align-self: flex-start;
   margin: 0px;
   font-size: 12px;
   padding: 5px 8px;
 }
 
-.comment_header button:hover {
+.comment_header .delete_button {
+  color: rgba(255,50,50,.7);
+  border: none;
+}
+
+.comment_header .delete_button:hover {
   color: white;
   border: none;
   background-color: rgba(255,50,50,.3);
@@ -163,7 +166,7 @@
   transition-duration: .3s;
 }
 
-.comment_header button:active {
+.comment_header .delete_button:active {
   background-color: rgba(255,50,50,.9);
   transition-property: all;
   transition-duration: .3s;

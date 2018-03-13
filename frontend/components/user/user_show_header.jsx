@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import FollowButton from '../follow_button';
+
 const displayDate = (dateString) => {
   const dateObject = new Date(dateString);
   const isOld = ((new Date()).getFullYear()) - dateObject.getFullYear() > 1;
@@ -29,9 +31,14 @@ const UserShowHeader = (props) => {
           src={props.user.avatar_url}/>
       </div>
       <div className="user_social_stats">
-        <span className="user_followee_count">Following</span>
-        <span className="user_follower_count">Followers</span>
+        <span className="user_followee_count">
+          {props.user.subscription_count} Following
+        </span>
+        <span className="user_follower_count">
+          {props.user.subscriber_count} Followers
+        </span>
       </div>
+      <FollowButton user={props.user} />
     </div>
   );
 };

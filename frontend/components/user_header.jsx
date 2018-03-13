@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FollowButton from './follow_button';
 
 const displayDate = (dateString) => {
   const dateObject = new Date(dateString);

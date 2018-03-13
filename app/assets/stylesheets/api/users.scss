@@ -228,3 +228,25 @@ p.article_publish_date {
   border: 2px solid #6a9ae8;
   border-radius: 50%;
 }
+
+.Following, .Follow {
+  margin: 0px;
+}
+
+.Following, .Follow:hover {
+  background-color: #5a8ad8;
+  color: white;
+  border: none;
+}
+
+.Following:hover, .Follow:active {
+  background-color: #3a7ad8;
+  color: white;
+  border: none;
+  transition: all .4s;
+}
+
+.Follow {
+  border: 1px solid #3a7ad8;
+  color: #3a7ad8;
+}

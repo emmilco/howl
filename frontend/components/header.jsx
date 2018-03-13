@@ -24,7 +24,7 @@ const Header = (props) => {
               onClick={() => props.displayForm("signup")}>Get started
             </button>
             <button id="guest_login_button"
-              onClick={() => props.login({email: "demo@us.er", password: "password"})}>Guest
+              onClick={() => props.login({email: "demo@us.er", password: "password"})}>Guest Login
             </button>
           </div>
         }

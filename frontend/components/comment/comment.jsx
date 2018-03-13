@@ -1,6 +1,7 @@
 import React from 'react';
 
 import UserHeader from '../user_header';
+import FollowButton from '../follow_button';
 
 class Comment extends React.Component {
 
@@ -16,9 +17,11 @@ class Comment extends React.Component {
             user={this.props.author}
             date={this.props.comment.created_at}
             />
+          <FollowButton user={this.props.author} />
           { this.props.currentUser &&
             (this.props.author.id === this.props.currentUser.id &&
-              <button onClick={this.delete.bind(this)}>delete</button>)
+              <button className="delete_button"
+                onClick={this.delete.bind(this)}>delete</button>)
           }
         </div>
         <div className="comment_body">{this.props.comment.content}</div>
