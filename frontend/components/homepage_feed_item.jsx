@@ -25,7 +25,7 @@ class HomepageFeedItem extends React.Component {
               {article.title}
             </div>
             <div className="article_feed_lead_text">
-              {article.lead_text.slice(0,120) + "..."}
+              {article.lead_text.slice(0,110) + "..."}
             </div>
             <div className="article_feed_author">
               {this.props.user.full_name}
