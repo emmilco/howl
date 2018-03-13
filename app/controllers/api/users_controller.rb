@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    #TODO subscribe new user to most followed feeds
     if @user.save
       login(@user)
       render :show
