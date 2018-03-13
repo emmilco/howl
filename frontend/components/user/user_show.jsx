@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import UserHeader from '../user_header';
+import UserShowHeader from './user_show_header';
 import UserArticleFeedItem from './user_article_feed_item';
 
 import { selectUserArticles } from '../../reducers/selectors';
@@ -16,13 +16,13 @@ class UserShow extends React.Component {
   render(){
     if(!this.props.user) { return <div></div>; }
     return <div className="user_show">
-      <UserHeader
+      <UserShowHeader
         date={this.props.user.created_at}
         bio={this.props.user.bio}
         user={this.props.user}/>
       <div className="user_articles_feed">
         {this.props.articles.map((article) =>{
-          return <UserArticleFeedItem 
+          return <UserArticleFeedItem
             user={this.props.user}
             article={article} />;
         })}
