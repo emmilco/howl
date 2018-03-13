@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:update, :destroy, :follow]
+  before_action :ensure_logged_in, only: [:update, :destroy, :follow, :unfollow]
 
   def create
     @user = User.new(user_params)
@@ -30,9 +30,15 @@ class Api::UsersController < ApplicationController
   end
 
   def follow
+    @user = current_user
+    @followee = User.find(params[:id])
+    @followee.subscribers << current_user if @followee
   end
 
   def unfollow
+    @user = current_user
+    @followee = User.find(params[:id])
+    @followee.subscribers.delete(current_user) if @followee
   end
 
   private

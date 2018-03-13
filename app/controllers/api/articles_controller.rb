@@ -4,7 +4,9 @@ class Api::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    render :show
+    if @article && (@article.author = current_user || @article.published)
+      render :show
+    end
   end
 
   def create

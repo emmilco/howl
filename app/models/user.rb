@@ -35,7 +35,27 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Comment
 
-  # has_many :followers
+
+  has_many :follows, #i.e. instances of self following other user
+  foreign_key: :follower_id,
+  class_name: :Follow,
+  dependent: :destroy
+
+  has_many :subscriptions, #i.e. users self follows
+  through: :follows,
+  source: :followee
+
+
+
+  has_many :followings, #i.e. instances of self being followed
+  foreign_key: :followee_id,
+  class_name: :Follow,
+  dependent: :destroy
+
+  has_many :subscribers, #i.e. users who follow self
+  through: :followings,
+  source: :follower
+
   # has_many :followees
   # has_many :howls
 
