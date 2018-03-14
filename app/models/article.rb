@@ -50,6 +50,28 @@ class Article < ApplicationRecord
       .limit(30)
   end
 
+  def create_chunk_at(ord)
+    self.chunks.order(:ord).each do |chunk|
+      chunk.ord += 1 if chunk.ord >= ord
+      chunk.save
+    end
+    Chunk.create(
+      chunkable_id: self.id,
+      content_type: "p",
+      content: "",
+      ord: ord
+    )
+    self.reload
+    self.correct_chunk_sequence
+  end
+
+  def correct_chunk_sequence
+    self.chunks.order(:ord).each.with_index do |chunk, idx|
+      chunk.ord = idx
+      chunk.save
+    end
+  end
+
   def header_image_url
     first_image = self.chunks
       .where.not(image_file_name: nil)
