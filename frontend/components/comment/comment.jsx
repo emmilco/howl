@@ -2,6 +2,7 @@ import React from 'react';
 
 import UserHeader from '../user_header';
 import FollowButton from '../follow_button';
+import HowlButton from '../howl_button';
 
 class Comment extends React.Component {
 
@@ -25,7 +26,9 @@ class Comment extends React.Component {
           }
         </div>
         <div className="comment_body">{this.props.comment.content}</div>
-        <div className="commentFooter"></div>
+        <div className="comment_footer">
+          <HowlButton likeable={this.props.comment} likeable_type="comment" />
+        </div>
       </div>);
   }
 }

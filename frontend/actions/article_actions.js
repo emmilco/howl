@@ -6,6 +6,8 @@ export const RECEIVE_HOMEPAGE_ARTICLES = "RECEIVE_HOMEPAGE_ARTICLES";
 export const RECEIVE_ARTICLE_ERRORS = "RECEIVE_ARTICLE_ERRORS";
 export const RECEIVE_TITLE = "RECEIVE_TITLE";
 export const TOGGLE_ARTICLE_PUBLISHED = "TOGGLE_ARTICLE_PUBLISHED";
+export const RECEIVE_ARTICLE_LIKE = "RECEIVE_ARTICLE_LIKE";
+export const REMOVE_ARTICLE_LIKE = "REMOVE_ARTICLE_LIKE";
 
 export const receiveArticle = ({ article, chunks, user }) => {
   return {
@@ -36,6 +38,21 @@ export const receiveTitle = (title) => {
     title
   };
 };
+
+export const receiveArticleLike = (id) => {
+  return {
+    type: RECEIVE_ARTICLE_LIKE,
+    id
+  };
+};
+
+export const removeArticleLike = (id) => {
+  return {
+    type: REMOVE_ARTICLE_LIKE,
+    id
+  };
+};
+
 
 export const receiveHomepageParticles = (payload) => {
   return {
@@ -94,5 +111,21 @@ export const fetchHomepageArticles = () => {
     return ArticlesAPIUtil.fetchHomepageArticles().then(
       (payload) => dispatch(receiveHomepageParticles(payload))
     );
+  };
+};
+
+export const likeArticle = (articleId) => {
+  return (dispatch) => {
+    return ArticlesAPIUtil.likeArticle(articleId).then(() => {
+      return dispatch(receiveArticleLike(articleId));
+    });
+  };
+};
+
+export const unlikeArticle = (articleId) => {
+  return (dispatch) => {
+    return ArticlesAPIUtil.unlikeArticle(articleId).then(() => {
+      return dispatch(removeArticleLike(articleId));
+    });
   };
 };

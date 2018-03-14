@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import UserHeader from '../user_header';
+import HowlButton from '../howl_button';
 
 class UserArticleFeedItem extends React.Component {
   render(){
@@ -23,10 +24,13 @@ class UserArticleFeedItem extends React.Component {
           Read more...
         </Link>
         <div className="article_feed_footer">
-          <div className="howl_button">
-          </div>
+          <HowlButton likeable={article} likeable_type="article" />
           {article.comments_count > 1 &&
-            <div className="comments_count">{article.comments_count} responses</div>
+            <div className="comments_count">
+              <Link to={`/articles/${article.id}`}>
+                {article.comments_count} responses
+              </Link>
+            </div>
           }
         </div>
       </div>

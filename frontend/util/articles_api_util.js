@@ -33,3 +33,17 @@ export const fetchHomepageArticles = () => {
     url: `/api/articles`
   });
 };
+
+export const likeArticle = (id) => {
+  return $.ajax({
+    method: "POST",
+    url: `/api/articles/${id}/like`
+  });
+};
+
+export const unlikeArticle = (id) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/articles/${id}/like`
+  });
+};

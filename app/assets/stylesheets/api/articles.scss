@@ -158,6 +158,37 @@ p.article_publish_date {
   display: block; /* For Firefox */
 }
 
+.article_show_footer img.avatar {
+  width: 60px;
+}
+
+.article_howl_footer {
+  border-top: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.article_howl_footer .howl_button {
+  width: 60px;
+  height: 60px;
+}
+
+.article_howl_footer .howl_button * {
+  font-size: 24px;
+  position: relative;
+  top: -1px;
+}
+
+.article_howl_footer p {
+  display: inline-block;
+  font-family: 'freight-text-pro';
+  color: rgba(0,0,0,.50);
+  font-size: 24px;
+  width: 80%;
+}
+
 
 // CHUNK MENU
 

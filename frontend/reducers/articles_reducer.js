@@ -5,7 +5,9 @@ import {
   REMOVE_ARTICLE,
   RECEIVE_HOMEPAGE_ARTICLES,
   RECEIVE_TITLE,
-  TOGGLE_ARTICLE_PUBLISHED
+  TOGGLE_ARTICLE_PUBLISHED,
+  RECEIVE_ARTICLE_LIKE,
+  REMOVE_ARTICLE_LIKE
 } from '../actions/article_actions';
 
 import {
@@ -66,6 +68,15 @@ const articlesReducer = (oldState = {}, action) => {
     case RECEIVE_USER:
     case RECEIVE_HOMEPAGE_ARTICLES:
       return merge({}, oldState, action.articles);
+
+    case RECEIVE_ARTICLE_LIKE:
+      newState[action.id].liked = true;
+      newState[action.id].like_count += 1;
+      return newState;
+    case REMOVE_ARTICLE_LIKE:
+      newState[action.id].liked = false;
+      newState[action.id].like_count -= 1;
+      return newState;
 
     default:
       return oldState;
