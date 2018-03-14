@@ -50,7 +50,7 @@ class AvatarUploadMenu extends React.Component {
                 accept="image/*">
               </input>
             </label>
-            <button>Upload</button>
+            <button>Submit</button>
           </form>
         </div>
       );
