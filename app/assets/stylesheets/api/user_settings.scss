@@ -11,8 +11,13 @@
   width: 240px;
   height: 240px;
   border-radius: 100%;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   object-fit: cover;
+}
+
+.user_settings .avatar form {
+  display: flex;
+  justify-content: center;
 }
 
 .user_settings_info {
@@ -37,6 +42,7 @@
   margin-left: 20px;
   width: 200px;
   height: 150px;
+  resize: none;
 }
 
 .user_settings .avatar {
