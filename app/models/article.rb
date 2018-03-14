@@ -28,6 +28,10 @@ class Article < ApplicationRecord
   has_many :likes,
   as: :likeable
 
+  has_many :likers,
+  through: :likes,
+  source: :user
+
   accepts_nested_attributes_for :chunks,
   allow_destroy: true
 

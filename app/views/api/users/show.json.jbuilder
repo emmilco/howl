@@ -23,12 +23,9 @@ if @articles
         :header_image_url,
         :comments_count,
         :lead_text
+        json.liked current_user.liked_articles.include?(article) if logged_in?
+        json.like_count article.likes.count
       end
     end
   end
 end
-
-
-
-
-# TODO: Upon Articles implementation, add articles and article chunks.

@@ -3,6 +3,8 @@ json.article do
   json.chunks @article.chunks.order(:ord).pluck(:id)
   json.comments @article.comments.order(:created_at).pluck(:id)
   json.comment_authors @article.comments.pluck(:author_id)
+  json.liked current_user.liked_articles.include?(article) if logged_in?
+  json.like_count article.likes.count
 end
 
 json.chunks do

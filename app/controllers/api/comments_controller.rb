@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:create, :update, :destroy, :howl, :unhowl]
+  before_action :ensure_logged_in, only: [:create, :update, :destroy, :like, :unlike]
   def index
     @article = Article.find(params[:article_id])
     render :index
@@ -37,10 +37,15 @@ class Api::CommentsController < ApplicationController
   end
 
   def like
+    @comment = Comment.find(params[:id])
+    @comment.likers << current_user if @comment
   end
 
   def unlike
+    @comment = Comment.find(params[:id])
+    @comment.likers.delete(current_user) if @comment
   end
+
 
   private
 

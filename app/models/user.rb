@@ -21,10 +21,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
+  before_validation :ensure_session_token
+
   has_attached_file :avatar, styles: { medium: ["300x300"]}, default_url: "howl_default_avatar.svg"
   validates_attachment :avatar,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png", "image/svg"] }
-
 
   has_many :articles,
   dependent: :destroy,
@@ -35,7 +36,6 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Comment
 
-
   has_many :follows, #i.e. instances of self following other user
   foreign_key: :follower_id,
   class_name: :Follow,
@@ -44,8 +44,6 @@ class User < ApplicationRecord
   has_many :subscriptions, #i.e. users self follows
   through: :follows,
   source: :followee
-
-
 
   has_many :followings, #i.e. instances of self being followed
   foreign_key: :followee_id,
@@ -56,10 +54,17 @@ class User < ApplicationRecord
   through: :followings,
   source: :follower
 
-  # has_many :followees
-  # has_many :howls
+  has_many :likes
 
-  before_validation :ensure_session_token
+  has_many :liked_articles,
+  through: :likes,
+  source: :likeable,
+  source_type: :Article
+
+  has_many :liked_comments,
+  through: :likes,
+  source: :likeable,
+  source_type: :Comment
 
   attr_reader :password
 
