@@ -35,7 +35,7 @@ class UserSettings extends React.Component {
 
   handleCancel(e){
     e.preventDefault();
-    this.setState({password: ""});
+    this.props.history.push(`/`);
   }
 
   updateField(field) {

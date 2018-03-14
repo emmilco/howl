@@ -74,6 +74,15 @@ class User < ApplicationRecord
     nil
   end
 
+  def self.ten_most_followed
+    Follow.group(:followee_id)
+    .select('followee_id, COUNT(follower_id) as follower')
+    .order('follower desc')
+    .limit(10)
+    .collect(&:followee_id)
+
+  end
+
   def generate_session_token
     SecureRandom.urlsafe_base64(16)
   end
@@ -91,6 +100,10 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def seed_subscriptions
+    User.ten_most_followed.each { |sub| self.subscriptions << User.find(sub) }
   end
 
   private

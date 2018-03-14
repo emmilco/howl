@@ -5,10 +5,11 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     #TODO subscribe new user to most followed feeds
-    if @user.save
+    if @user.save && @user.seed_subscriptions
       login(@user)
-      render :show
+      render '/api/sessions/show'
     else
+      debugger
       render json: @user.errors.full_messages, status: 422
     end
   end

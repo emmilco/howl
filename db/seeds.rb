@@ -29,9 +29,9 @@ demo_user = User.create({
   bio: "I'm here to explore..."
   })
 
-
+users = User.all
 300.times do
-  User.all.sample { |user| User.all.sample.subscriptions << user }
+  users.sample.subscribers << users.sample
 end
 
 Article.destroy_all
