@@ -43,7 +43,7 @@ class ImageUploadMenu extends React.Component {
         <div class="image_upload_menu">
           <form onSubmit={this.handleSubmit}>
             <label className="file_container">
-              <button>Choose Image</button>
+              <button>Choose File</button>
               <input
                 type="file"
                 onChange={this.updateFile}
