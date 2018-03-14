@@ -59,6 +59,7 @@ const articlesReducer = (oldState = {}, action) => {
         newState[action.id].published = false;
       } else {
         newState[action.id].published = true;
+        newState[action.id].publish_date = new Date();
       }
       return newState;
 

@@ -94,7 +94,6 @@ class ArticleEdit extends React.Component {
       </div>
     );
   }
-
 }
 
 const msp = (state, ownProps) => {

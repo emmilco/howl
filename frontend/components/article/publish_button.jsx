@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { merge } from 'lodash';
 
 import {
-  toggleArticlePublished
+  toggleArticlePublished,
+  receivePublishDate
 } from '../../actions/article_actions';
 
 class PublishButton extends React.Component {
