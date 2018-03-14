@@ -93,10 +93,16 @@
   height: 200px;
   object-fit: cover;
   margin-top: 0px;
+  width: 100%
+}
+
+.top-1 .feed_image_wrapper {
+  flex: 1;
 }
 
 
 .top_1 .article_info_container {
+  flex: 1;
   max-width: 500px;
   margin-right: 20px;
   padding-top: 60px;

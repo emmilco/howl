@@ -45,6 +45,19 @@ p.article_publish_date {
   margin-left: 15px;
 }
 
+#article_author_header .user_header {
+  border-top: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  margin-top: 0px;
+  padding-top: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+}
+
+#article_author_header button {
+  margin-top: 20px;
+}
+
 .article_author_header {
   display: flex;
   align-items: center;
@@ -55,7 +68,7 @@ p.article_publish_date {
 #article_title {
   color: rgba(0,0,0,.84);
   font-size: 42px;
-  margin-top: 45px;
+  margin-top: 25px;
   margin-bottom: 45px;
   font-weight: 700;
 }

@@ -35,7 +35,7 @@ class HomepageFeedItem extends React.Component {
             </div>
           </Link>
         </div>
-        <Link to={`/articles/${article.id}`}>
+        <Link className="feed_image_wrapper" to={`/articles/${article.id}`}>
           { Boolean(article.header_image_url) &&
             <img className="article_feed_image" src={article.header_image_url} />
           }

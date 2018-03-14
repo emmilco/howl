@@ -172,6 +172,8 @@ p.article_publish_date {
 
 .howl_button .liked {
   color: white;
+  user-select: none;
+  -moz-user-select: none;
 }
 
 .user_show_header {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import ImageUploadMenu from '../image_upload_menu';
 
@@ -27,12 +27,15 @@ class UserSettings extends React.Component {
     e.preventDefault();
     const updates = this.state;
     if (updates.password === "") { delete updates.password; }
-    this.props.updateUser(this.state);
+    this.props.updateUser(this.state).then(() => {
+      this.props.history.push(`/users/${this.props.currentUser.id}`);
+    });
   }
 
 
-  handleCancel(){
-
+  handleCancel(e){
+    e.preventDefault();
+    this.setState({password: ""});
   }
 
   updateField(field) {
@@ -41,7 +44,6 @@ class UserSettings extends React.Component {
 
 
   render(){
-    debugger
     const user = this.props.currentUser;
     if (!user){ return <Redirect to="/" />; }
     return (
@@ -93,4 +95,4 @@ const mdp = (dispatch) => {
   };
 };
 
-export default connect(msp,mdp)(UserSettings);
+export default withRouter(connect(msp,mdp)(UserSettings));
