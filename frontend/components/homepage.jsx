@@ -14,6 +14,7 @@ import HomepageFeedItem from './homepage_feed_item';
 class Homepage extends React.Component {
 
   componentDidMount(){
+    window.scrollTo(0,0);
     this.props.fetchHomepageArticles();
   }
 

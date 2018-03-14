@@ -17,7 +17,7 @@ class ArticleNew extends React.Component {
   componentDidMount(){
     this.props.createArticle().then(
       ({ article }) => {
-        this.props.history.push(`/articles/${article.id}/edit`);
+        this.props.history.replace(`/articles/${article.id}/edit`);
       }
     );
   }

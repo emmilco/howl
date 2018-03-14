@@ -1,0 +1,38 @@
+.user_settings {
+  padding-top: 120px;
+  margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.user_settings .avatar img {
+  width: 240px;
+  border-radius: 50%;
+  margin-bottom: 80px;
+}
+
+.user_settings_info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user_settings_info > * {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  color: rgba(0,0,0,.5)
+}
+
+.user_settings_info input {
+  margin-left: 20px;
+  width: 200px;
+}
+
+.user_settings_info textarea {
+  margin-left: 20px;
+  width: 200px;
+  height: 150px;
+}

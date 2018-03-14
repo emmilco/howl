@@ -82,7 +82,7 @@ button, input[type=submit] {
   background-color: white;
 }
 
-input {
+input, textarea {
   padding: 7px 15px;
   border-radius: 7px;
   border: 1px solid lightgray;

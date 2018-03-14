@@ -1,4 +1,5 @@
 import * as UsersAPIUtil from '../util/users_api_util';
+import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
@@ -46,6 +47,15 @@ export const unfollowUser = (userId) => {
   return (dispatch) => {
     return UsersAPIUtil.unfollowUser(userId).then(() => {
       return dispatch(removeFollow(userId));
+    });
+  };
+};
+
+export const updateUser = (user) => {
+  return (dispatch) => {
+    return UsersAPIUtil.updateUser(user).then((payload) => {
+      dispatch(receiveUser(payload));
+      dispatch(receiveCurrentUser(payload.user));
     });
   };
 };
