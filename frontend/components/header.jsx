@@ -34,7 +34,7 @@ const Header = (props) => {
             <Route path='/articles/:id/edit' component={PublishButton} />
             <div
               onClick={(e) => props.toggleMenu("userMenu", e)}>
-              <img id="user_menu_button" src={window.default_avatar_path} />
+              <img id="user_menu_button" src={props.currentUser.avatar_url} />
               <UserMenu
                 currentUser={props.currentUser}
                 logout={props.logout}

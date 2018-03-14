@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 
-import ImageUploadMenu from '../image_upload_menu';
+import AvatarUploadMenu from './avatar_upload_menu';
 
 import { updateUser } from '../../actions/user_actions';
+import { toggleMenu } from './../../actions/ui_actions';
 
 class UserSettings extends React.Component {
   constructor(props){
@@ -74,9 +75,10 @@ class UserSettings extends React.Component {
             <button onClick={this.handleCancel}>Cancel</button>
           </div>
         </div>
-        <div className="avatar">
+        <div className="avatar"
+          onClick={(e) => this.props.toggleMenu(`avatar`, e)}>
           <img src={user.avatar_url}></img>
-          <ImageUploadMenu chunk={user} upload_type="avatar"/>
+          <AvatarUploadMenu user={user}/>
         </div>
       </div>
     );
@@ -91,7 +93,11 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
   return {
-    updateUser: (user) => dispatch(updateUser(user))
+    updateUser: (user) => dispatch(updateUser(user)),
+    toggleMenu: (menu, e) => {
+      e.stopPropagation();
+      dispatch(toggleMenu(menu));
+    }
   };
 };
 

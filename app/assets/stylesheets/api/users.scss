@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.avatar {
+  object-fit: cover;
+}
 
 .user_header_info p {
   line-height: 20px;
@@ -36,6 +38,7 @@ p.article_publish_date {
 
 .user_header .avatar {
   width: 40px;
+  height: 40px;
 }
 
 .user_articles_feed {
@@ -99,6 +102,7 @@ p.article_publish_date {
 
 .user_articles_feed .avatar {
   width: 36px;
+  height: 36px;
   z-index: 4;
 }
 

@@ -20,7 +20,7 @@ const UserHeader = (props) => {
     <Link to={`/users/${props.user.id}`}>
       <div className="user_header">
         <img className="avatar"
-          src={window.default_avatar_path}/>
+          src={props.user.avatar_url}/>
         <div className="user_header_info">
           <p className="user_name">{props.user.full_name}</p>
           {Boolean(props.bio) &&

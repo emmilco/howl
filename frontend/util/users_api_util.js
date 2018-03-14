@@ -26,3 +26,14 @@ export const updateUser = (user) => {
     data: { user }
   });
 };
+
+export const updateAvatar = (formData, userId) => {
+  return $.ajax({
+    url: `/api/users/${userId}`,
+    method: "PATCH",
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
+  });
+};

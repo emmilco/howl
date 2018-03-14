@@ -59,3 +59,12 @@ export const updateUser = (user) => {
     });
   };
 };
+
+export const updateAvatar = (formData, userId) => {
+  return (dispatch) => {
+    return UsersAPIUtil.updateAvatar(formData, userId).then((payload) => {
+      dispatch(receiveUser(payload));
+      dispatch(receiveCurrentUser(payload.user));
+    });
+  };
+};

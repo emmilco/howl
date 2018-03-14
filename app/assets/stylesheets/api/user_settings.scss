@@ -9,8 +9,10 @@
 
 .user_settings .avatar img {
   width: 240px;
-  border-radius: 50%;
+  height: 240px;
+  border-radius: 100%;
   margin-bottom: 80px;
+  object-fit: cover;
 }
 
 .user_settings_info {
@@ -35,4 +37,8 @@
   margin-left: 20px;
   width: 200px;
   height: 150px;
+}
+
+.user_settings .avatar {
+  z-index: 3;
 }
