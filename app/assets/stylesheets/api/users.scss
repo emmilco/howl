@@ -149,6 +149,7 @@ p.article_publish_date {
   background-color: #6a9ae8;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .howl_button:active {
@@ -161,10 +162,15 @@ p.article_publish_date {
 .howl_button * {
   font-family: 'freight-text-pro';
   text-align: center;
+  font-variant-numeric: lining-nums;
   width: 100%;
   text-transform: uppercase;
   font-size: 18px;
   font-weight: bold;
+  color: lightgray;
+}
+
+.howl_button .liked {
   color: white;
 }
 

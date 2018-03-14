@@ -29,9 +29,9 @@ class HowlButton extends React.Component {
 
   likeStatus(){
     if (this.props.likeable.liked) {
-      return this.props.likeable.like_count;
+      return "liked";
     } else {
-      return "+";
+      return "unliked";
     }  }
 
   render(){
@@ -43,7 +43,7 @@ class HowlButton extends React.Component {
       <div onClick={this.likeHandler}
         className="howl_button">
         <div className={this.likeStatus()}>
-          {this.likeStatus()}
+          {this.props.likeable.like_count}
         </div>
       </div>
     );

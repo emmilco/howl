@@ -30,7 +30,7 @@ demo_user = User.create({
   })
 
 
-200.times do
+300.times do
   User.all.sample { |user| User.all.sample.subscriptions << user }
 end
 
@@ -98,4 +98,12 @@ end
     content: BetterLorem.p(1, true),
     author: User.all.sample
   )
+end
+
+2000.times do
+  Comment.all.sample.likers << User.all.sample
+end
+
+500.times do
+  Article.all.sample.likers << User.all.sample
 end
