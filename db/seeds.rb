@@ -18,7 +18,8 @@ User.destroy_all
     full_name: Faker::Name.name,
     bio: bio,
     email: Faker::Internet.email,
-    password: "password"
+    password: "password",
+    avatar: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'seed_images', "#{rand(166) + 1}.jpg"))
   )
 end
 
@@ -26,7 +27,8 @@ demo_user = User.create({
   full_name: "Demo User",
   email: "demo@us.er",
   password: "password",
-  bio: "I'm here to explore..."
+  bio: "I'm here to explore...",
+  avatar: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'seed_images', "0.jpg"))
   })
 
 users = User.all
@@ -86,7 +88,7 @@ end
   Chunk.create(
     ord: rand(10000),
     content_type: "img",
-    image: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'seed_images', "#{rand(90)+91}.jpg")),
+    image: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'seed_images', "#{rand(166) + 1}.jpg")),
     article: Article.all.sample
   )
 end

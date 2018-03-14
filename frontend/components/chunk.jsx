@@ -32,6 +32,24 @@ class Chunk extends React.Component {
     this.props.receiveChunk({ [this.state.id]: {content: e.target.innerText}});
   }
 
+  placeCaretAtEnd(el) {
+    el.focus();
+    if (typeof window.getSelection !== undefined
+      && typeof document.createRange !== undefined) {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      range.collapse(false);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } else if (typeof document.body.createTextRange !== undefined) {
+      var textRange = document.body.createTextRange();
+      textRange.moveToElementText(el);
+      textRange.collapse(false);
+      textRange.select();
+    }
+  }
+
   handleKeystroke(e){
     if (e.key !== "Backspace"){
       this.props.receiveChunk({
@@ -46,8 +64,11 @@ class Chunk extends React.Component {
     } else if (e.target.innerText !== ""){
       this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
     } else if (chunk.ord > 0) {
-      this.props.deleteChunk(chunk).then(
-        () => document.getElementById(chunk.ord - 1).focus()
+      this.props.deleteChunk(chunk).then(() => {
+        const previous = document.getElementById(chunk.ord - 1);
+        previous.focus();
+        this.placeCaretAtEnd(previous);
+        }
       );
     } else {
       this.props.deleteChunk(chunk).then(
