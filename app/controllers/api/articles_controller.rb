@@ -51,7 +51,7 @@ class Api::ArticlesController < ApplicationController
   end
 
   def manage
-    @articles = current_user.articles
+    @articles = current_user.articles.order(created_at: :desc)
     render :manage
   end
 
