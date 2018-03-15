@@ -61,7 +61,7 @@ class Chunk extends React.Component {
     const chunk = this.state;
     if (this.props.chunkCount === 1 && e.target.innerText === "") {
       this.props.receiveChunk({ [chunk.id]: {content_type: "p", content: ""}});
-    } else if (e.target.innerText !== "" && "mov" !== chunk.content_type){
+    } else if (e.target.innerText !== ""){
       this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
     } else if (chunk.ord > 0 || "mov" === chunk.content_type) {
       this.props.deleteChunk(chunk).then(() => {

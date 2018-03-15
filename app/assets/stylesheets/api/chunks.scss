@@ -226,7 +226,10 @@ p.chunk.quote {
 }
 
 p.chunk.divider {
-  color: white;
+  text-align: center;
+  font-family: 'europa';
+  color: gray;
+  font-size: 16px;
 }
 
 .chunk_divider:after {

@@ -7,11 +7,11 @@ import { clearMenu } from '../actions/ui_actions';
 const UserMenu = (props) => {
   if (props.openState) {
     return (
-      <div id="user_menu" onClick={props.clearMenu}>
-        <div id="popover-arrow"></div>
-        <Link to='/articles/new'>New Article</Link>
-        <Link to={`/users/${props.currentUser.id}`}>My Profile</Link>
-        <Link to={`/settings`}>Settings</Link>
+      <div id="user_menu">
+        <div onClick={props.clearMenu} id="popover-arrow"></div>
+        <Link onClick={props.clearMenu} to='/articles/new'>New Article</Link>
+        <Link onClick={props.clearMenu} to={`/users/${props.currentUser.id}`}>My Profile</Link>
+        <Link onClick={props.clearMenu} to={`/settings`}>Settings</Link>
         <a onClick={() => props.logout()}>Sign out</a>
       </div>
     );
@@ -21,7 +21,10 @@ const UserMenu = (props) => {
 
 const mdp = (dispatch) => {
   return {
-    clearMenu: () => dispatch(clearMenu())
+    clearMenu: (e) => {
+      dispatch(clearMenu());
+      e.stopPropagation();
+    }
   };
 };
 

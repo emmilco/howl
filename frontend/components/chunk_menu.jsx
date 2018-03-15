@@ -31,9 +31,7 @@ class ChunkMenu extends React.Component {
     );
     this.props.clearMenu();
     e.stopPropagation();
-    const keyEvent = new KeyboardEvent("keydown", {key : "Enter"});
-    document.getElementById(this.props.chunk.ord).dispatchEvent(keyEvent);
-    document.getElementById(`${this.props.chunk.ord + 1}`).focus();
+    document.getElementById(`${this.props.chunk.ord}`).focus();
   }
 
   render(){
