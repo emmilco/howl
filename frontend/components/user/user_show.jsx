@@ -14,6 +14,13 @@ class UserShow extends React.Component {
     this.props.fetchUser(this.props.userId);
   }
 
+  componentWillReceiveProps(nextProps){
+    if (this.props.userId !== nextProps.userId){
+      this.props.fetchUser(nextProps.userId);
+      window.scrollTo(0,0);
+    }
+  }
+
   render(){
     if(!this.props.user) { return <div></div>; }
     return <div className="user_show">

@@ -1,6 +1,7 @@
 import { merge } from 'lodash';
 
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+
 import {
   RECEIVE_HOMEPAGE_ARTICLES,
   RECEIVE_ARTICLES_FOR_MANAGER,

@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  has_attached_file :avatar, styles: { medium: ["300x300"]}, default_url: "howl_default_avatar.svg"
+  has_attached_file :avatar, styles: { medium: ["300x300#", :jpeg]}, default_url: "howl_default_avatar.svg"
   validates_attachment :avatar,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png", "image/svg"] }
 

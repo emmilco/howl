@@ -235,8 +235,12 @@ p.article_publish_date {
 
 .user_show_header .user_social_stats span {
   margin-right: 8px;
+  cursor: pointer;
 }
 
+.user_show_header .user_social_stats span:hover {
+  color: rgba(0,0,0,.7);
+}
 
 .user_show_header_interior:before {
   content: "";

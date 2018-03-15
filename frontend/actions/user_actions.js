@@ -4,6 +4,8 @@ import { receiveCurrentUser } from './session_actions';
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
+export const RECEIVE_FOLLOWERS = "RECEIVE_FOLLOWERS";
+export const RECEIVE_FOLLOWEES = "RECEIVE_FOLLOWEES";
 
 export const receiveUser = ({ user, articles }) => {
   return {
@@ -24,6 +26,24 @@ export const removeFollow = (id) => {
   return {
     type: REMOVE_FOLLOW,
     id
+  };
+};
+
+export const receiveFollowers = (payload) => {
+  return {
+    type: RECEIVE_FOLLOWERS,
+    follows: payload.follows,
+    users: payload.users,
+    id: payload.id
+  };
+};
+
+export const receiveFollowees = (payload) => {
+  return {
+    type: RECEIVE_FOLLOWEES,
+    follows: payload.follows,
+    users: payload.users,
+    id: payload.id
   };
 };
 
@@ -65,6 +85,22 @@ export const updateAvatar = (formData, userId) => {
     return UsersAPIUtil.updateAvatar(formData, userId).then((payload) => {
       dispatch(receiveUser(payload));
       dispatch(receiveCurrentUser(payload.user));
+    });
+  };
+};
+
+export const fetchFollowers = (id) => {
+  return (dispatch) => {
+    return UsersAPIUtil.fetchFollowers(id).then((payload) => {
+      return dispatch(receiveFollowers(payload));
+    });
+  };
+};
+
+export const fetchFollowees = (id) => {
+  return (dispatch) => {
+    return UsersAPIUtil.fetchFollowees(id).then((payload) => {
+      return dispatch(receiveFollowees(payload));
     });
   };
 };

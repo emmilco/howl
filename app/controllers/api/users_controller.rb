@@ -44,6 +44,18 @@ class Api::UsersController < ApplicationController
     @followee.subscribers.delete(current_user) if @followee
   end
 
+  def subscriptions
+    @user = User.find(params[:id])
+    @subs = @user.subscriptions
+    render :subs
+  end
+
+    def subscribers
+    @user = User.find(params[:id])
+    @subs = @user.subscribers
+    render :subs
+  end
+
   private
 
   def user_params

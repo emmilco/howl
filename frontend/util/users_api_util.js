@@ -37,3 +37,17 @@ export const updateAvatar = (formData, userId) => {
     data: formData
   });
 };
+
+export const fetchFollowers = (id) => {
+  return $.ajax({
+    url: `/api/users/${id}/subscribers`,
+    method: "GET"
+  });
+};
+
+export const fetchFollowees = (id) => {
+  return $.ajax({
+    url: `/api/users/${id}/subscriptions`,
+    method: "GET"
+  });
+};

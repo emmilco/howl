@@ -10,7 +10,8 @@ class FollowButton extends React.Component {
     this.followStatus = this.followStatus.bind(this);
   }
 
-  followHandler() {
+  followHandler(e) {
+    e.stopPropagation();
     if (this.props.user.following) {
       this.props.unfollowUser(this.props.user.id);
     } else {

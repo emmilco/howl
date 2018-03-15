@@ -70,3 +70,19 @@ export const selectArticlesForManager = (state) => {
   });
   return articles;
 };
+
+export const selectFollowers = (state, id) => {
+  const user = state.ents.users[id];
+  if (!user.followers_index) { return []; }
+  return user.followers_index.map((userId) => {
+    return state.ents.users[userId];
+  });
+};
+
+export const selectFollowees = (state, id) => {
+  const user = state.ents.users[id];
+  if (!user.followees_index) { return []; }
+  return user.followees_index.map((userId) => {
+    return state.ents.users[userId];
+  });
+};
