@@ -7,10 +7,7 @@ json.articles do
       :title,
       :publish_date,
       :header_image_url,
-      :comments_count,
       :lead_text
-      json.liked current_user.liked_articles.include?(article) if logged_in?
-      json.like_count article.likes.count
     end
   end
 end
