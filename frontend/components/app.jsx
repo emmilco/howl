@@ -9,6 +9,7 @@ import ArticleEdit from './article/article_edit';
 import ArticleNew from './article/article_new';
 import UserShow from './user/user_show';
 import UserSettings from './user/user_settings';
+import ContentManager from './user/content_manager';
 import Homepage from './homepage';
 
 const App = (props) => {
@@ -23,6 +24,7 @@ const App = (props) => {
         <Route path="/articles/:articleId" component={ArticleShow} />
         <Route path="/users/:userId" component={UserShow} />
         <Route path="/settings" component={UserSettings} />
+        <Route path="/manage-content" component={ContentManager} />
         <Route path="/" component={Homepage} />
       </Switch>
     </main>

@@ -8,6 +8,7 @@ export const RECEIVE_TITLE = "RECEIVE_TITLE";
 export const TOGGLE_ARTICLE_PUBLISHED = "TOGGLE_ARTICLE_PUBLISHED";
 export const RECEIVE_ARTICLE_LIKE = "RECEIVE_ARTICLE_LIKE";
 export const REMOVE_ARTICLE_LIKE = "REMOVE_ARTICLE_LIKE";
+export const RECEIVE_ARTICLES_FOR_MANAGER = "RECEIVE_ARTICLES_FOR_MANAGER";
 
 export const receiveArticle = ({ article, chunks, user }) => {
   return {
@@ -50,6 +51,14 @@ export const removeArticleLike = (id) => {
   return {
     type: REMOVE_ARTICLE_LIKE,
     id
+  };
+};
+
+export const receiveArticlesForManager = (payload) => {
+  return {
+    type: RECEIVE_ARTICLES_FOR_MANAGER,
+    articles: payload.articles,
+    manager_articles_index: payload.manager_articles_index
   };
 };
 
@@ -126,6 +135,14 @@ export const unlikeArticle = (articleId) => {
   return (dispatch) => {
     return ArticlesAPIUtil.unlikeArticle(articleId).then(() => {
       return dispatch(removeArticleLike(articleId));
+    });
+  };
+};
+
+export const fetchArticlesForManager = () => {
+  return (dispatch) => {
+    return ArticlesAPIUtil.fetchArticlesForManager().then((payload) => {
+      return dispatch(receiveArticlesForManager(payload));
     });
   };
 };

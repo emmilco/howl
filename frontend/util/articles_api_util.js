@@ -47,3 +47,10 @@ export const unlikeArticle = (id) => {
     url: `/api/articles/${id}/like`
   });
 };
+
+export const fetchArticlesForManager = () => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/articles/manage`
+  });
+};

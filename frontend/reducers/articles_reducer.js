@@ -7,7 +7,8 @@ import {
   RECEIVE_TITLE,
   TOGGLE_ARTICLE_PUBLISHED,
   RECEIVE_ARTICLE_LIKE,
-  REMOVE_ARTICLE_LIKE
+  REMOVE_ARTICLE_LIKE,
+  RECEIVE_ARTICLES_FOR_MANAGER
 } from '../actions/article_actions';
 
 import {
@@ -25,6 +26,7 @@ import {
 } from '../actions/user_actions';
 
 const articlesReducer = (oldState = {}, action) => {
+  Object.freeze(oldState);
   const newState =  merge({}, oldState);
   let article;
   switch (action.type) {
@@ -67,6 +69,7 @@ const articlesReducer = (oldState = {}, action) => {
 
     case RECEIVE_USER:
     case RECEIVE_HOMEPAGE_ARTICLES:
+    case RECEIVE_ARTICLES_FOR_MANAGER:
       return merge({}, oldState, action.articles);
 
     case RECEIVE_ARTICLE_LIKE:

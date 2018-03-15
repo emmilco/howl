@@ -6,7 +6,7 @@ export const selectArticleChunks = (state, article) => {
 };
 
 export const selectArticleChunksforEdit = (state, article) => {
-  if (!article) { return []; }
+  if (!article || !article.chunks) { return []; }
   const chunks = {};
   article.chunks.forEach((chunkId) => {
     chunks[chunkId] = state.ents.chunks[chunkId];
@@ -60,4 +60,13 @@ export const selectHomepageAuthors = (state) => {
     homepageAuthors[userId] = state.ents.users[userId];
   });
   return homepageAuthors;
+};
+
+export const selectArticlesForManager = (state) => {
+  if (!state.session.manager_articles_index) { return []; }
+  const index = state.session.manager_articles_index;
+  const articles = index.map((id) => {
+    return state.ents.articles[id];
+  });
+  return articles;
 };

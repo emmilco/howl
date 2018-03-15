@@ -1,6 +1,6 @@
 class Api::ArticlesController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:create, :update, :destroy, :like, :unlike]
+  before_action :ensure_logged_in, except: [:index, :show]
 
   def show
     @article = Article.find(params[:id])
@@ -48,6 +48,11 @@ class Api::ArticlesController < ApplicationController
   def unlike
     @article = Article.find(params[:id])
     @article.likers.delete(current_user) if @article
+  end
+
+  def manage
+    @articles = current_user.articles
+    render :manage
   end
 
   private
