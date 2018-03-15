@@ -11,7 +11,7 @@ class YouTubeMenu extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseYTLink = this.parseYTLink.bind(this);
-    this.state = "";
+    this.state = {url: ""};
   }
 
   handleChange(e){
@@ -20,13 +20,14 @@ class YouTubeMenu extends React.Component {
 
   handleSubmit(e) {
     this.props.receiveChunk({
-      [this.props.chunk.id]: {content: this.parseYTLink(), content_type: "mov"}
+      [this.props.chunk.id]: {
+        youtube_url: this.parseYTLink(),
+        content_type: "mov",
+        content: " "
+      }
     });
     this.props.clearMenu();
-    const keyEvent = new KeyboardEvent("keydown", {key : "Enter"});
-    document.getElementById(this.props.chunk.ord).dispatchEvent(keyEvent);
-    console.log("here!");
-    document.getElementById(`${this.props.chunk.ord + 1}`).focus();
+    document.getElementById(this.props.chunk.ord).focus();
   }
 
   parseYTLink(){
@@ -35,6 +36,7 @@ class YouTubeMenu extends React.Component {
     if(ampersandPosition !== -1) {
       videoId = videoId.substring(0, ampersandPosition);
     }
+    return videoId;
   }
 
   render(){

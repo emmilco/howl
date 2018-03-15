@@ -33,7 +33,6 @@ class ChunkMenu extends React.Component {
     e.stopPropagation();
     const keyEvent = new KeyboardEvent("keydown", {key : "Enter"});
     document.getElementById(this.props.chunk.ord).dispatchEvent(keyEvent);
-    console.log("here!");
     document.getElementById(`${this.props.chunk.ord + 1}`).focus();
   }
 
@@ -45,7 +44,6 @@ class ChunkMenu extends React.Component {
           <div id="popover-arrow-left"></div>
           <button onClick={this.buttonHandler}>h1</button>
           <button onClick={this.buttonHandler}>h2</button>
-          <button onClick={this.buttonHandler}>mov</button>
           <button onClick={this.dividerButtonHandler}>—</button>
           <button onClick={this.buttonHandler}>quote</button>
           <div id="youtube_menu_container"
@@ -69,7 +67,7 @@ class ChunkMenu extends React.Component {
 const msp = (state, ownProps) => {
   const chunkId = ownProps.chunk.id;
   return {
-    openState: [`chunk_${chunkId}`, `image_${chunkId}`, `mov_${chunkId}`].includes(state.ui.menu),
+    openState: state.ui.menu && state.ui.menu.match(new RegExp(`_${chunkId}$`)),
   };
 };
 

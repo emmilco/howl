@@ -61,9 +61,9 @@ class Chunk extends React.Component {
     const chunk = this.state;
     if (this.props.chunkCount === 1 && e.target.innerText === "") {
       this.props.receiveChunk({ [chunk.id]: {content_type: "p", content: ""}});
-    } else if (e.target.innerText !== ""){
+    } else if (e.target.innerText !== "" && "mov" !== chunk.content_type){
       this.props.receiveChunk({ [chunk.id]: {content: e.target.innerText}});
-    } else if (chunk.ord > 0) {
+    } else if (chunk.ord > 0 || "mov" === chunk.content_type) {
       this.props.deleteChunk(chunk).then(() => {
         const previous = document.getElementById(chunk.ord - 1);
         previous.focus();
@@ -94,11 +94,13 @@ class Chunk extends React.Component {
         }
         {type === "img" && <img src={this.props.chunk.image_url} />}
         {type === "mov" &&
-          <iframe width="560" height="315" 
-            src={`https://www.youtube.com/embed/${this.props.chunk.content}`}
-            frameborder="0" allow="encrypted-media"
-            allowfullscreen>
-          </iframe>
+          <div>
+            <iframe width="560" height="315"
+              src={`https://www.youtube.com/embed/${this.props.chunk.youtube_url}`}
+              frameborder="0" allow="encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
         }
         <p contentEditable={this.props.edit}
           onKeyUp={this.handleKeystroke}

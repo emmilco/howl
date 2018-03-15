@@ -1,5 +1,6 @@
 json.article do
-  json.extract! @article, :id, :title, :author_id, :publish_date, :published, :lead_text
+  json.extract! @article,
+    :id, :title, :author_id, :publish_date, :published, :lead_text
   json.chunks @article.chunks.order(:ord).pluck(:id)
   json.comments @article.comments.order(:created_at).pluck(:id)
   json.comment_authors @article.comments.pluck(:author_id)
@@ -10,14 +11,16 @@ end
 json.chunks do
   @article.chunks.map do |chunk|
     json.set! chunk.id do
-      json.extract! chunk, :id, :chunkable_id, :content, :ord, :content_type
+      json.extract! chunk,
+        :id, :chunkable_id, :content, :ord, :content_type, :youtube_url
       json.image_url asset_path(chunk.image.url)
     end
   end
 end
 
 json.user do
-  json.extract! @article.author, :id, :full_name, :bio, :created_at
+  json.extract! @article.author,
+    :id, :full_name, :bio, :created_at
   json.following current_user.subscriptions.include?(@article.author) if logged_in?
   json.avatar_url asset_path(@article.author.avatar.url)
 end

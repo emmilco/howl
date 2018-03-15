@@ -53,7 +53,15 @@ class Api::ChunksController < ApplicationController
       :publish_date,
       :author_id,
       :published,
-      chunks_attributes: [:content, :ord, :content_type, :id, :chunkable_id, :image]
+      chunks_attributes: [
+        :content,
+        :ord,
+        :content_type,
+        :id,
+        :chunkable_id,
+        :image,
+        :youtube_url
+      ]
     )
   end
 end
