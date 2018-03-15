@@ -93,6 +93,13 @@ class Chunk extends React.Component {
           </div>
         }
         {type === "img" && <img src={this.props.chunk.image_url} />}
+        {type === "mov" &&
+          <iframe width="560" height="315" 
+            src={`https://www.youtube.com/embed/${this.props.chunk.content}`}
+            frameborder="0" allow="encrypted-media"
+            allowfullscreen>
+          </iframe>
+        }
         <p contentEditable={this.props.edit}
           onKeyUp={this.handleKeystroke}
           onPaste={this.handlePaste}

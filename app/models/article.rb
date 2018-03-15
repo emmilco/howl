@@ -85,7 +85,9 @@ class Article < ApplicationRecord
   end
 
   def lead_text
-    self.chunks.where(content_type: "p").order(:ord).first.content
+    first_para = self.chunks.where(content_type: "p").order(:ord).first
+    return first_para.content if first_para
+    nil
   end
 
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { displayForm, toggleMenu, clearMenu } from '../actions/ui_actions';
 import { receiveChunk } from '../actions/chunk_actions';
 import ImageUploadMenu from './image_upload_menu';
+import YouTubeMenu from './youtube_menu';
 
 
 class ChunkMenu extends React.Component {
@@ -44,8 +45,14 @@ class ChunkMenu extends React.Component {
           <div id="popover-arrow-left"></div>
           <button onClick={this.buttonHandler}>h1</button>
           <button onClick={this.buttonHandler}>h2</button>
+          <button onClick={this.buttonHandler}>mov</button>
           <button onClick={this.dividerButtonHandler}>—</button>
           <button onClick={this.buttonHandler}>quote</button>
+          <div id="youtube_menu_container"
+            onClick={(e) => this.props.toggleMenu(`mov_${chunkId}`, e)}>
+            <img id="youtube_menu_button" src={window.youtube_logo_path} />
+            <YouTubeMenu chunk={this.props.chunk} />
+          </div>
           <div id="image_upload_container"
             onClick={(e) => this.props.toggleMenu(`image_${chunkId}`, e)}>
             <img id="image_upload_button" src={window.image_icon_path} />
@@ -62,7 +69,7 @@ class ChunkMenu extends React.Component {
 const msp = (state, ownProps) => {
   const chunkId = ownProps.chunk.id;
   return {
-    openState: [`chunk_${chunkId}`, `image_${chunkId}`].includes(state.ui.menu),
+    openState: [`chunk_${chunkId}`, `image_${chunkId}`, `mov_${chunkId}`].includes(state.ui.menu),
   };
 };
 

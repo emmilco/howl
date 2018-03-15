@@ -18,7 +18,7 @@
 class Chunk < ApplicationRecord
   validates :article, :ord, :content_type, presence: true
   validates :content_type, inclusion:
-    %W(p h1 h2 quote divider img)
+    %W(p h1 h2 quote divider img mov)
 
   has_attached_file :image, styles: { medium: ["600x600"]}, default_url: "missing.png"
   validates_attachment :image,
