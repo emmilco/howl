@@ -16,6 +16,7 @@ import {
 import { RECEIVE_ARTICLE_COMMENTS } from '../actions/comment_actions';
 
 const usersReducer = (oldState = {}, action) => {
+  Object.freeze(oldState);
   switch (action.type) {
 
     case RECEIVE_USER:

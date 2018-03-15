@@ -11,6 +11,7 @@ import {
 } from '../actions/chunk_actions';
 
 const chunksReducer = (oldState = {}, action) => {
+  Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ARTICLE:
       return merge({}, oldState, action.chunks);
