@@ -29,8 +29,12 @@ const sessionReducer = (oldState = {currentUser: null}, action) => {
     });
 
   case REMOVE_ARTICLE:
+    const homepage = newState.homepage_articles_index;
     const manager = newState.manager_articles_index;
     manager.splice(manager.indexOf(action.id), 1);
+    if (homepage.indexOf(action.id) >= 0) {
+    homepage.splice(homepage.indexOf(action.id), 1);
+    }
     return newState;
 
   default:
