@@ -7,7 +7,7 @@
 
 #modal_overlay {
   position: fixed; /* Stay in place */
-  z-index: 2; /* Sit on top */
+  z-index: 10; /* Sit on top */
   left: 0;
   top: 0;
   width: 100vw; /* Full width */
@@ -22,7 +22,7 @@
   top: calc((100vh - 430px) / 2);
   width: 400px;
   height: auto;
-  z-index: 10;
+  z-index: 11;
   background-color: white;
   padding: 40px;
   display: flex;

@@ -18,7 +18,7 @@ class ContentManager extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="content_manager">
         <UserShowHeader
           date={this.props.user.created_at}
           bio={this.props.user.bio}
