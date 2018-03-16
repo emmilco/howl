@@ -14,10 +14,11 @@ export const receiveArticleComments = ({ comments, users }) => {
   };
 };
 
-export const receiveComment = (comment) => {
+export const receiveComment = ({ comment, user }) => {
   return {
     type: RECEIVE_COMMENT,
-    comment
+    comment,
+    user
   };
 };
 

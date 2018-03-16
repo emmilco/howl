@@ -13,7 +13,10 @@ import {
   RECEIVE_HOMEPAGE_ARTICLES
  } from '../actions/article_actions';
 
-import { RECEIVE_ARTICLE_COMMENTS } from '../actions/comment_actions';
+import {
+  RECEIVE_ARTICLE_COMMENTS,
+  RECEIVE_COMMENT
+} from '../actions/comment_actions';
 
 const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -21,6 +24,7 @@ const usersReducer = (oldState = {}, action) => {
 
     case RECEIVE_USER:
     case RECEIVE_ARTICLE:
+    case RECEIVE_COMMENT:
     return merge({}, oldState, {[action.user.id]: action.user});
 
     case RECEIVE_FOLLOWERS:

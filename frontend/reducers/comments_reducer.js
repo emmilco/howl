@@ -12,7 +12,7 @@ const commentsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   const newState = merge({}, oldState);
   switch (action.type) {
-    
+
     case RECEIVE_ARTICLE_COMMENTS:
       return merge({}, oldState, action.comments);
 
