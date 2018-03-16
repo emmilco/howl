@@ -11,7 +11,7 @@ class UserArticleFeedItem extends React.Component {
       <div className="article_feed_item" id={`art_${article.id}`}>
         <UserHeader
           user={this.props.user}
-          date={this.props.user.created_at}/>
+          date={article.publish_date}/>
         <Link to={`/articles/${article.id}`}>
           <div className="article_feed_title">{article.title}</div>
           { Boolean(article.header_image_url) &&
