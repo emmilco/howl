@@ -33,7 +33,6 @@ class UserSettings extends React.Component {
     });
   }
 
-
   handleCancel(e){
     e.preventDefault();
     this.props.history.push(`/`);
@@ -42,7 +41,6 @@ class UserSettings extends React.Component {
   updateField(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
-
 
   render(){
     const user = this.props.currentUser;

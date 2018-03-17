@@ -34,24 +34,23 @@ const UserShowHeader = (props) => {
             <p className="user_name">{props.user.full_name}</p>
             {Boolean(props.date) &&
               <p className="date">{displayDate(props.date)}</p>}
-                {Boolean(props.bio) &&
-                  <p className="user_bio">{props.bio}</p>}
-                  </div>
-                  <img className="avatar"
-                    src={props.user.avatar_url}/>
-                </div>
-                <div className="user_social_stats">
-                  <span onClick={props.showFollowees}
-                    className="user_followee_count">
-                    {props.user.subscription_count} Following
-                  </span>
-                  <span onClick={props.showFollowers}
-                    className="user_follower_count">
-                    {props.user.subscriber_count} Followers
-                  </span>
-                </div>
-                <FollowButton user={props.user} />
-              </div>
+            {Boolean(props.bio) &&
+              <p className="user_bio">{props.bio}</p>}
+          </div>
+          <img className="avatar" src={props.user.avatar_url}/>
+        </div>
+        <div className="user_social_stats">
+          <span onClick={props.showFollowees}
+            className="user_followee_count">
+            {props.user.subscription_count} Following
+          </span>
+          <span onClick={props.showFollowers}
+            className="user_follower_count">
+            {props.user.subscriber_count} Followers
+          </span>
+        </div>
+        <FollowButton user={props.user} />
+      </div>
     </div>
   );
 };

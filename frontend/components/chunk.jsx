@@ -68,8 +68,7 @@ class Chunk extends React.Component {
         const previous = document.getElementById(chunk.ord - 1);
         previous.focus();
         this.placeCaretAtEnd(previous);
-        }
-      );
+      });
     } else {
       this.props.deleteChunk(chunk).then(
         () => document.getElementById(chunk.ord).focus()
@@ -112,9 +111,7 @@ class Chunk extends React.Component {
       </div>
     );
   }
-
 }
-
 
 const mdp = (dispatch) => {
   return {

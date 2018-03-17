@@ -5,7 +5,6 @@ import { removeForm } from '../actions/ui_actions';
 import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
 
-
 const ModalOverlay = (props) => {
   return (
     <div id="modal_container">

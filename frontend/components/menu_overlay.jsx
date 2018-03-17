@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { clearMenu } from '../actions/ui_actions';
 
-
 const MenuOverlay = (props) => {
   if (props.menu) {
     return (

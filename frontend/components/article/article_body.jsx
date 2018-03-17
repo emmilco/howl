@@ -3,7 +3,6 @@ import React from 'react';
 import Chunk from '../chunk';
 import ContentTypeSelector from './content_type_selector';
 
-
 const ArticleBody = (props) => {
   return (
     <div className="article_body">

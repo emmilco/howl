@@ -49,7 +49,8 @@ class CommentForm extends React.Component {
         <div className="comment_footer">
           <button onClick={this.handleSubmit.bind(this)}>Publish</button>
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 

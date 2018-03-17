@@ -12,7 +12,6 @@ class Api::ChunksController < ApplicationController
     end
   end
 
-
   def destroy
     chunk = Chunk.includes(:siblings).find(chunk_params[:id])
     @article = chunk.article

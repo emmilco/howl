@@ -33,5 +33,4 @@ class Chunk < ApplicationRecord
   through: :article,
   source: :chunks
 
-
 end

@@ -17,7 +17,6 @@ class SessionForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
-
   render() {
     return (
       <div className="modal_form">
@@ -33,7 +32,6 @@ class SessionForm extends React.Component {
                 value={this.state.full_name}>
               </input>
             </label>}
-
 
           <label><div>Email address:</div>
             <input id="email" type="text"

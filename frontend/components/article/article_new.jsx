@@ -27,7 +27,6 @@ class ArticleNew extends React.Component {
   }
 }
 
-
 const msp = (state) => {
   return {
     currentUser: state.session.currentUser,
@@ -41,6 +40,5 @@ const mdp = (dispatch) => {
     clearNewArticle: () => dispatch(clearNewArticle())
   };
 };
-
 
 export default withRouter(connect(msp, mdp)(ArticleNew));

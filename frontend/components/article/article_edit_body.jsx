@@ -61,5 +61,4 @@ const mdp = (dispatch) => {
   };
 };
 
-
 export default connect(null, mdp)(ArticleEditBody);

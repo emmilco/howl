@@ -55,5 +55,4 @@ const mdp = (dispatch) => {
   };
 };
 
-
 export default connect(msp, mdp)(UserShow);

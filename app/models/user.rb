@@ -80,7 +80,6 @@ class User < ApplicationRecord
     .order('follower desc')
     .limit(10)
     .collect(&:followee_id)
-
   end
 
   def generate_session_token

@@ -35,8 +35,6 @@ class AvatarUploadMenu extends React.Component {
     }
   }
 
-
-
   render(){
     if (this.props.openState) {
       return (

@@ -1,4 +1,3 @@
-
 json.user do
   json.id @user.id
   json.full_name @user.full_name
@@ -9,7 +8,7 @@ json.user do
   json.following current_user.subscriptions.include?(@user) if logged_in?
   json.subscriber_count @user.subscribers.count
   json.subscription_count @user.subscriptions.count
-  
+
 end
 
 if @articles

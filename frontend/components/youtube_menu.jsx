@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { displayForm, toggleMenu, clearMenu } from '../actions/ui_actions';
 import { receiveChunk, updateChunk } from '../actions/chunk_actions';
 
-
 class YouTubeMenu extends React.Component {
   constructor(props){
     super(props);

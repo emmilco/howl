@@ -22,7 +22,6 @@
   border: 1px solid #ddd;
   border-radius: 3px;
   box-shadow: 0px 1px 2px rgba(0,0,0,.20);
-
 }
 
 #popover-arrow-left {
@@ -99,7 +98,6 @@
   position:relative;
 }
 
-
 .youtube_menu {
   position: absolute;
   top: 38px;
@@ -140,12 +138,6 @@
   border: none;
 }
 
-// .image_upload_menu {
-//   display:flex;
-//   flex-direction: row;
-//   background-color: white;
-// }
-
 .image_upload_menu form {
   display: flex;
   flex-direction: row;
@@ -175,7 +167,6 @@ input[type="file"] {
     top: 0;
 }
 
-
 // CHUNK CONTENT TYPES
 
 p.chunk.h1 {
@@ -194,7 +185,6 @@ p.chunk.h2 {
   font-weight: bold;
 }
 
-
 p.chunk.quote {
   font-style: italic;
   border-left: 3px solid black;
@@ -203,7 +193,6 @@ p.chunk.quote {
   position: relative;
   left: -23px;
 }
-
 
 .chunk_img p {
   text-align: center;
@@ -239,8 +228,6 @@ p.chunk.divider {
   position: relative;
   top: -40px;
 }
-
-
 
 .chunk_mov iframe {
   width: 700px;

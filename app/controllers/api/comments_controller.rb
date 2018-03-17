@@ -46,7 +46,6 @@ class Api::CommentsController < ApplicationController
     @comment.likers.delete(current_user) if @comment
   end
 
-
   private
 
   def comment_params

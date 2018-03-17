@@ -10,7 +10,6 @@ import {
 import HomepageTopArticles from './homepage_top_articles';
 import HomepageFeedItem from './homepage_feed_item';
 
-
 class Homepage extends React.Component {
 
   componentDidMount(){
