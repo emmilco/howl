@@ -32,7 +32,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'unsplash'
 gem 'aws-sdk'
 gem 'paperclip'
 gem 'figaro'
@@ -56,6 +55,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
+  gem 'unsplash'
 end
 gem 'faker'
 gem 'betterlorem'
