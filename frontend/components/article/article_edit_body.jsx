@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { merge } from 'lodash';
 
 import Chunk from '../chunk';
-import ContentTypeSelector from './content_type_selector';
 
 import { createChunk } from '../../actions/chunk_actions';
 
