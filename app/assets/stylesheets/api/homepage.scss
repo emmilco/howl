@@ -11,6 +11,7 @@
   background-color: white;
   margin-bottom: 50px;
   display: flex;
+  justify-content: space-between;
 }
 
 .homepage_articles_feed img {
@@ -170,12 +171,16 @@ object-fit: cover;
 margin-top: 0px;
 }
 
+.top_2 .feed_image_wrapper {
+  flex: 1;
+}
 
 .top_2 .article_info_container {
-max-width: 500px;
-margin-right: 20px;
-margin-left: 10px;
-padding-top: 0px;
+  flex: 2;
+  max-width: 500px;
+  margin-right: 20px;
+  margin-left: 10px;
+  padding-top: 0px;
 }
 
 .top_2 .article_feed_title {
