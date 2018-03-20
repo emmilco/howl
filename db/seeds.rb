@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
 def bio
   "#{Faker::Pokemon.move} #{Faker::Job.position} at #{Faker::Company.name}"
 end
@@ -48,10 +46,10 @@ end
 
 
 Chunk.destroy_all
-1600.times do |m|
+1600.times do |para|
   Chunk.create(
-    ord: rand(10000),
-    content: BetterLorem.p(1, true),
+    ord: rand(100000),
+    content: File.readlines(File.join(Rails.root, 'db', 'moby_dick.txt')).sample,
     content_type: "p",
     article: Article.all.sample
   )
@@ -59,25 +57,33 @@ end
 
 200.times do
   Chunk.create(
-    ord: rand(10000),
+    ord: rand(100000),
     content_type: "quote",
-    content: BetterLorem.p(1, true),
+    content: File.readlines(File.join(Rails.root, 'db', 'moby_dick.txt')).sample,
     article: Article.all.sample
   )
 end
 
 100.times do
   Chunk.create(
-    ord: rand(10000),
+    ord: rand(100000),
     content_type: "h1",
     content: Faker::Company.catch_phrase,
     article: Article.all.sample
   )
 end
 
+50.times do
+  Chunk.create(
+    ord: rand(100000),
+    content_type: "divider",
+    article: Article.all.sample
+  )
+end
+
 200.times do
   Chunk.create(
-    ord: rand(10000),
+    ord: rand(100000),
     content_type: "h2",
     content: Faker::Company.catch_phrase,
     article: Article.all.sample
@@ -86,7 +92,7 @@ end
 
 280.times do |m|
   Chunk.create(
-    ord: rand(10000),
+    ord: rand(100000),
     content_type: "img",
     image: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'seed_images', "#{rand(166) + 1}.jpg")),
     article: Article.all.sample
@@ -97,7 +103,7 @@ end
 1500.times do
   Comment.create(
     article: Article.all.sample,
-    content: BetterLorem.p(1, true),
+    content: File.readlines(File.join(Rails.root, 'db', 'moby_dick.txt')).sample,
     author: User.all.sample
   )
 end

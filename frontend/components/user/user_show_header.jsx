@@ -10,7 +10,7 @@ import { toggleMenu } from '../../actions/ui_actions';
 
 const displayDate = (dateString) => {
   const dateObject = new Date(dateString);
-  const isOld = ((new Date()).getFullYear()) - dateObject.getFullYear() > 1;
+  const isOld = ((new Date()).getFullYear()) - dateObject.getFullYear() > 0;
   let date = dateObject.toDateString();
   if (isOld) {
     date = date.slice(4);
