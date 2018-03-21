@@ -46,7 +46,7 @@ end
 
 
 Chunk.destroy_all
-1600.times do |para|
+1200.times do |para|
   Chunk.create(
     ord: rand(100000),
     content: File.readlines(File.join(Rails.root, 'db', 'moby_dick.txt')).sample,
