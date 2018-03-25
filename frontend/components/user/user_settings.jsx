@@ -68,6 +68,10 @@ class UserSettings extends React.Component {
               onChange={this.updateField("password")}
               value={this.state.password}></input>
           </div>
+          {this.props.errors && this.props.errors.map((error) => {
+            return <p className="error">{error}</p>;
+            })
+          }
           <div className="submit_buttons">
             <button onClick={this.handleSubmit}>Update</button>
             <button onClick={this.handleCancel}>Cancel</button>
@@ -85,7 +89,8 @@ class UserSettings extends React.Component {
 
 const msp = (state) => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    errors: state.errors.session
   };
 };
 

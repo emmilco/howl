@@ -8,6 +8,9 @@ json.user do
   json.following current_user.subscriptions.include?(@user) if logged_in?
   json.subscriber_count @user.subscribers.count
   json.subscription_count @user.subscriptions.count
+  if @user == current_user
+    json.email @user.email
+  end
 
 end
 

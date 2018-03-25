@@ -1,5 +1,6 @@
 import * as UsersAPIUtil from '../util/users_api_util';
-import { receiveCurrentUser } from './session_actions';
+import { receiveCurrentUser, receiveErrors } from './session_actions';
+
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
@@ -76,7 +77,7 @@ export const updateUser = (user) => {
     return UsersAPIUtil.updateUser(user).then((payload) => {
       dispatch(receiveUser(payload));
       dispatch(receiveCurrentUser(payload.user));
-    });
+    }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
   };
 };
 
