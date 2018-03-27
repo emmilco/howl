@@ -22,6 +22,27 @@
   flex-direction: row;
 }
 
+#github {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+#github > * {
+  margin-left: 20px;
+  text-transform: uppercase;
+  color: #6a9ae8;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+#github *:hover {
+  text-decoration: underline;
+}
+
 .user_menus {
   display: flex;
 }
