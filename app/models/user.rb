@@ -54,7 +54,8 @@ class User < ApplicationRecord
   through: :followings,
   source: :follower
 
-  has_many :likes
+  has_many :likes,
+  dependent: :destroy
 
   has_many :liked_articles,
   through: :likes,
