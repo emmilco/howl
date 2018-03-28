@@ -10,8 +10,9 @@ def bio
   "#{Faker::Pokemon.move} #{Faker::Job.position} at #{Faker::Company.name}"
 end
 
+
 User.destroy_all
-20.times do
+10.times do
   User.create(
     full_name: Faker::Name.name,
     bio: bio,
@@ -35,7 +36,7 @@ users = User.all
 end
 
 Article.destroy_all
-140.times do
+70.times do
   Article.create(
     title: "#{Faker::Pokemon.name} in #{Faker::Pokemon.location}",
     author: User.all.sample,
@@ -46,7 +47,7 @@ end
 
 
 Chunk.destroy_all
-1200.times do |para|
+600.times do |para|
   Chunk.create(
     ord: rand(100000),
     content: File.readlines(File.join(Rails.root, 'db', 'moby_dick.txt')).sample,
@@ -55,7 +56,7 @@ Chunk.destroy_all
   )
 end
 
-200.times do
+100.times do
   Chunk.create(
     ord: rand(100000),
     content_type: "quote",
@@ -64,7 +65,7 @@ end
   )
 end
 
-100.times do
+50.times do
   Chunk.create(
     ord: rand(100000),
     content_type: "h1",
@@ -73,7 +74,7 @@ end
   )
 end
 
-50.times do
+25.times do
   Chunk.create(
     ord: rand(100000),
     content_type: "divider",
@@ -81,7 +82,7 @@ end
   )
 end
 
-200.times do
+100.times do
   Chunk.create(
     ord: rand(100000),
     content_type: "h2",
@@ -90,7 +91,7 @@ end
   )
 end
 
-280.times do |m|
+140.times do |m|
   Chunk.create(
     ord: rand(100000),
     content_type: "img",
@@ -99,8 +100,7 @@ end
   )
 end
 
-
-1500.times do
+500.times do
   Comment.create(
     article: Article.all.sample,
     content: File.readlines(File.join(Rails.root, 'db', 'moby_dick.txt')).sample,
@@ -108,7 +108,7 @@ end
   )
 end
 
-2000.times do
+500.times do
   Comment.all.sample.likers << User.all.sample
 end
 
