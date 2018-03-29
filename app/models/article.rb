@@ -40,14 +40,14 @@ class Article < ApplicationRecord
       .includes(:author)
       .where(published: true)
       .order(publish_date: :desc)
-      .limit(30)
+      .limit(30).select { |article| article.header_image_url }
   end
 
   def self.logged_out_index_articles
     Article.includes(:author)
       .where(published: true)
       .order(publish_date: :desc)
-      .limit(30)
+      .limit(30).select { |article| article.header_image_url }
   end
 
   def create_chunk_at(ord)
