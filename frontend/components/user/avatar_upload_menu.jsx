@@ -14,6 +14,7 @@ class AvatarUploadMenu extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     const file = this.state.imageFile;
     const formData = new FormData();
     if (file){
@@ -38,7 +39,7 @@ class AvatarUploadMenu extends React.Component {
   render(){
     if (this.props.openState) {
       return (
-        <div class="image_upload_menu">
+        <div className="image_upload_menu">
           <form onSubmit={this.handleSubmit}>
             <label className="file_container">
               <button>Select File</button>

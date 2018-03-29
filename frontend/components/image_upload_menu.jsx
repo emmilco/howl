@@ -13,6 +13,7 @@ class ImageUploadMenu extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     const file = this.state.imageFile;
     const formData = new FormData();
     if (file){
