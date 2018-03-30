@@ -15,7 +15,7 @@ const UserMenu = (props) => {
         <Link onClick={props.clearMenu} to={`/users/${props.currentUser.id}`}>My Profile</Link>
         <div className="user_menu_divider"></div>
         <Link onClick={props.clearMenu} to={`/settings`}>Settings</Link>
-        <a onClick={() => props.logout()}>Sign out</a>
+        <Link onClick={() => props.logout()} to={`/`}>Sign out</Link>
       </div>
     );
   }
