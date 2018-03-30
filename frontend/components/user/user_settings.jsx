@@ -15,8 +15,6 @@ class UserSettings extends React.Component {
     this.state = {
       full_name: "",
       bio: "",
-      email: "",
-      password: ""
     };
   }
 
@@ -57,16 +55,6 @@ class UserSettings extends React.Component {
             <textarea
               onChange={this.updateField("bio")}
               value={this.state.bio}></textarea>
-          </div>
-          <div className="email">Email Address
-            <input type="text"
-              onChange={this.updateField("email")}
-              value={this.state.email}></input>
-          </div>
-          <div className="new_password">New Password
-            <input type="password"
-              onChange={this.updateField("password")}
-              value={this.state.password}></input>
           </div>
           {this.props.errors && this.props.errors.map((error) => {
             return <p className="error">{error}</p>;
