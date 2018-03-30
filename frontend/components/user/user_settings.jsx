@@ -61,8 +61,8 @@ class UserSettings extends React.Component {
             })
           }
           <div className="submit_buttons">
-            <button onClick={this.handleSubmit}>Update</button>
             <button onClick={this.handleCancel}>Cancel</button>
+            <button onClick={this.handleSubmit}>Update</button>
           </div>
         </div>
         <div className="avatar"
