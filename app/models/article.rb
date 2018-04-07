@@ -70,7 +70,6 @@ class Article < ApplicationRecord
       ord: ord
     )
     self.reload
-    self.correct_chunk_sequence
   end
 
   def correct_chunk_sequence

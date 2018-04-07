@@ -89,6 +89,10 @@ end
 
 ```
 
+### Maintaining Paragraph Order Efficiently on the Backend
+
+Paragraph creation and deletion proved to be the most difficult part of backend design as well. While I considered implementing each article's paragraph sequence as a linked list to enable constant time insertion and deletion, for various reasons maintaining paragraph order by means of an index column in the database was cleaner and more convenient.  However, updating the order to maintain consistency and avoid collisions *without* doing N+1 SQL queries proved difficult.  In the end I wrote two custom PostgreSQL queries to re-serialize all of the paragraph chunks for a given article in a single database call, drastically increasing the speed and responsiveness of the article editor.
+
 ## The Homepage
 
 Howl's combines the style of a newspaper front-page with the functionality traditional social media feed.  Homepage articles are pulled from the current user's pool of followed authors, based on publication date.  In order to reduce load times, homepage assembly takes advantage of ActiveRecord data caching and reduces the information reported back through the AJAX view layer to a bare minimum.
