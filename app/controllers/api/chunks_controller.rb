@@ -13,7 +13,7 @@ class Api::ChunksController < ApplicationController
   end
 
   def destroy
-    chunk = Chunk.includes(:siblings).find(chunk_params[:id])
+    chunk = Chunk.includes(:article).find(chunk_params[:id])
     @article = chunk.article
     if chunk && chunk.article.author == current_user
       chunk.destroy

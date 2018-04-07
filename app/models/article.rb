@@ -53,7 +53,7 @@ class Article < ApplicationRecord
   def create_chunk_at(ord)
     resequence = <<-SQL
       update chunks c
-      set ord = c2.seqnum + #{ord - 1}
+      set ord = c2.seqnum + #{ord}
       from (
         select c2.*, row_number() over (order by c2.ord) as seqnum
         from chunks c2
