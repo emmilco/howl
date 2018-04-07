@@ -51,10 +51,18 @@ class Article < ApplicationRecord
   end
 
   def create_chunk_at(ord)
-    self.chunks.order(:ord).each do |chunk|
-      chunk.ord += 1 if chunk.ord >= ord
-      chunk.save
-    end
+    resequence = <<-SQL
+      update chunks c
+      set ord = c2.seqnum + #{ord - 1}
+      from (
+        select c2.*, row_number() over (order by c2.ord) as seqnum
+        from chunks c2
+        where c2.chunkable_id = #{self.id}
+        and c2.ord >= #{ord}
+      ) c2
+      where c2.id = c.id
+    SQL
+    ActiveRecord::Base.connection.execute(resequence)
     Chunk.create(
       chunkable_id: self.id,
       content_type: "p",
@@ -66,10 +74,17 @@ class Article < ApplicationRecord
   end
 
   def correct_chunk_sequence
-    self.chunks.order(:ord).each.with_index do |chunk, idx|
-      chunk.ord = idx
-      chunk.save
-    end
+    resequence = <<-SQL
+      update chunks c
+      set ord = c2.seqnum - 1
+      from (
+        select c2.*, row_number() over (order by c2.ord) as seqnum
+        from chunks c2
+        where c2.chunkable_id = #{self.id}
+      ) c2
+      where c2.id = c.id
+    SQL
+    ActiveRecord::Base.connection.execute(resequence)
   end
 
   def header_image_url
