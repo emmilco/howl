@@ -69,7 +69,6 @@ class Article < ApplicationRecord
       content: "",
       ord: ord
     )
-    self.reload
   end
 
   def correct_chunk_sequence

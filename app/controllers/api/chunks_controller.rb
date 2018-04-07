@@ -17,7 +17,6 @@ class Api::ChunksController < ApplicationController
     @article = chunk.article
     if chunk && chunk.article.author == current_user
       chunk.destroy
-      @article.reload
       @article.correct_chunk_sequence
       render '/api/articles/show'
     else
