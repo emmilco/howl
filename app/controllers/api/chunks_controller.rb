@@ -18,6 +18,7 @@ class Api::ChunksController < ApplicationController
     if chunk && chunk.article.author == current_user
       chunk.destroy
       @article.correct_chunk_sequence
+      @article.reload
       render '/api/articles/show'
     else
       render json: ["Content does not belong to current user."], status: 403
