@@ -2,7 +2,7 @@
 
 # README
 
-Howl is a social media application designed to be beautiful, user-friendly home for long-form articles.
+Howl is a social media application designed to be a beautiful, user-friendly home for long-form articles.
 
 Built in React as a single-page application, with Redux state management, a Rails/Postgres backend, and a JSON view-layer constructed with Jbuilder.
 
